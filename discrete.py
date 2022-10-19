@@ -70,7 +70,20 @@ def P(n, k):
 # euclidean division (modulo)
 def mod(a, b):
     return a - b * (a // b)
-    
+
+
+# find the hamming distance of any two strings
+def hamming_distance(A, B):
+    a = str(A)
+    b = str(B)
+    if a == b:
+        return 0
+    distance = 0
+    for chars in zip(a, b):
+        if chars[0] != chars[1]:
+            distance += 1
+    return distance
+
 
 
 # maximal flow network backtracking algorithm
