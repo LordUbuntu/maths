@@ -67,6 +67,12 @@ def P(n, k):
     return fact(n) // fact(n - k)
 
 
+# euclidean division (modulo)
+def mod(a, b):
+    return a - b * (a // b)
+    
+
+
 # maximal flow network backtracking algorithm
 def max_flow():
     pass  # TODO
