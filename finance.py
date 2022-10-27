@@ -27,3 +27,21 @@ def fifo_cogs():
                     inventory_queue[0][0] -= 1
         if prompt == "q":
             return total_cogs
+
+
+def wa_cogs():
+    # another interactive demo
+    """calculate cost of goods sold using Weighted Average method interatively"""
+    total_units, average_cost_per_units, total_cogs = 0, 0, 0
+    while True:
+        prompt = input()
+        if prompt == "+":
+            units, cost_per_unit = [int(n) for n in input().split(',')]
+            total_units += units
+            average_cost_per_units += ((units * cost_per_unit) / total_units)
+        if prompt == "-":
+            units = int(input())
+            total_units -= units
+            total_cogs += average_cost_per_units * units
+        if prompt == "q":
+            return total_cogs
