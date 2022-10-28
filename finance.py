@@ -27,21 +27,32 @@ def fifo_cogs():
                     inventory_queue[0][0] -= 1
         if prompt == "q":
             return total_cogs
+        print(total_cogs)
 
 
 def wa_cogs():
     # another interactive demo
-    """calculate cost of goods sold using Weighted Average method interatively"""
-    total_units, average_cost_per_units, total_cogs = 0, 0, 0
+    """calculate cost of goods sold using Weighted Average method interactively"""
+    inventory = []
+    total_cogs = 0
     while True:
         prompt = input()
         if prompt == "+":
             units, cost_per_unit = [int(n) for n in input().split(',')]
-            total_units += units
-            average_cost_per_units += ((units * cost_per_unit) / total_units)
+            inventory.append([units, cost_per_unit])
         if prompt == "-":
+            # calculate weighted average of total list so far
+            total_units = sum([item[0] for item in inventory])
+            total_cost_per_units = 0
+            for i in range(len(inventory)):
+                total_cost_per_units += (inventory[i][0] * inventory[i][1])
+            average_cost_per_unit = total_cost_per_units / total_units
+            inventory = [[total_units, average_cost_per_unit]]
+
+            # calculate cogs
             units = int(input())
-            total_units -= units
-            total_cogs += average_cost_per_units * units
+            inventory[0][0] -= units
+            total_cogs += (units * inventory[0][1])
         if prompt == "q":
             return total_cogs
+        print(total_cogs)
