@@ -11,6 +11,7 @@
 #   I had a lot of fun taking that course (though it was hard) and hope to
 #   carry this knowledge into my future, and continue to learn and improve
 #   because of it. Hopefully I will grow and transform.
+from functools import cache
 
 
 # greatest common divisor
@@ -24,6 +25,14 @@ def gcd(A, B):
         a = b
         b = r
     return a
+
+
+# recursive implementation of gcd
+@cache
+def rec_gcd(a, b):
+    if b == 0:
+        return a
+    return rec_gcd(b, a % b)
 
 
 # least common multiple
@@ -49,7 +58,6 @@ def reduce(n, d):
 
 
 # factorial function
-from functools import cache
 @cache
 def fact(n):
     if n <= 1:
@@ -77,7 +85,6 @@ def hamming_distance(a, b):
     if a == b:
         return 0
     return sum(map(lambda char: char[0] != char[1], zip(a, b)))
-
 
 
 # maximal flow network backtracking algorithm
