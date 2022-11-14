@@ -15,7 +15,7 @@ from functools import cache
 
 
 # greatest common divisor
-def gcd(A, B):
+def gcd_iter(A, B):
     a = A
     b = B
     if b > a:
@@ -26,17 +26,8 @@ def gcd(A, B):
         b = r
     return a
 
-
-# recursive implementation of gcd
-@cache
-def rec_gcd(a, b):
-    if b == 0:
-        return a
-    return rec_gcd(b, a % b)
-
-
 # least common multiple
-def lcm(A, B):
+def lcm_iter(A, B):
     big = A if A > B else B
     small = A if A < B else B
     for i in range(1, big + 2):
@@ -47,6 +38,19 @@ def lcm(A, B):
                 return b
             elif b > a:
                 continue
+
+
+# recursive implementation of gcd
+@cache
+def gcd(a, b):
+    if b == 0:
+        return a
+    return rec_gcd(b, a % b)
+
+
+# least common multiple
+def lcm(a, b):
+    return abs(a * b) // gcd(a, b)
 
 
 # show gcd reduction steps
