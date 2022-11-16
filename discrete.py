@@ -53,6 +53,16 @@ def lcm(a, b):
     return abs(a * b) // gcd(a, b)
 
 
+# recursive max function
+@cache
+def rmax(head: int, rest: list):
+    if len(rest) == 0:
+        return head
+    if head >= rmax(rest[0], rest[1:]):
+        return head
+    return rmax(rest[0], rest[1:])
+
+
 # show gcd reduction steps
 def reduce(n, d):
     GCD = gcd(n, d)
