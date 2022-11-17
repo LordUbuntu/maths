@@ -7,6 +7,20 @@ def compound_interest(P, r, n, t):
     return P * (1 + r/n)**(n*t)
 
 
+# returns from mutual funds
+def total_return(units,
+        cost_per_unit,
+        dividend_per_unit,
+        interest_per_unit,
+        closing_navps):
+    opening   = units * cost_per_unit
+    dividends = units * dividend_per_unit
+    interest  = units * interest_per_unit
+    closing   = units * closing_navps
+    return ((closing - opening) + dividends + interest) / opening
+
+
+
 def fifo_cogs():
     # more of a demo than a usable program
     """calculate cost of good sold using FIFO method interactively"""
