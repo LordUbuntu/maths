@@ -20,6 +20,10 @@ def total_return(units,
     return ((closing - opening) + dividends + interest) / opening
 
 
+def unrealized_capital_loss_or_gain(units, beginning_navps, ending_navps):
+    return (units * beginning_navps) - (units * ending_navps)
+
+
 
 def fifo_cogs():
     # more of a demo than a usable program
