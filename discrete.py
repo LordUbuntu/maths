@@ -55,12 +55,24 @@ def lcm(a, b):
 
 # recursive max function
 @cache
-def rmax(head: int, rest: list):
-    if len(rest) == 0:
-        return head
-    if head >= rmax(rest[0], rest[1:]):
-        return head
-    return rmax(rest[0], rest[1:])
+def rmax(head: int, tail: list[int]) -> int:
+    if len(tail) == 1:
+        if head >= tail[0]:
+            return head
+        else:
+            return tail[0]
+    return rmax(tail[0], tail[1:])
+
+
+# recursive min function
+@cache
+def rmin(head: int, tail: list[int]) -> int:
+    if len(tail) == 1:
+        if head < tail[0]:
+            return head
+        else:
+            return tail[0]
+    return rmax(tail[0], tail[1:])
 
 
 # show gcd reduction steps
