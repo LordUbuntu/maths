@@ -2,6 +2,8 @@
 # Various finance maths (personal finance, financial planning)
 # For fun and education
 
+##### PERSONAL FINANCE #####
+
 def compound_interest(P, r, n, t):
     """calculate amount after compounding interest period"""
     return P * (1 + r/n)**(n*t)
@@ -23,6 +25,10 @@ def total_return(units,
 def unrealized_capital_loss_or_gain(units, beginning_navps, ending_navps):
     return (units * beginning_navps) - (units * ending_navps)
 
+##### FINANCIAL ACCOUNTING #####
+
+def operating_cycle(days_sales_in_inventory, collection_priod):
+    return days_sales_in_inventory + collection_period
 
 
 def fifo_cogs():
