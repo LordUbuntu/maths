@@ -27,6 +27,7 @@ def gcd_iter(A, B):
         b = r
     return a
 
+
 # least common multiple
 def lcm_iter(A, B):
     big = A if A > B else B
@@ -94,8 +95,16 @@ def min_iter(nums: list[int]) -> int:
     return min_val
 
 
+# functional reduce
+def reduce(f, arr, init=None):
+    result = 0 if init is None else init
+    for val in arr:
+        result = f(result, val)
+    return result
+
+
 # show gcd reduction steps
-def reduce(n, d):
+def gcd_reduce(n, d):
     GCD = gcd(n, d)
     n = n / GCD
     d = d / GCD
