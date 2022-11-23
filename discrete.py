@@ -12,6 +12,7 @@
 #   carry this knowledge into my future, and continue to learn and improve
 #   because of it. Hopefully I will grow and transform.
 from functools import cache
+from sys import maxsize as maxsize
 
 
 # greatest common divisor
@@ -55,24 +56,42 @@ def lcm(a, b):
 
 # recursive max function
 @cache
-def rmax(head: int, tail: list[int]) -> int:
+def max_rec(head: int, tail: list[int]) -> int:
     if len(tail) == 1:
         if head >= tail[0]:
             return head
         else:
             return tail[0]
-    return rmax(tail[0], tail[1:])
+    return max_rec(tail[0], tail[1:])
 
 
 # recursive min function
 @cache
-def rmin(head: int, tail: list[int]) -> int:
+def min_rec(head: int, tail: list[int]) -> int:
     if len(tail) == 1:
         if head < tail[0]:
             return head
         else:
             return tail[0]
-    return rmax(tail[0], tail[1:])
+    return min_rec(tail[0], tail[1:])
+
+
+# iterative max function
+def max_iter(nums: list[int]) -> int:
+    max_val = -maxsize - 1
+    for val in nums:
+        if val > max_val:
+            max_val = val
+    return max_val
+
+
+# iterative min function
+def min_iter(nums: list[int]) -> int:
+    min_val = maxsize
+    for val in nums:
+        if val < min_val:
+            min_val = val
+    return min_val
 
 
 # show gcd reduction steps
