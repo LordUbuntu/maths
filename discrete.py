@@ -96,10 +96,18 @@ def min_iter(nums: list[int]) -> int:
 
 
 # functional reduce
-def reduce(f, arr, init=None):
+def reduce_function(f, arr, init=None):
     result = 0 if init is None else init
     for val in arr:
         result = f(result, val)
+    return result
+
+
+# functional mapping
+def map_function(f, arr):
+    result = []
+    for val in arr:
+        result.append(f(val))
     return result
 
 
