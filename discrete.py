@@ -139,7 +139,7 @@ def P(n, k):
 
 # euclidean division (modulo)
 def mod(a, b):
-    return a - b * (a // b)
+    return a - (b * (a // b))  # a = bq + r, => r = a - bq
 
 
 # find the hamming distance of any two strings
