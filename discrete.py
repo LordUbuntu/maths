@@ -144,8 +144,6 @@ def mod(a, b):
 
 # find the hamming distance of any two strings
 def hamming_distance(a, b):
-    if a == b:
-        return 0
     return sum(map(lambda char: char[0] != char[1], zip(a, b)))
 
 
