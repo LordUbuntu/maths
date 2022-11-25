@@ -55,6 +55,13 @@ def lcm(a, b):
     return abs(a * b) // gcd(a, b)
 
 
+# recursive multiply
+def mul_rec(a, b):
+    if a == 0:
+        return b
+    return mul_rec(a - 1, b + a)
+
+
 # recursive max function
 @cache
 def max_rec(head: int, tail: list[int]) -> int:
