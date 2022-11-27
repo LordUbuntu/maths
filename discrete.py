@@ -134,6 +134,20 @@ def fact(n):
     return n * fact(n - 1)
 
 
+# fibbonacci sequence
+def fib(n, a = 1, b = 1):
+    if n == 0:
+        return a
+    return fib(n - 1, a + b, a)
+
+# fibbonacci sequence (iterative)
+def fib_iter(n):
+    a, b = 1, 1
+    for i in range(n):
+        a, b = a + b, a
+    return a
+
+
 # binomial equation (combination)
 def C(n, k):
     return fact(n) // (fact(k) * fact(n - k))
