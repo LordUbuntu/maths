@@ -62,6 +62,12 @@ def mul(a, b):
     return mul(a - 1, b + a)
 
 
+# iterative multiply
+def imul(a, b):
+    while a != 0:
+        a, b = a - 1, b + a
+    return b
+
 # recursive max function
 @cache
 def rmax(head: int, tail: list[int]) -> int:
