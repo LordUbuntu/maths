@@ -68,6 +68,24 @@ def imul(a, b):
         a, b = a - 1, b + a
     return b
 
+
+# recursive division
+def div(a, b):
+    if a - b == 0:
+        return 1
+    if a - b < 0:
+        return 0
+    return 1 + div(a - b, b)
+
+
+# iterative division
+def idiv(a, b):
+    count = int(a - b == 0)
+    while a - b > 0:
+        a, count = a - b, count + 1
+    return count
+
+
 # recursive max function
 @cache
 def rmax(head: int, tail: list[int]) -> int:
