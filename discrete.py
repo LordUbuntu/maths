@@ -16,7 +16,7 @@ from sys import maxsize as maxsize
 
 
 # greatest common divisor
-def gcd_iter(A, B):
+def igcd(A, B):
     a = A
     b = B
     if b > a:
@@ -29,7 +29,7 @@ def gcd_iter(A, B):
 
 
 # least common multiple
-def lcm_iter(A, B):
+def ilcm(A, B):
     big = A if A > B else B
     small = A if A < B else B
     for i in range(1, big + 2):
@@ -47,7 +47,7 @@ def lcm_iter(A, B):
 def gcd(a, b):
     if b == 0:
         return a
-    return rec_gcd(b, a % b)
+    return gcd(b, a % b)
 
 
 # least common multiple
@@ -56,15 +56,15 @@ def lcm(a, b):
 
 
 # recursive multiply
-def mul_rec(a, b):
+def mul(a, b):
     if a == 0:
         return b
-    return mul_rec(a - 1, b + a)
+    return mul(a - 1, b + a)
 
 
 # recursive max function
 @cache
-def max_rec(head: int, tail: list[int]) -> int:
+def rmax(head: int, tail: list[int]) -> int:
     if len(tail) == 1:
         if head >= tail[0]:
             return head
@@ -75,7 +75,7 @@ def max_rec(head: int, tail: list[int]) -> int:
 
 # recursive min function
 @cache
-def min_rec(head: int, tail: list[int]) -> int:
+def rmin(head: int, tail: list[int]) -> int:
     if len(tail) == 1:
         if head < tail[0]:
             return head
@@ -85,7 +85,7 @@ def min_rec(head: int, tail: list[int]) -> int:
 
 
 # iterative max function
-def max_iter(nums: list[int]) -> int:
+def imax(nums: list[int]) -> int:
     max_val = -maxsize - 1
     for val in nums:
         if val > max_val:
@@ -94,7 +94,7 @@ def max_iter(nums: list[int]) -> int:
 
 
 # iterative min function
-def min_iter(nums: list[int]) -> int:
+def imin(nums: list[int]) -> int:
     min_val = maxsize
     for val in nums:
         if val < min_val:
@@ -103,7 +103,7 @@ def min_iter(nums: list[int]) -> int:
 
 
 # functional reduce
-def reduce_function(f, arr, init=None):
+def freduce(f, arr, init=None):
     result = 0 if init is None else init
     for val in arr:
         result = f(result, val)
@@ -111,7 +111,7 @@ def reduce_function(f, arr, init=None):
 
 
 # functional mapping
-def map_function(f, arr):
+def fmap(f, arr):
     result = []
     for val in arr:
         result.append(f(val))
@@ -119,7 +119,7 @@ def map_function(f, arr):
 
 
 # show gcd reduction steps
-def gcd_reduce(n, d):
+def gcd_reduction(n, d):
     GCD = gcd(n, d)
     n = n / GCD
     d = d / GCD
@@ -141,7 +141,7 @@ def fib(n, a = 1, b = 1):
     return fib(n - 1, a + b, a)
 
 # fibbonacci sequence (iterative)
-def fib_iter(n):
+def ifib(n):
     a, b = 1, 1
     for i in range(n):
         a, b = a + b, a
