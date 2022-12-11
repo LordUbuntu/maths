@@ -13,7 +13,7 @@ class Matrix:
         self.M = [
             elements[i]
             if i < len(elements) else 0
-            for i in range(len(elements))
+            for i in range(len(rows * columns))
         ]
 
 
