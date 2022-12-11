@@ -10,7 +10,11 @@ class Matrix:
     def __init__(self, rows, columns, *elements):
         self.m = rows
         self.n = columns
-        self.M = [*elements]
+        self.M = [
+            elements[i]
+            if i < len(elements) else 0
+            for i in range(len(elements))
+        ]
 
 
     def __str__(self):
