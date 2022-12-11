@@ -17,6 +17,7 @@ class Matrix:
         ]
 
 
+    # TODO improve formatting to handle many digits
     def __str__(self):
         string = ""
         for i in range(self.m):
