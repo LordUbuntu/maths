@@ -11,3 +11,14 @@ class Matrix:
         self.m = rows
         self.n = columns
         self.M = [*elements]
+
+
+    def __str__(self):
+        string = ""
+        for i in range(self.m):
+            string += '\n' + ' '.join(self.row(i))
+
+
+    def row(self, n):
+        # TODO figure out how to handle access out of bounds
+        return self.M[n * self.m : n * self.m + self.n]
