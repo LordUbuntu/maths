@@ -26,4 +26,4 @@ class Matrix:
 
     def row(self, n):
         # TODO figure out how to handle access out of bounds
-        return self.M[n * self.m : n * self.m + self.n]
+        return self.M[n * self.n : n * self.n + self.n]
