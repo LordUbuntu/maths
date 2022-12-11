@@ -17,6 +17,7 @@ class Matrix:
         string = ""
         for i in range(self.m):
             string += '\n' + ' '.join(self.row(i))
+        return string
 
 
     def row(self, n):
