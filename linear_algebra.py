@@ -24,11 +24,11 @@ class Matrix:
         return string
 
 
+    # TODO figure out how to handle access out of bounds
     def row(self, n):
-        # TODO figure out how to handle access out of bounds
         return self.M[n * self.n : n * self.n + self.n]
 
     
+    # TODO figure out how to handle access out of bounds
     def col(self, n):
-        # TODO figure out how to handle access out of bounds
         return [self.M[self.n * i + n] for i in range(self.m)]
