@@ -99,6 +99,7 @@ class Matrix:
             for i in range(rows * columns)
         ]
 
+
     def __len__(self):
         return len(self.M)
 
