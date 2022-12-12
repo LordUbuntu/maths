@@ -191,7 +191,8 @@ class Matrix:
     def index(self, object):
         for index, element in enumerate(self):
             if element == object:
-                return index
+                # [i, j] aka [row, col]
+                return [index // self.n, index % self.n]
 
 
     def value(self, i, j):
