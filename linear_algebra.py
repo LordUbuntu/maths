@@ -99,6 +99,9 @@ class Matrix:
             for i in range(rows * columns)
         ]
 
+    def __len__(self):
+        return len(self.M)
+
 
     # TODO improve formatting to handle many digits
     def __str__(self):
