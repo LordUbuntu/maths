@@ -171,7 +171,8 @@ class Matrix:
 
     # | A |
     def __abs__(self):
-        pass
+        for i in range(len(self)):
+            self.M[i] = abs(self.M[i])
 
 
     # A == B
