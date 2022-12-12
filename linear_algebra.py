@@ -163,8 +163,8 @@ class Matrix:
 
 
     # TODO figure out how to handle access out of bounds
-    def row(self, n):
-        return self.M[n * self.n : n * self.n + self.n]
+    def row(self, i):
+        return self.M[i * self.n : i * self.n + self.n]
 
     
     # TODO figure out how to handle access out of bounds
