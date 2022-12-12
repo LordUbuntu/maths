@@ -185,6 +185,10 @@ class Matrix:
         return True
 
 
+    def copy(self):
+        return Matrix(self.m, self.n, *self.M)
+
+
     def index(self, i, j):
         return self.M[i * self.n + j]
 
