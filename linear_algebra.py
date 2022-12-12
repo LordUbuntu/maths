@@ -140,7 +140,8 @@ class Matrix:
 
     # -A
     def __neg__(self):
-        pass
+        for i in range(self.n * self.m):
+            self.M[i] = -self.M[i]
 
 
     # +A
