@@ -189,6 +189,7 @@ class Matrix:
 
 
     def index(self, i, j):
+        assert (i < self.m and j < self.n)
         return self.M[i * self.n + j]
 
 
