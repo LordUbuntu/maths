@@ -180,6 +180,15 @@ class Matrix:
 
 
 class Identity(Matrix):
+    def __doc__(self):
+        return """
+    Identity Matrix:
+        This is a specialized variation of the Matrix class which
+        produces a square n by n Identity matrix.
+        n = the square dimension of the matrix
+    """
+
+
     def __init__(self, n):
         self.m = n
         self.n = n
