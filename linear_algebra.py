@@ -146,6 +146,7 @@ class Matrix:
 
     # +A
     def __pos__(self):
+        # +A == A, therefore do nothing
         pass
 
 
