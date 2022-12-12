@@ -162,13 +162,13 @@ class Matrix:
         return self.M[i * self.n + j]
 
 
-    # TODO figure out how to handle access out of bounds
     def row(self, i):
+        assert (i < self.m)
         return self.M[i * self.n : i * self.n + self.n]
 
     
-    # TODO figure out how to handle access out of bounds
     def col(self, j):
+        assert (j < self.n)
         return [self.M[i * self.n + j] for i in range(self.m)]
 
 
