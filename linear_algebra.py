@@ -176,7 +176,12 @@ class Matrix:
 
     # A == B
     def __eq__(self, other):
-        pass
+        if len(self) != len(other):
+            return False
+        for a, b in zip(self, other):
+            if a != b:
+                return False
+        return True
 
 
     def index(self, i, j):
