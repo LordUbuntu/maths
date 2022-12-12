@@ -104,7 +104,7 @@ class Matrix:
     def __str__(self):
         string = ""
         for i in range(self.m):
-            string += '\n' + ' '.join(map(str, self.row(i)))
+            string += ' '.join(map(str, self.row(i))) + '\n'
         return string
 
 
