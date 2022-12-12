@@ -168,8 +168,8 @@ class Matrix:
 
     
     # TODO figure out how to handle access out of bounds
-    def col(self, n):
-        return [self.M[self.n * i + n] for i in range(self.m)]
+    def col(self, j):
+        return [self.M[i * self.n + j] for i in range(self.m)]
 
 
     def dot(self, other):
