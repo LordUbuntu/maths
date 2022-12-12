@@ -158,6 +158,10 @@ class Matrix:
         pass
 
 
+    def index(self, i, j):
+        return self.M[i * self.n + j]
+
+
     # TODO figure out how to handle access out of bounds
     def row(self, n):
         return self.M[n * self.n : n * self.n + self.n]
