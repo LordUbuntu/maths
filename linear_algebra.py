@@ -1,5 +1,6 @@
 # Jacobus Burger (2022)
 # A collection of functions and classes for practicing linear algebra
+import operator as op
 
 
 
@@ -159,19 +160,17 @@ class Matrix:
 
     # -A
     def __neg__(self):
-        for i in range(self.n * self.m):
-            self.M[i] = -self.M[i]
+        return Matrix(self.m, self.n, *map(op.neg, self.M))
 
 
     # +A
     def __pos__(self):
-        # +A == A, therefore do nothing
-        pass
+        return Matrix(self.m, self.n, *map(op.pos, self.M))
 
 
     # | A |
     def __abs__(self):
-        return Matrix(self.m, self.n, *map(abs, self.M))
+        return Matrix(self.m, self.n, *map(op.abs, self.M))
 
 
 
