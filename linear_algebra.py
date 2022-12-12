@@ -1,6 +1,7 @@
 # Jacobus Burger (2022)
 # A collection of functions and classes for practicing linear algebra
 import operator as op
+from itertools import product
 
 
 
@@ -122,15 +123,19 @@ class Matrix:
     def __add__(self, other):
         # scalar + matrix
         if type(other) != Matrix:
-            for i in range(self.n * self.m):
-                self.M[i] = self.M[i] + other
-        # matrix + matrix
-        else:
-            assert (self.n == other.n)
-            C = Matrix(self.m, other.n)
-            for i in range(self.n * self.m):
-                C.M[i] = C.M[i] + self.M[i] + other.M[i]
+            C = self.copy()
+            for index, element in enumerate(C):
+                C.M[index] = element + other
             return C
+        # matrix + matrix
+        # dimensions must match
+        assert (self.m == other.m and self.n == other.n)
+        C = self.copy()
+        i = 0
+        for a, b in zip(self, other):
+            C.M[i] = a + b
+            i += 1
+        return C
 
 
     # A - B
