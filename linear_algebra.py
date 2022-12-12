@@ -114,7 +114,7 @@ class Matrix:
         string = ""
         for i in range(self.m):
             string += ' '.join(map(str, self.row(i))) + '\n'
-        return string
+        return '\n' + string 
 
 
     # A + B
