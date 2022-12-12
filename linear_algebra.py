@@ -188,7 +188,13 @@ class Matrix:
         return Matrix(self.m, self.n, *self.M)
 
 
-    def index(self, i, j):
+    def index(self, object):
+        for index, element in enumerate(self):
+            if element == object:
+                return index
+
+
+    def value(self, i, j):
         assert (i < self.m and j < self.n)
         return self.M[i * self.n + j]
 
