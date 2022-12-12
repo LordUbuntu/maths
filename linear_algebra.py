@@ -113,7 +113,17 @@ class Matrix:
 
     # A + B
     def __add__(self, other):
-        pass
+        # scalar + matrix
+        if type(other) != Matrix:
+            for i in range(self.n * self.m):
+                self.M[i] = self.M[i] + other
+        # matrix + matrix
+        else:
+            assert (self.n == other.n)
+            C = Matrix(self.m, other.n)
+            for i in range(self.n * self.m):
+                C.M[i] = C.M[i] + self.M[i] + other.M[i]
+            return C
 
 
     # A - B
