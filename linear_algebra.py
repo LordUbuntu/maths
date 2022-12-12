@@ -103,6 +103,11 @@ class Matrix:
         return len(self.M)
 
 
+    def __iter__(self):
+        for i in range(len(self)):
+            yield self.M[i]
+
+
     # TODO improve formatting to handle many digits
     def __str__(self):
         string = ""
