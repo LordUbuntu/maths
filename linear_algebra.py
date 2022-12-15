@@ -1,7 +1,24 @@
 # Jacobus Burger (2022)
-# A collection of functions and classes for practicing linear algebra
+# Info:
+#   A collection of functions and classes to better understand and
+#   just have fun with linear algebra.
+# Sources:
+#   https://www.andreinc.net/2021/01/20/writing-your-own-linear-algebra-matrix-library-in-c#row-echelon-form
+#   https://stattrek.com/matrix-algebra/echelon-transform.aspx?tutorial=matrix
+#   http://lampx.tugraz.at/~hadley/num/ch2/2.3a.php
+#   https://www.youtube.com/watch?v=FAnNBw7d0vg
+#   https://en.wikipedia.org/wiki/Norm_(mathematics)
+#   https://en.wikipedia.org/wiki/Dot_product
 import operator as op
 from itertools import product
+
+
+# NOTE I still want Identity matrix to be identified as a kind of matrix, so
+#   figure out a way to maintain that equivalence across subclassing
+# NOTE Vectors are a kind of matrix too aren't they? Maybe I should redefine
+#   the matrix class into a generalized Tensor class and have arbitrary
+#   dimensions fed into it as a dim attribute holding a list of dimensions?
+# NOTE Figure out how to subscript the matrix class itself
 
 
 
@@ -128,7 +145,6 @@ class Matrix:
                 C.M[index] = element + other
             return C
         # matrix + matrix
-        # dimensions must match
         assert (self.m == other.m and self.n == other.n)
         C = self.copy()
         i = 0
@@ -158,7 +174,7 @@ class Matrix:
         pass
 
 
-    # A**n aka A * A n times
+    # A**n aka A * A n times (also includes inverse?)
     def __pow__(self, n):
         pass
 
@@ -189,10 +205,12 @@ class Matrix:
         return True
 
 
+    # create a new object with all the same attributes
     def copy(self):
         return Matrix(self.m, self.n, *self.M)
 
 
+    # return first [i, j] position of first matching object
     def index(self, object):
         for index, element in enumerate(self):
             if element == object:
@@ -200,55 +218,82 @@ class Matrix:
                 return [index // self.n, index % self.n]
 
 
+    # return object at index
     def value(self, i, j):
         assert (i < self.m and j < self.n)
         return self.M[i * self.n + j]
 
 
+    # return a list of elements in the row
     def row(self, i):
         assert (i < self.m)
         return self.M[i * self.n : i * self.n + self.n]
 
     
+    # return a list of elements in the column
     def col(self, j):
         assert (j < self.n)
         return [self.M[i * self.n + j] for i in range(self.m)]
 
 
+    # dot product
     def dot(self, other):
         pass
 
 
+    # matrix transposition
     def transpose(self):
         pass
 
 
+    # matrix determinant
     def det(self):
         pass
 
 
+    # reduced eschelon form
     def ref(self):
         pass
 
 
+    # row reduced eschelon form
     def rref(self):
         pass
 
 
+    # LU(P) decomposition
     def LU(self):
         pass
 
 
+    # QR decomposition
     def QR(self):
         pass
 
 
+    # forward subsitution to solve linear systems of form Lx = B
     def forward(self):
         pass
 
 
+    # backward substitution to solve linear systems of form Ux = Y
     def backward(self):
         pass
+
+
+    # LU(P) decomposition to solve linear systems of form Ax = B
+    def LU_solve(self):
+        pass
+
+
+
+
+
+
+
+
+
+
 
 
 
