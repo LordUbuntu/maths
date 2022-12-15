@@ -128,6 +128,11 @@ class Matrix:
             yield self.M[i]
 
 
+    # very basic, may need work
+    def __getitem__(self, index):
+        return self.M[index]
+
+
     # TODO improve formatting to handle many digits
     def __str__(self):
         string = ""
