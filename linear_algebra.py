@@ -133,6 +133,10 @@ class Matrix:
         return self.M[index]
 
 
+    def __setitem__(self, index, item):
+        self.M[index] = item
+
+
     # TODO improve formatting to handle many digits
     def __str__(self):
         string = ""
