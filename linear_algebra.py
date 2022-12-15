@@ -223,6 +223,32 @@ class Matrix:
         pass
 
 
+    def det(self):
+        pass
+
+
+    def ref(self):
+        pass
+
+
+    def rref(self):
+        pass
+
+
+    def LU(self):
+        pass
+
+
+    def QR(self):
+        pass
+
+
+    def forward(self):
+        pass
+
+
+    def backward(self):
+        pass
 
 
 
