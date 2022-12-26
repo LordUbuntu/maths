@@ -320,3 +320,28 @@ class Identity(Matrix):
         self.m = n
         self.n = n
         self.M = [1 if i == j else 0 for j in range(n) for i in range(n)]
+
+
+
+
+
+
+
+
+
+
+
+import operator as op
+from functools import reduce
+
+
+class Tensor:
+    # experimental idea on generalizing scalars, vectors, matrices...
+    def __init__(self, dim=[0], *elements):
+        # default is scalar
+        # the x, y, z, w... dimensions of the tensor
+        self.dim = dim
+        # the number of elements in the tensor (length of array)
+        self.size = reduce(op.mul, dim)
+        # the tensor itself (1d array). Elements default to 0
+        self.T = [*elements] + [0] * (size - len(elements))
