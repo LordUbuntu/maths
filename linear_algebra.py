@@ -112,11 +112,18 @@ class Matrix:
     def __init__(self, rows, columns, *elements):
         self.m = rows
         self.n = columns
-        self.M = [
-            elements[i]
-            if i < len(elements) else 0
-            for i in range(rows * columns)
-        ]
+        if len(elements) < 1:
+            self.M = [
+                1 if i == j else 0
+                for j in range(rows)
+                for i in range(columns)
+            ]
+        else:
+            self.M = [
+                elements[i]
+                if i < len(elements) else 0
+                for i in range(rows * columns)
+            ]
 
 
     def __len__(self):
@@ -320,44 +327,3 @@ class Identity(Matrix):
         self.m = n
         self.n = n
         self.M = [1 if i == j else 0 for j in range(n) for i in range(n)]
-
-
-
-
-
-
-
-
-
-
-
-import operator as op
-from functools import reduce
-
-
-class Tensor:
-    # experimental idea on generalizing scalars, vectors, matrices...
-    def __init__(self, dim=[0], *elements):
-        # default is scalar
-        # the x, y, z, w... dimensions of the tensor
-        self.dim = dim
-        # the number of elements in the tensor (length of array)
-        self.size = reduce(op.mul, dim)
-        # the tensor itself (1d array). Elements default to 0
-        self.T = [*elements] + [0] * (size - len(elements))
-
-
-    def __len__(self):
-        return self.size
-
-
-    def __iter__(self):
-        for element in self.T:
-            yield element
-
-
-    # TODO how to generalize get-item
-    def __getitem__(self, index: tuple):
-        # example for 2d on 1d array
-        x, y = index
-        return self.T[y * self.dim[0] + x]
