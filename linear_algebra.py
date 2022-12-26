@@ -300,30 +300,3 @@ class Matrix:
     # LU(P) decomposition to solve linear systems of form Ax = B
     def LU_solve(self):
         pass
-
-
-
-
-
-
-
-
-
-
-
-
-
-class Identity(Matrix):
-    def __doc__(self):
-        return """
-    Identity Matrix:
-        This is a specialized variation of the Matrix class which
-        produces a square n by n Identity matrix.
-        n = the square dimension of the matrix
-    """
-
-
-    def __init__(self, n):
-        self.m = n
-        self.n = n
-        self.M = [1 if i == j else 0 for j in range(n) for i in range(n)]
