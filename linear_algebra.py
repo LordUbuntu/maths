@@ -345,3 +345,19 @@ class Tensor:
         self.size = reduce(op.mul, dim)
         # the tensor itself (1d array). Elements default to 0
         self.T = [*elements] + [0] * (size - len(elements))
+
+
+    def __len__(self):
+        return self.size
+
+
+    def __iter__(self):
+        for element in self.T:
+            yield element
+
+
+    # TODO how to generalize get-item
+    def __getitem__(self, index: tuple):
+        # example for 2d on 1d array
+        x, y = index
+        return self.T[y * self.dim[0] + x]
