@@ -112,18 +112,17 @@ class Matrix:
     def __init__(self, rows, columns, *elements):
         self.m = rows
         self.n = columns
-        if len(elements) < 1:
-            self.M = [
-                1 if i == j else 0
-                for j in range(rows)
-                for i in range(columns)
-            ]
-        else:
-            self.M = [
-                elements[i]
-                if i < len(elements) else 0
-                for i in range(rows * columns)
-            ]
+        I = [
+            1 if i == j else 0
+            for j in range(rows)
+            for i in range(columns)
+        ]
+        self.M = [
+            elements[i]
+            if i < len(elements)
+            else I[i]
+            for i in range(rows * columns)
+        ]
 
 
     def __len__(self):
