@@ -130,17 +130,18 @@ class Matrix:
 
 
     def __iter__(self):
-        for i in range(len(self)):
-            yield self.M[i]
+        for element in self.M:
+            yield element
 
 
-    # very basic, may need work
     def __getitem__(self, index):
-        return self.M[index]
+        y, x = index
+        return self.M[y * self.n + x]
 
 
     def __setitem__(self, index, item):
-        self.M[index] = item
+        y, x = index
+        self.M[y * self.n + x] = item
 
 
     # TODO improve formatting to handle many digits
