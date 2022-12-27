@@ -11,6 +11,7 @@
 #   https://en.wikipedia.org/wiki/Dot_product
 import operator as op
 from itertools import product, repeat
+from functools import reduce
 
 
 # NOTE I still want Identity matrix to be identified as a kind of matrix, so
@@ -238,19 +239,23 @@ class Matrix:
 
     # return a list of elements in the row
     def row(self, i):
-        assert (i < self.m)
         return self.M[i * self.n : i * self.n + self.n]
 
     
     # return a list of elements in the column
     def col(self, j):
-        assert (j < self.n)
         return [self.M[i * self.n + j] for i in range(self.m)]
 
 
-    # dot product
+    # dot product (matrix multiplication) - neiive solution
     def dot(self, other):
-        pass
+        if self.n == other.m:
+            C = Matrix(self.m, other.n, *self)
+            for i in range(self.m):
+                for j in range(other.n):
+                    C.M[i] = reduce(op.add, map(op.mul, self.row(i), self.col(j)))
+            return C
+
 
 
     # matrix transposition
