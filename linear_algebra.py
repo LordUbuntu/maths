@@ -155,11 +155,12 @@ class Matrix:
     # A + B
     def __add__(self, other):
         C = self.copy()
-        # scalar + matrix
         if type(other) != Matrix:
+            # scalar + matrix
             for index, element in enumerate(C):
                 C.M[index] = element + other
         else:
+            # matrix + matrix
             for i, a, b in zip(range(len(self)), self, other):
                 C.M[i] = a + b
         return C
