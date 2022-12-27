@@ -168,7 +168,16 @@ class Matrix:
 
     # A - B
     def __sub__(self, other):
-        pass
+        C = self.copy()
+        if type(other) != Matrix:
+            # scalar - matrix
+            for index, element in enumerate(C):
+                C.M[index] = element - other
+        else:
+            # matrix - matrix
+            for i, a, b in zip(range(len(self)), self, other):
+                C.M[i] = a - b
+        return C
 
 
     # A * B
