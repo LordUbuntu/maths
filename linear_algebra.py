@@ -154,19 +154,14 @@ class Matrix:
 
     # A + B
     def __add__(self, other):
+        C = self.copy()
         # scalar + matrix
         if type(other) != Matrix:
-            C = self.copy()
             for index, element in enumerate(C):
                 C.M[index] = element + other
-            return C
-        # matrix + matrix
-        assert (self.m == other.m and self.n == other.n)
-        C = self.copy()
-        i = 0
-        for a, b in zip(self, other):
-            C.M[i] = a + b
-            i += 1
+        else:
+            for i, a, b in zip(range(len(self)), self, other):
+                C.M[i] = a + b
         return C
 
 
