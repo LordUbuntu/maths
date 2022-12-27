@@ -152,32 +152,28 @@ class Matrix:
         return '\n' + string 
 
 
-    # A + B
-    def __add__(self, other):
+    # A op B
+    # I realized that many of the binary operations use repeated code
+    def bin_op(self, other, op):
         C = self.copy()
         if type(other) != Matrix:
-            # scalar + matrix
+            # scalar op matrix
             for index, element in enumerate(C):
-                C.M[index] = element + other
+                C.M[index] = op(element, other)
         else:
-            # matrix + matrix
+            # matrix op matrix
             for i, a, b in zip(range(len(self)), self, other):
-                C.M[i] = a + b
+                C.M[i] = op(a, b)
         return C
+
+    # A + B
+    def __add__(self, other):
+        return self.bin_op(other, op.add)
 
 
     # A - B
     def __sub__(self, other):
-        C = self.copy()
-        if type(other) != Matrix:
-            # scalar - matrix
-            for index, element in enumerate(C):
-                C.M[index] = element - other
-        else:
-            # matrix - matrix
-            for i, a, b in zip(range(len(self)), self, other):
-                C.M[i] = a - b
-        return C
+        return self.bin_op(other, op.sub)
 
 
     # A * B
