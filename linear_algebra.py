@@ -10,7 +10,7 @@
 #   https://en.wikipedia.org/wiki/Norm_(mathematics)
 #   https://en.wikipedia.org/wiki/Dot_product
 import operator as op
-from itertools import product
+from itertools import product, repeat
 
 
 # NOTE I still want Identity matrix to be identified as a kind of matrix, so
@@ -158,12 +158,10 @@ class Matrix:
         C = self.copy()
         if type(other) != Matrix:
             # scalar op matrix
-            for index, element in enumerate(C):
-                C.M[index] = op(element, other)
+            C.M = list(map(op, self, repeat(other)))
         else:
             # matrix op matrix
-            for i, a, b in zip(range(len(self)), self, other):
-                C.M[i] = op(a, b)
+            C.M = list(map(op, self, other))
         return C
 
     # A + B
@@ -176,24 +174,24 @@ class Matrix:
         return self.bin_op(other, op.sub)
 
 
-    # A * B
-    def __mul__(self, other):
-        pass
-
-
     # A // B
     def __floordiv__(self, other):
-        pass
+        return self.bin_op(other, op.floordiv)
 
 
     # A / B
     def __truediv__(self, other):
-        pass
+        return self.bin_op(other, op.truediv)
+
+
+    # A * B
+    def __mul__(self, other):
+        pass  # needs specialized implementation
 
 
     # A**n aka A * A n times (also includes inverse?)
     def __pow__(self, n):
-        pass
+        pass  # relies on __mul__ implementation
 
 
     # -A
@@ -216,10 +214,7 @@ class Matrix:
     def __eq__(self, other):
         if len(self) != len(other):
             return False
-        for a, b in zip(self, other):
-            if a != b:
-                return False
-        return True
+        return all(map(op.eq, self, other))
 
 
     # create a new object with all the same attributes
@@ -233,12 +228,12 @@ class Matrix:
             if element == object:
                 # [i, j] aka [row, col]
                 return [index // self.n, index % self.n]
+        return -1
 
 
     # return object at index
     def value(self, i, j):
-        assert (i < self.m and j < self.n)
-        return self.M[i * self.n + j]
+        return self[i, j]
 
 
     # return a list of elements in the row
