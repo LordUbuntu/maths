@@ -1,7 +1,7 @@
 # Jacobus Burger (2022)
 # Info:
-#   A collection of functions and classes to better understand and
-#   just have fun with linear algebra.
+#   Bordering on a library which I've written to better understand how to implement Linear Algebra, also a fun way to learn new LA info
+#   and brush up on old info as well.
 # Sources:
 #   https://www.andreinc.net/2021/01/20/writing-your-own-linear-algebra-matrix-library-in-c#row-echelon-form
 #   https://stattrek.com/matrix-algebra/echelon-transform.aspx?tutorial=matrix
@@ -12,14 +12,6 @@
 import operator as op
 from itertools import product, repeat
 from functools import reduce
-
-
-# NOTE I still want Identity matrix to be identified as a kind of matrix, so
-#   figure out a way to maintain that equivalence across subclassing
-# NOTE Vectors are a kind of matrix too aren't they? Maybe I should redefine
-#   the matrix class into a generalized Tensor class and have arbitrary
-#   dimensions fed into it as a dim attribute holding a list of dimensions?
-# NOTE Figure out how to subscript the matrix class itself
 
 
 
