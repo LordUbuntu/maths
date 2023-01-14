@@ -137,12 +137,18 @@ class Matrix:
         self.M[y * self.n + x] = item
 
 
-    # TODO improve formatting to handle many digits
-    def __str__(self):
+    def __repr__(self):
+        # get formatting width of the cells
+        width = max(map(len, map(str, self.M)))
+        # represent matrix as string
         string = ""
-        for i in range(self.m):
-            string += ' '.join(map(str, self.row(i))) + '\n'
-        return '\n' + string 
+        for i in range(0, len(self.M), self.n):
+            # make each row an equally spaced string
+            string += ' '.join([
+                            n.ljust(width)
+                            for n in map(str, self.M)
+                        ][i:i + self.n]) + '\n'
+        return string
 
 
     # A op B
