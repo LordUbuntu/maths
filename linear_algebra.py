@@ -216,6 +216,28 @@ class Matrix:
         return all(map(op.eq, self, other))
 
 
+    def __ne__(self, other):
+        return not self.__eq__(other)
+
+
+    def __lt__(self, other):
+        if len(self) != len(other):
+            return False
+        return all(map(op.lt, self, other))
+
+
+    def __le__(self, other):
+        return self.__lt__(other) or self.__eq__(other)
+
+
+    def __gt__(self, other):
+        return not self.__lt__(other)
+
+
+    def __ge__(self, other):
+        return self.__gt__(other) or self.__eq__(other)
+
+
     # create a new object with all the same attributes
     def copy(self):
         return Matrix(self.m, self.n, *self.M)
