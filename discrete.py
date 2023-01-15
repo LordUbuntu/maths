@@ -13,10 +13,21 @@
 #   because of it. Hopefully I will grow and transform.
 from functools import cache
 from sys import maxsize as maxsize
+import operator as op
+
 
 
 # greatest common divisor
-def igcd(A, B):
+# this shows the steps taken by GCD as it runs
+def gcd_reduction(n, d):
+    GCD = gcd(n, d)
+    n = n / GCD
+    d = d / GCD
+    print("n: %i, d: %i, GCD: %i\n" % (n, d, GCD))
+
+
+# this gcd was a procedural example given by professor sutcliffe
+def gcd_proc(A, B):
     a = A
     b = B
     if b > a:
@@ -28,8 +39,24 @@ def igcd(A, B):
     return a
 
 
+# this gcd is a simplified iterative one I learned through more research
+def gcd_iter(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+
+# this gcd is a recursive version of the simplified iterative one
+@cache  # uses lru caching to drastically improve speed
+def gcd(a, b):
+    if b == 0:
+        return a
+    return gcd(b, a % b)
+
+
 # least common multiple
-def ilcm(A, B):
+# this lcm is a procedural example given by professor sutcliffe
+def lcm_proc(A, B):
     big = A if A > B else B
     small = A if A < B else B
     for i in range(1, big + 2):
@@ -42,35 +69,29 @@ def ilcm(A, B):
                 continue
 
 
-# recursive implementation of gcd
-@cache
-def gcd(a, b):
-    if b == 0:
-        return a
-    return gcd(b, a % b)
-
-
-# least common multiple
+# this lcm is a direct calculation that depends on the use of gcd
 def lcm(a, b):
     return abs(a * b) // gcd(a, b)
 
 
-# recursive multiply
-def mul(a, b):
+# multiplication
+# recursive multiplication
+def mul_rec(a, b):
     if a == 0:
         return b
     return mul(a - 1, b + a)
 
 
-# iterative multiply
-def imul(a, b):
+# iterative multiplication
+def mul_iter(a, b):
     while a != 0:
         a, b = a - 1, b + a
     return b
 
 
+# division
 # recursive division
-def div(a, b):
+def div_rec(a, b):
     if a - b == 0:
         return 1
     if a - b < 0:
@@ -79,16 +100,17 @@ def div(a, b):
 
 
 # iterative division
-def idiv(a, b):
+def div_iter(a, b):
     count = int(a - b == 0)
     while a - b > 0:
         a, count = a - b, count + 1
     return count
 
 
+# maximum
 # recursive max function
 @cache
-def rmax(head: int, tail: list[int]) -> int:
+def max_rec(head: int, tail: list[int]) -> int:
     if len(tail) == 1:
         if head >= tail[0]:
             return head
@@ -97,9 +119,18 @@ def rmax(head: int, tail: list[int]) -> int:
     return max_rec(tail[0], tail[1:])
 
 
+# iterative max function
+def max_iter(nums: list[int]) -> int:
+    max_val = -maxsize - 1
+    for val in nums:
+        if val > max_val:
+            max_val = val
+    return max_val
+ 
+
 # recursive min function
 @cache
-def rmin(head: int, tail: list[int]) -> int:
+def min_rec(head: int, tail: list[int]) -> int:
     if len(tail) == 1:
         if head < tail[0]:
             return head
@@ -108,17 +139,8 @@ def rmin(head: int, tail: list[int]) -> int:
     return min_rec(tail[0], tail[1:])
 
 
-# iterative max function
-def imax(nums: list[int]) -> int:
-    max_val = -maxsize - 1
-    for val in nums:
-        if val > max_val:
-            max_val = val
-    return max_val
-
-
 # iterative min function
-def imin(nums: list[int]) -> int:
+def min_iter(nums: list[int]) -> int:
     min_val = maxsize
     for val in nums:
         if val < min_val:
@@ -127,7 +149,7 @@ def imin(nums: list[int]) -> int:
 
 
 # functional reduce
-def freduce(f, arr, init=None):
+def reduce_func(f, arr, init=None):
     result = 0 if init is None else init
     for val in arr:
         result = f(result, val)
@@ -135,19 +157,11 @@ def freduce(f, arr, init=None):
 
 
 # functional mapping
-def fmap(f, arr):
+def map_func(f, arr):
     result = []
     for val in arr:
         result.append(f(val))
     return result
-
-
-# show gcd reduction steps
-def gcd_reduction(n, d):
-    GCD = gcd(n, d)
-    n = n / GCD
-    d = d / GCD
-    print("n: %i, d: %i, GCD: %i\n" % (n, d, GCD))
 
 
 # factorial function
@@ -159,13 +173,14 @@ def fact(n):
 
 
 # fibbonacci sequence
-def fib(n, a = 1, b = 1):
+def fib_rec(n, a = 1, b = 1):
     if n == 0:
         return a
     return fib(n - 1, a + b, a)
 
+
 # fibbonacci sequence (iterative)
-def ifib(n):
+def fib_iter(n):
     a, b = 1, 1
     for i in range(n):
         a, b = a + b, a
@@ -189,7 +204,7 @@ def mod(a, b):
 
 # find the hamming distance of any two strings
 def hamming_distance(a, b):
-    return sum(map(lambda char: char[0] != char[1], zip(a, b)))
+    return sum(map(op.ne, a, b))
 
 
 # maximal flow network backtracking algorithm
