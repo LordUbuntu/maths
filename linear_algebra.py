@@ -280,6 +280,9 @@ class Matrix:
 
     # matrix transposition
     def transpose(self):
+        # make a new matrix A with row and col dimensions reversed
+        # set each row of self.M as cols of new matrix A
+        # return A
         pass
 
 
