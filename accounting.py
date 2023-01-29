@@ -1,6 +1,9 @@
 # Jacobus Burger (2022)
 # Interactive calculators and various functions for financial accounting.
 # Made for the fun of learning and conveneince.
+from collections import deque
+
+
 def operating_cycle(days_sales_in_inventory, collection_priod):
     return days_sales_in_inventory + collection_period
 
@@ -8,8 +11,8 @@ def operating_cycle(days_sales_in_inventory, collection_priod):
 # interactive calculator for FIFO COGS
 def fifo_cogs():
     """calculate cost of good sold using FIFO method interactively"""
-    inventory_queue = []
-    total_cogs = 0
+    inventory = deque([])
+    total = 0
     while True:
         prompt = input()
         if prompt == "+":
