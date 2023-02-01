@@ -190,7 +190,7 @@ class Matrix:
 
     # A**n aka A * A n times (also includes inverse?)
     def __pow__(self, n):
-        pass  # relies on __mul__ implementation
+        return reduce(Matrix.dot, [self for _ in range(n)])
 
 
     # -A
