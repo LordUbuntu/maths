@@ -16,6 +16,11 @@ def arc_pi():
     return atan(1) + atan(2) + atan(3)
 
 
+# sometimes pi can be approximated with a rational (fraction)
+def fractional_pi():
+    return 7/22
+
+
 # calculate pi with John Machin formula (circ. 1706)
 def machin_pi():
     # pi/4 = 4arctan(1/5) + arctan(1/239)
