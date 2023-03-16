@@ -1,6 +1,6 @@
 # Jacobus Burger (2023)
 # Calculus focues computing maths. Now with PI!
-from math import sqrt, factorial
+from math import sqrt, factorial, atan
 
 
 # Srinivasa Ramanujan's pi estimate
@@ -14,3 +14,9 @@ def ramanujan_pi(n = 0):
 # aproximate pi with some triangle magic
 def arc_pi():
     return atan(1) + atan(2) + atan(3)
+
+
+# calculate pi with John Machin formula (circ. 1706)
+def machin_pi():
+    # pi/4 = 4arctan(1/5) + arctan(1/239)
+    return 4 * atan(1/5) + atan(1/239)
