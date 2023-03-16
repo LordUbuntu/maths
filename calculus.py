@@ -8,7 +8,7 @@ def ramanujan_pi(n = 0):
     sequence = 0
     for i in range(n + 1):
         sequence += (factorial(4*i) * (1103 + (26390 * i))) / (factorial(i)**4 * 396**(4*i))
-    return ((2 * sqrt(2))/9801) * sequence
+    return (((2 * sqrt(2))/9801) * sequence) ** -1  # 1/pi -> pi
 
 
 # aproximate pi with some triangle magic
