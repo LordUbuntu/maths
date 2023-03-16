@@ -18,7 +18,7 @@ def arc_pi():
 
 # sometimes pi can be approximated with a rational (fraction)
 def fractional_pi():
-    return 7/22
+    return 22/7
 
 
 # calculate pi with John Machin formula (circ. 1706)
