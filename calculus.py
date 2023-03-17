@@ -23,5 +23,4 @@ def fractional_pi():
 
 # calculate pi with John Machin formula (circ. 1706)
 def machin_pi():
-    # pi/4 = 4arctan(1/5) + arctan(1/239)
     return 4 * (4 * atan(1/5) + atan(1/239))
