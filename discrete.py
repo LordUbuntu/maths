@@ -14,6 +14,7 @@
 from functools import cache
 from sys import maxsize as maxsize
 import operator as op
+import math
 
 
 
@@ -71,7 +72,7 @@ def lcm_proc(A, B):
 
 # this lcm is a direct calculation that depends on the use of gcd
 def lcm(a, b):
-    return abs(a * b) // gcd(a, b)
+    return abs(a * b) // math.gcd(a, b)
 
 
 # multiplication
