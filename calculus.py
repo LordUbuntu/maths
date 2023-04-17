@@ -1,6 +1,7 @@
 # Jacobus Burger (2023)
 # Calculus focues computing maths. Now with PI!
 from math import sqrt, factorial, atan
+from random import uniform
 
 
 # Srinivasa Ramanujan's pi estimate
@@ -24,3 +25,13 @@ def fractional_pi():
 # calculate pi with John Machin formula (circ. 1706)
 def machin_pi():
     return 4 * (4 * atan(1/5) + atan(1/239))
+
+
+# calculate pi with Monte-Carlo method
+def monte_carlo_pi(n = 1000):
+    circle, square = 0, 0
+    for _ in range(n):
+        if sqrt(uniform(-1, 1)**2 + uniform(-1, 1)**2) <= 1:
+            circle += 1
+        square += 1
+    return (circle / square) * 4
