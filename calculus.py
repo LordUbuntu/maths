@@ -1,5 +1,13 @@
 # Jacobus Burger (2023)
-# Calculus focues computing maths. Now with PI!
+# Info:
+#   Calculus focused computing maths. Now with PI!
+# Thanks:
+#   Thanks to Professor Enriques Torres for teaching me Calculus 1 and
+#   entertaining my interest in his research on Topological Homgroups.
+#
+#   Thanks so much to Professor Sam Pimentel for teaching me Calculus 2
+#   and supporting me while I struggled and fell on my path to growth
+#   in learning.
 from math import sqrt, factorial, atan
 from random import uniform
 
@@ -37,3 +45,8 @@ class PI:
                 circle += 1
             square += 1
         return (circle / square) * 4
+
+
+    # Madhava-Leibniz Series
+    def madhava_leibniz():
+        return 4*atan(1)
