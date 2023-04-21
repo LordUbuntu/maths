@@ -57,4 +57,4 @@ class PI:
         total = 0
         for n in range(1, terms + 1):
             total += ((-1)**(n-1)) * (1 / (2*n - 1))
-        return total
+        return 4 * total
