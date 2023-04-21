@@ -48,5 +48,13 @@ class PI:
 
 
     # Madhava-Leibniz method (π = 4arctan(1))
-    def madhava_leibniz(self):
+    def madhava_leibniz_pi(self):
         return 4 * atan(1)
+
+    # Madhava-Leibniz Series
+    def madhava_leibniz_pi_series(self, terms = 7):
+        # 1 - 1/3 + 1/5 - 1/7...
+        total = 0
+        for n in range(1, terms + 1):
+            total += ((-1)**(n-1)) * (1 / (2*n - 1))
+        return total
