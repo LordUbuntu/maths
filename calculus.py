@@ -15,7 +15,7 @@ from random import uniform
 # various ways to calculate pi
 class PI:
     # Srinivasa Ramanujan's pi estimate
-    def ramanujan_pi(n = 0):
+    def ramanujan_pi_series(self, n = 0):
         sequence = 0
         for i in range(n + 1):
             sequence += (factorial(4*i) * (1103 + (26390 * i))) / (factorial(i)**4 * 396**(4*i))
@@ -23,22 +23,22 @@ class PI:
 
 
     # aproximate pi with some triangle magic
-    def arc_pi():
+    def arc_pi(self):
         return atan(1) + atan(2) + atan(3)
 
 
     # sometimes pi can be approximated with a rational (fraction)
-    def fractional_pi():
+    def fractional_pi(self):
         return 22/7
 
 
     # calculate pi with John Machin formula (circ. 1706)
-    def machin_pi():
+    def machin_pi(self):
         return 4 * (4 * atan(1/5) + atan(1/239))
 
 
     # calculate pi with Monte-Carlo method
-    def monte_carlo_pi(n = 1000):
+    def monte_carlo_pi(self, n = 1000):
         circle, square = 0, 0
         for _ in range(n):
             if sqrt(uniform(-1, 1)**2 + uniform(-1, 1)**2) <= 1:
@@ -47,6 +47,6 @@ class PI:
         return (circle / square) * 4
 
 
-    # Madhava-Leibniz Series
-    def madhava_leibniz():
-        return 4*atan(1)
+    # Madhava-Leibniz method (π = 4arctan(1))
+    def madhava_leibniz(self):
+        return 4 * atan(1)
