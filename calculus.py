@@ -59,3 +59,8 @@ class PI:
         for n in range(1, terms + 1):
             total += ((-1)**(n-1)) * (1 / (2*n - 1))
         return 4 * total
+
+
+    # greek bound of pi from triangles...
+    def greek_bound_pi(self):
+        return "3 < 𝛑 < 4"
