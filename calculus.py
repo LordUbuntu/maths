@@ -12,6 +12,12 @@ from math import sqrt, factorial, atan
 from random import uniform
 
 
+# generalized sequence
+def sequence(function, start, end):
+    for n in range(start, end):
+        yield function(n)
+
+
 # generalized series
 def series(function, start, end):
     total = 0
