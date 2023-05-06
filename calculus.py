@@ -12,6 +12,14 @@ from math import sqrt, factorial, atan
 from random import uniform
 
 
+class Series:
+    def __init__(self, function, start, end):
+        self.total = 0
+        self.function = function
+        self.start = start
+        self.end = end
+
+
 # generalized sequence
 def sequence(function, start, end):
     for n in range(start, end):
