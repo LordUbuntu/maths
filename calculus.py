@@ -12,6 +12,14 @@ from math import sqrt, factorial, atan
 from random import uniform
 
 
+# generalized series
+def series(function, start, end):
+    total = 0
+    for n in range(start, end):
+        total += function(n)
+    return total
+
+
 # various ways to calculate pi
 class PI:
     # Srinivasa Ramanujan's π estimate
