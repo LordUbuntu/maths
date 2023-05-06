@@ -20,10 +20,7 @@ def sequence(function, start, end):
 
 # generalized series
 def series(function, start, end):
-    total = 0
-    for n in range(start, end):
-        total += function(n)
-    return total
+    return sum(sequence(function, start, end))
 
 
 # various ways to calculate pi
