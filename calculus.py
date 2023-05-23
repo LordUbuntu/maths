@@ -8,7 +8,7 @@
 #   Thanks so much to Professor Sam Pimentel for teaching me Calculus 2
 #   and supporting me while I struggled and fell on my path to growth
 #   in learning.
-from math import sqrt, factorial, atan
+from math import sqrt, factorial, atan, asin
 from random import uniform
 
 
@@ -83,3 +83,7 @@ class PI:
     # greek bound of pi from triangles...
     def greek_bound_pi(self):
         return "3 < 𝛑 < 4"
+
+
+    def arcsin_pi(self):
+        return asin(1) * 2  # arcsin(1) = pi/2
