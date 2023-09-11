@@ -2,6 +2,7 @@
 # Interactive calculators and various functions for financial accounting.
 # Made for the fun of learning and conveneince.
 from collections import deque
+# TODO: More to add
 
 
 def operating_cycle(days_sales_in_inventory, collection_priod):
