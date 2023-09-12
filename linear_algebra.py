@@ -280,11 +280,8 @@ class Matrix:
 
     # matrix transposition
     def transpose(self):
-        # create a transpose of the data through a comprehension
         N = [element for j in range(self.m) for element in self.col(j)]
-        # create a new matrix 'A' from the new matrix transpose data
         A = Matrix(self.n, self.m, *N)
-        # return the new matrix
         return A
 
 
