@@ -80,7 +80,7 @@ def lcm(a, b):
 def mul_rec(a, b):
     if a == 0:
         return b
-    return mul(a - 1, b + a)
+    return mul_rec(a - 1, b + a)
 
 
 # iterative multiplication
