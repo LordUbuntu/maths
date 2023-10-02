@@ -25,7 +25,20 @@ class Series:
     
     
     def total(self):
-        return sum(sequence(self.function, self.start, self.end))
+        if abs(self.start) == float('inf') \
+                or abs(self.end) == float('inf'):
+            # determine convergence
+            prev, curr = 0, 100
+            calculations = 0
+            total = 0
+            seq = self.sequence(self.start, self.end)
+            while abs(curr - prev) > 1 and calculations < 100_000:
+                prev, curr = curr, next(seq)
+                total += curr
+                calculations += 1
+        else:
+            # determine sum
+            return sum(sequence(self.function, self.start, self.end))
 
 
 # various ways to calculate pi
