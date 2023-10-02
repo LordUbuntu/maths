@@ -14,7 +14,6 @@ from random import uniform
 
 class Series:
     def __init__(self, function, start, end):
-        self.total = 0
         self.function = function
         self.start = start
         self.end = end
