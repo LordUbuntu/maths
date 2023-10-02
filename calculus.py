@@ -17,6 +17,10 @@ class Series:
         self.function = function
         self.start = start
         self.end = end
+    
+    
+    def sum(self):
+        return sum(sequence(self.function, self.start, self.end))
 
 
 # generalized sequence
