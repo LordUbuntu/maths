@@ -17,21 +17,15 @@ class Series:
         self.function = function
         self.start = start
         self.end = end
+
+
+    def sequence(function, start, end):
+        for n in range(start, end):
+            yield function(n)
     
     
-    def sum(self):
+    def total(self):
         return sum(sequence(self.function, self.start, self.end))
-
-
-# generalized sequence
-def sequence(function, start, end):
-    for n in range(start, end):
-        yield function(n)
-
-
-# generalized series
-def series(function, start, end):
-    return sum(sequence(function, start, end))
 
 
 # various ways to calculate pi
