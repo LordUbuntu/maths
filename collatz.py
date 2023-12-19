@@ -6,7 +6,9 @@ def collatz(n):
     """
     The collatz function creates a generator for the collatz conjecture
     starting at n and ending when n == 1.
-    Each step yields the tuple (step, n).
+    Each step yields the tuple (step, n) where
+      step is the step number
+      n is the current value
     """
     step = 0
     while n != 1:
