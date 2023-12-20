@@ -2,6 +2,13 @@
 # An implementation of the Collatz Algorithm
 
 
+def flat(generator):
+    """
+    Flatten a generator into a list
+    """
+    return [*generator]
+
+
 def collatz(n):
     """
     The collatz function creates a generator for the collatz conjecture
