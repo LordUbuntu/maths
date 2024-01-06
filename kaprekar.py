@@ -18,6 +18,7 @@ def count_steps(n, delay=0):
     while n != KAPREKAR_CONSTANT:
         # get ascending and descending arrangements using monotonic queues
         #   in linear time
+        # BUG: 8082 becomes 2088 and 8802 instead of 0288 and 8820
         current = str(n)
         increasing = deque()
         decreasing = deque()
