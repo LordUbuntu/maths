@@ -23,6 +23,7 @@ def count_steps(n, delay=0):
         increasing = deque()
         decreasing = deque()
         for digit in current:
+            print(digit, increasing, decreasing)
             if len(increasing) > 0 and int(digit) >= int(increasing[-1]):
                 increasing.append(digit)
                 decreasing.appendleft(digit)
