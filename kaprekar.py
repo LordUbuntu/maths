@@ -26,3 +26,21 @@ def count_steps(n, delay=0):
         total_steps = total_steps + 1 
         sleep(delay)
     return total_steps
+
+
+def generate_sequence(n):
+    """
+    generate_sequence(n)
+
+    yield the numbers between and including n until it reaches the
+        kaprekar constant.
+    """
+    yield n
+    while n != KAPREKAR_CONSTANT:
+        # sort into increasing and decreasing numeric arrangement
+        digits = [*str(n)]
+        increasing = sorted(digits)
+        decreasing = sorted(digits, reverse=True)
+        # generate next number in sequence
+        n = int(''.join(decreasing)) - int(''.join(increasing))
+        yield n
