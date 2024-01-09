@@ -44,3 +44,21 @@ def generate_sequence(n):
         # generate next number in sequence
         n = int(''.join(decreasing)) - int(''.join(increasing))
         yield n
+
+
+def show_iterations(n):
+    """
+    show_iterations(n)
+
+    print the calculations of each iteration from n to the
+        kaprekar constant.
+    """
+    print(n)
+    while n != KAPREKAR_CONSTANT:
+        # sort into increasing and decreasing numeric arrangement
+        digits = [*str(n)]
+        increasing = sorted(digits)
+        decreasing = sorted(digits, reverse=True)
+        # generate next number in sequence
+        n = int(''.join(decreasing)) - int(''.join(increasing))
+        print(f"{''.join(decreasing)} - {''.join(increasing)} = {n}")
