@@ -17,7 +17,17 @@ def simple_interest(P, r, t):
 
 
 def compound_interest(P, r, n, t):
-    """calculate amount after compounding interest period"""
+    """
+    compound_interest(P, r, n, t)
+
+    Calculate compunding interest over a period
+        P = principal
+        r = interest rate
+        n = compundings per period
+        t = number of periods
+
+    Returns A, the amount accumulated
+    """
     return P * (1 + r/n)**(n*t)
 
 
