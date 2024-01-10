@@ -4,6 +4,17 @@
 
 
 ##### PERSONAL FINANCE #####
+def simple_interest(P, r, t):
+    """
+    simple_interest(P, r, t)
+
+    Calculate simple interest over a period
+        P = principal
+        r = interest rate
+        t = number of periods
+    """
+    return P * r * t
+
 
 def compound_interest(P, r, n, t):
     """calculate amount after compounding interest period"""
