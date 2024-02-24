@@ -203,6 +203,14 @@ def mod(a, b):
     return a - (b * (a // b))  # a = bq + r, => r = a - bq
 
 
+# exponentiation with only addition
+def pow(a, b):
+    for i in range(b - 1):
+        a = a + a
+        print(a, i)
+    return a
+
+
 # find the hamming distance of any two strings
 def hamming_distance(a, b):
     return sum(map(op.ne, a, b))
