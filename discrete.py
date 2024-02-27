@@ -203,13 +203,6 @@ def mod(a, b):
     return a - (b * (a // b))  # a = bq + r, => r = a - bq
 
 
-# multipliation with only addition
-def mul(a, b):
-    for i in range(a - 1):
-        b += b
-    return b
-
-
 # exponentiation with only addition
 # TODO: change this into a compunding effect for actual exponentiation
 def pow(a, b):
