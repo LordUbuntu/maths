@@ -85,9 +85,12 @@ def mul_rec(a, b):
 
 # iterative multiplication
 def mul_iter(a, b):
+    # or with builtins just `return sum(itertools.repeat(b, a))`
+    total = 0  # a _times_ b, a summed b times
     while a != 0:
-        a, b = a - 1, b + a
-    return b
+        a -= 1
+        total += b
+    return total
 
 
 # division
