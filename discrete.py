@@ -49,10 +49,10 @@ def gcd_iter(a, b):
 
 # this gcd is a recursive version of the simplified iterative one
 @cache  # uses lru caching to drastically improve speed
-def gcd(a, b):
+def gcd_rec(a, b):
     if b == 0:
         return a
-    return gcd(b, a % b)
+    return gcd_rec(b, a % b)
 
 
 # least common multiple
