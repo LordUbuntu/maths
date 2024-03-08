@@ -75,6 +75,13 @@ def lcm(a, b):
     return abs(a * b) // math.gcd(a, b)
 
 
+def pow_iter(a, b):
+    for i in range(b - 1):
+        a = a + a
+        print(a, i)
+    return a
+
+
 # multiplication
 # recursive multiplication
 def mul_rec(a, b):
@@ -204,15 +211,6 @@ def P(n, k):
 # euclidean division (modulo)
 def mod(a, b):
     return a - (b * (a // b))  # a = bq + r, => r = a - bq
-
-
-# exponentiation with only addition
-# TODO: change this into a compunding effect for actual exponentiation
-def pow(a, b):
-    for i in range(b - 1):
-        a = a + a
-        print(a, i)
-    return a
 
 
 # find the hamming distance of any two strings
