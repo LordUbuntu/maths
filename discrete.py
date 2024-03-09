@@ -75,6 +75,7 @@ def lcm(a, b):
     return abs(a * b) // math.gcd(a, b)
 
 
+# iterative power function a**b
 def pow_iter(a, b):
     for i in range(b - 1):
         a = a + a
