@@ -1,5 +1,6 @@
 # Jacobus Burger (2024)
-# kaprekar's constant
+# kaprekar's constant, one of many numbers whose ordered sums in sequence
+#   eventually return to the same number as was started.
 # see:
 #   https://en.wikipedia.org/wiki/6174
 #   https://brilliant.org/wiki/kaprekars-constant/
