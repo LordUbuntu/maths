@@ -1,7 +1,7 @@
 # Jacobus Burger (2022)
 # Info:
 #   Bordering on a library which I've written to better understand how to implement Linear Algebra, also a fun way to learn new LA info
-#   and brush up on old info as well.
+#   and brush up on old info as well. Covers only 2D LA. In the future it may expand into tensors once I learn more about what they are.
 # Sources:
 #   https://www.andreinc.net/2021/01/20/writing-your-own-linear-algebra-matrix-library-in-c#row-echelon-form
 #   https://stattrek.com/matrix-algebra/echelon-transform.aspx?tutorial=matrix
