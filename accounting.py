@@ -5,7 +5,7 @@ from collections import deque
 # TODO: More to add
 
 # Assets = Liabilities + Owner Equity + Revenue - Expenses - Owner Draws
-# Income, Expenses, Fixed and Variable Cost, Total Equity, Inventory
+# Income, Expenses, Fixed and Variable Cost, Total Equity, Inventory, Cost of Goods Sold
 
 def operating_cycle(days_sales_in_inventory, collection_priod):
     return days_sales_in_inventory + collection_period
