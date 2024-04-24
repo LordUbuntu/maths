@@ -178,10 +178,17 @@ def map_func(f, arr):
 
 # factorial function
 @cache
-def fact(n):
+def fact_rec(n):
     if n <= 1:
         return 1
-    return n * fact(n - 1)
+    return n * fact_rec(n - 1)
+
+# factorial function (iterative)
+def fact_iter(n):
+    product = 1
+    for i in range(n, 0, -1):
+        product *= i
+    return product
 
 
 # fibbonacci sequence
