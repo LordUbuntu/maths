@@ -32,9 +32,10 @@ class Series:
             calculations = 0
             total = 0
             seq = self.sequence(self.start, self.end)
+            # approximate point of convergence within interval [0, 1)
             while abs(curr - prev) > 1 and calculations < 100_000:
                 prev, curr = curr, next(seq)
-                total += curr
+                total += next(seq)
                 calculations += 1
         else:
             # determine sum
