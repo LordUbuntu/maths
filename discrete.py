@@ -183,6 +183,7 @@ def fact_rec(n):
         return 1
     return n * fact_rec(n - 1)
 
+
 # factorial function (iterative)
 def fact_iter(n):
     product = 1
