@@ -51,8 +51,8 @@ def show_iterations(n):
     """
     show_iterations(n)
 
-    print the calculations of each iteration from n to the
-        kaprekar constant.
+    print the calculations of each iteration from the starting number
+        n to the eventual arrival at the kaprekar constant.
     """
     print(n)
     while n != KAPREKAR_CONSTANT:
