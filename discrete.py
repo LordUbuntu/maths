@@ -223,6 +223,7 @@ def mod(a, b):
 
 
 # find the hamming distance of any two strings
+# this should work with lists, strings, and other sequential data types
 def hamming_distance(a, b):
     return sum(map(op.ne, a, b))
 
