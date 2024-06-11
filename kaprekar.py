@@ -1,6 +1,10 @@
 # Jacobus Burger (2024)
 # kaprekar's constant, one of many numbers whose ordered sums in sequence
 #   eventually return to the same number as was started.
+# there are many numbers like kaprekar's constant for sets of numbers
+#   with different digits and division operations. I'm asounded by the
+#   mystery of these numeric cycles, though I don't know how much I
+#   don't know.
 # see:
 #   https://en.wikipedia.org/wiki/6174
 #   https://brilliant.org/wiki/kaprekars-constant/
