@@ -119,47 +119,6 @@ def div_iter(a, b):
     return count
 
 
-# maximum
-# recursive max function
-@cache
-def max_rec(head: int, tail: list[int]) -> int:
-    if len(tail) == 1:
-        if head >= tail[0]:
-            return head
-        else:
-            return tail[0]
-    return max_rec(tail[0], tail[1:])
-
-
-# iterative max function
-def max_iter(nums: list[int]) -> int:
-    max_val = -maxsize - 1
-    for val in nums:
-        if val > max_val:
-            max_val = val
-    return max_val
- 
-
-# recursive min function
-@cache
-def min_rec(head: int, tail: list[int]) -> int:
-    if len(tail) == 1:
-        if head < tail[0]:
-            return head
-        else:
-            return tail[0]
-    return min_rec(tail[0], tail[1:])
-
-
-# iterative min function
-def min_iter(nums: list[int]) -> int:
-    min_val = maxsize
-    for val in nums:
-        if val < min_val:
-            min_val = val
-    return min_val
-
-
 # functional reduce
 def reduce_func(f, arr, init=None):
     result = 0 if init is None else init
