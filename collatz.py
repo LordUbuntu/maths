@@ -2,7 +2,7 @@
 # An implementation of the Collatz Algorithm
 
 
-def flaten(generator):
+def flatten(generator):
     """
     Flatten a generator into a list
     """
