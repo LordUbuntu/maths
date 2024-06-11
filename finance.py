@@ -28,7 +28,7 @@ def compound_interest(P, r, n, t):
 
     Returns A, the amount accumulated
     """
-    return P * (1 + r/n)**(n*t)
+    return P * (1 + r / n) ** (n * t)
 
 
 def amortization(P, r, n, t):
@@ -39,7 +39,7 @@ def amortization(P, r, n, t):
         t = number of periods
         n = payments per period
     """
-    return (P * (r/n)) / (1 - (1 + r/n)**(-n*t))
+    return (P * (r / n)) / (1 - (1 + r / n) ** (-n * t))
 
 
 # total return from mutual funds
