@@ -176,22 +176,6 @@ def map_func(f, arr):
     return result
 
 
-# factorial function
-@cache
-def fact_rec(n):
-    if n <= 1:
-        return 1
-    return n * fact_rec(n - 1)
-
-
-# factorial function (iterative)
-def fact_iter(n):
-    product = 1
-    for i in range(n, 0, -1):
-        product *= i
-    return product
-
-
 # fibbonacci sequence
 def fib_rec(n, a = 1, b = 1):
     if n == 0:
@@ -205,16 +189,6 @@ def fib_iter(n):
     for i in range(n):
         a, b = a + b, a
     return a
-
-
-# binomial equation (combination)
-def C(n, k):
-    return fact(n) // (fact(k) * fact(n - k))
-
-
-# permutation equation (permutation)
-def P(n, k):
-    return fact(n) // fact(n - k)
 
 
 # euclidean division (modulo)
