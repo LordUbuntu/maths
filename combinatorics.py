@@ -6,3 +6,8 @@
 # Combinations
 def C(n, k: int) -> int:
     return fact(n) // (fact(k) * fact(n - k))
+
+
+# Permutations
+def P(n, k):
+    return fact(n) // fact(n - k)
