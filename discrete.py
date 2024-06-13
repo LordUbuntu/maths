@@ -6,6 +6,7 @@
 #   Everything herein was written for fun and practice.
 #   I stand on the shoulders of giants, so I claim none of it as my own.
 #
+#
 #   Thank you to Professor Richard J. Sutcliffe for being such an awesome
 #   teacher and inspiration for both my discrete math courses.
 #   I had a lot of fun taking that course (though it was hard) and hope to
