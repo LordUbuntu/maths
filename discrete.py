@@ -120,22 +120,6 @@ def div_iter(a, b):
     return count
 
 
-# functional reduce
-def reduce_func(f, arr, init=None):
-    result = 0 if init is None else init
-    for val in arr:
-        result = f(result, val)
-    return result
-
-
-# functional mapping
-def map_func(f, arr):
-    result = []
-    for val in arr:
-        result.append(f(val))
-    return result
-
-
 # fibbonacci sequence
 def fib_rec(n, a = 1, b = 1):
     if n == 0:
