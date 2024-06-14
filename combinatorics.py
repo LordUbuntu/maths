@@ -22,6 +22,7 @@ def P(n, k):
     return factorial(n) // factorial(n - k)
 
 
+# Combinatorics on Words
 # Prouhet-Thue-Morse sequence (parity sequence)
 def PTM(length):
     bit = True
