@@ -20,3 +20,12 @@ def C(n, k: int) -> int:
 # Permutations
 def P(n, k):
     return factorial(n) // factorial(n - k)
+
+
+# Prouhet-Thue-Morse sequence (parity sequence)
+def PTM(length):
+    bit = True
+    for n in range(length):
+        if ((n ^ (n - 1)).bit_length() + 1) & 1 == 0:
+            bit = not bit
+        yield int(bit)
