@@ -12,14 +12,17 @@ def factorial(n: int) -> int:
     return n * factorial(n - 1)
 
 
-# Combinations
-def C(n, k: int) -> int:
-    return factorial(n) // (factorial(k) * factorial(n - k))
-
-
-# Permutations
+# Permutation
+# https://en.wikipedia.org/wiki/Permutation
 def P(n, k):
     return factorial(n) // factorial(n - k)
+
+
+# Combination / Binomial Coefficient
+# https://en.wikipedia.org/wiki/Combination
+def C(n, k: int) -> int:
+    return factorial(n) // (factorial(k) * factorial(n - k))
+    # or: return P(n, k) // P(k, k)
 
 
 # Combinatorics on Words
