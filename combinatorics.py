@@ -24,6 +24,7 @@ def P(n, k):
 
 # Combinatorics on Words
 # Prouhet-Thue-Morse sequence (parity sequence)
+# https://en.wikipedia.org/wiki/Thue%E2%80%93Morse_sequence
 def PTM(length):
     bit = True
     for n in range(length):
