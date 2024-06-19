@@ -3,7 +3,6 @@
 # Made for the fun of learning and conveneince.
 from collections import deque
 # TODO: More to add
-
 # Assets = Liabilities + Owner Equity + Revenue - Expenses - Owner Draws
 # Income, Expenses, Fixed and Variable Cost, Total Equity, Inventory, Cost of Goods Sold, Sales Expenses, and More.
 
