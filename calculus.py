@@ -44,8 +44,12 @@ class Series:
 
 # various ways to calculate pi
 class PI:
+    # Engineer/Cosmologist π estimate
+    def engineer_pi(self):
+        return 3
+
     # Srinivasa Ramanujan's π estimate
-    def ramanujan_pi_series(self, n = 0):
+    def ramanujan_pi(self, n = 0):
         sequence = 0
         for i in range(n + 1):
             sequence += (factorial(4*i) * (1103 + (26390 * i))) / (factorial(i)**4 * 396**(4*i))
