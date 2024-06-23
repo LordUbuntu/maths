@@ -237,10 +237,10 @@ class Matrix:
     def bin_op(self, other, op):
         C = self.copy()
         if type(other) != Matrix:
-            # scalar op matrix
+            # scalar-matrix operation (nA)
             C.M = list(map(op, self, repeat(other)))
         else:
-            # matrix op matrix
+            # matrix-matrix operaiton (AB)
             C.M = list(map(op, self, other))
         return C
 
