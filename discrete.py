@@ -19,7 +19,6 @@ import math
 
 
 
-# greatest common divisor
 # this shows the steps taken by GCD as it runs
 def gcd_reduction(n, d):
     GCD = gcd(n, d)
@@ -48,15 +47,14 @@ def gcd_iter(a, b):
     return a
 
 
-# this gcd is a recursive version of the simplified iterative one
-@cache  # uses lru caching to drastically improve speed
+# this gcd is a recursive alternative to the iterative one
+@cache
 def gcd_rec(a, b):
     if b == 0:
         return a
     return gcd_rec(b, a % b)
 
 
-# least common multiple
 # this lcm is a procedural example given by professor sutcliffe
 def lcm_proc(A, B):
     big = A if A > B else B
