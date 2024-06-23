@@ -151,18 +151,6 @@ class Matrix:
         return string
 
 
-    # A op B
-    # I realized that many of the binary operations use repeated code
-    def bin_op(self, other, op):
-        C = self.copy()
-        if type(other) != Matrix:
-            # scalar op matrix
-            C.M = list(map(op, self, repeat(other)))
-        else:
-            # matrix op matrix
-            C.M = list(map(op, self, other))
-        return C
-
     # A + B
     def __add__(self, other):
         return self.bin_op(other, op.add)
@@ -242,6 +230,19 @@ class Matrix:
     # A >= B
     def __ge__(self, other):
         return self.__gt__(other) or self.__eq__(other)
+
+
+    # A op B
+    # I realized that many of the binary operations use repeated code
+    def bin_op(self, other, op):
+        C = self.copy()
+        if type(other) != Matrix:
+            # scalar op matrix
+            C.M = list(map(op, self, repeat(other)))
+        else:
+            # matrix op matrix
+            C.M = list(map(op, self, other))
+        return C
 
 
     # create a new object with all the same attributes
