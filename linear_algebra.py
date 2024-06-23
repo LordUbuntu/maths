@@ -11,13 +11,14 @@
 #   https://en.wikipedia.org/wiki/Dot_product
 import operator as op
 from itertools import product, repeat
-from functools import reduce
+from functools import reduce, total_ordering
 
 
 
 
 
 # matrix class (may generalize to tensor once I know what that is lol)
+@total_ordering  # simplify comparison operators with total ordering
 class Matrix:
     def __doc__(self):
         return """
@@ -196,8 +197,6 @@ class Matrix:
         return Matrix(self.m, self.n, *map(op.abs, self.M))
 
 
-    # TODO: use that functools decorator to auto-generate all the other comparison operators
-
     # A == B
     def __eq__(self, other):
         if len(self) != len(other):
@@ -205,31 +204,11 @@ class Matrix:
         return all(map(op.eq, self, other))
 
 
-    # A != B
-    def __ne__(self, other):
-        return not self.__eq__(other)
-
-
     # A < B
     def __lt__(self, other):
         if len(self) != len(other):
             return False
         return all(map(op.lt, self, other))
-
-
-    # A <= B
-    def __le__(self, other):
-        return self.__lt__(other) or self.__eq__(other)
-
-
-    # A > B
-    def __gt__(self, other):
-        return not self.__lt__(other)
-
-
-    # A >= B
-    def __ge__(self, other):
-        return self.__gt__(other) or self.__eq__(other)
 
 
     # A op B
