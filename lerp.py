@@ -5,10 +5,8 @@
 #   Project at TWU. I talked about the problem with Finian Lugtigheid
 #   to see if there was a better way to do it than the average over a
 #   dequeue. 
-#   He proposed LERPing, and we figured out a way to adjust the alpha
-#   value dynamically for situations where the wheels stops or changes
-#   direction. This was perfect and I realized that it has many more
-#   applications as well! Thanks Finian!
+#   He proposed LERPing which was a perfect fit to smooth the tachometry
+#   data and many other things too! Thanks Finian!
 # Info:
 #   https://en.wikipedia.org/wiki/Linear_interpolation
 #   https://rachsmith.com/lerp/
