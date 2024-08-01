@@ -17,4 +17,5 @@
 # Uses:
 #   - Smoothing datapoints
 #   - Computer Graphics
-
+def lerp(x0: float, x1: float, alpha: float) -> float:
+    return (1 - alpha) * x0 + alpha * x1
