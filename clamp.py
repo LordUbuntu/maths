@@ -8,3 +8,5 @@
 #   Limits values within a specified minimum and maximum value
 # Uses:
 #   - keeping values within an interval (inclusive)
+def clamp(value, minimum, maximum):
+    return max(minimum, min(value, maximum))
