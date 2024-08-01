@@ -2,4 +2,4 @@ Jacobus Burger 2024-08-01
 Deliniations are arbitrary and inconsistent/inaccurate. Be it a personal library or ideas or people, you can't neatly fit things into a box.
 Instead of having a single file to contain an entire class of concepts math concepts (like "discrete") I've instead chosen to have each specific mathematical thing be their own file (lerp for Linear intERPolation, kaprekar for Kaprekar Constant, and collatz for Collatz Conjecture for example). This means each file is it's own individual mathematical concept with its related information, creating a sort of zettelkasten of mathematical code snippets.
 Jacobus Burger 2024-08-01
-To ensure verification and provability of the correctness of equations, provers, type checking, and property-based testing will be used.
+For validation and provability of the correctness of equations, provers, type checking, and property-based testing will be used.
