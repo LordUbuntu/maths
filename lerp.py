@@ -17,3 +17,15 @@
 #   - Computer Graphics
 def lerp(x0: float, x1: float, alpha: float) -> float:
     return (1 - alpha) * x0 + alpha * x1
+
+
+# TEST: implement property based tests
+
+# properties:
+# 1. ...
+# ...
+from hypothesis import given, strategies as st
+@given(st.floats(), st.floats(), st.floats())
+def test_lerp(x0: float, x1: float, alpha: float):
+    assert 0.1 <= alpha <= 0.9
+    return 0.0
