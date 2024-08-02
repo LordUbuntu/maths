@@ -12,22 +12,29 @@ def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int
     return max(minimum, min(value, maximum))
 
 
-# TEST: implement property based tests
-
 # properties:
 # 1. id: if all values are the same, they should return the value of value
 # 2. min: if value is <= min, value == min
 # 3. max: if value is >= max, value == max
-# 4. intersect: if min >= max, value == min
-# 5. value must be in interval [min, max]
-# ...
+# 4. middle: if min >= max, value == min
+# 5. interval: value must be in interval [min, max]
+
 from hypothesis import given
 from hypothesis.strategies import floats, integers
 
 @given(floats(), floats(), floats())
 def test_clamp_float(value: float, minimum: float, maximum: float):
-    assert minimum <= clamp(value, minimum, maximum) <= maximum
-    return 0.0
+    result = clamp(value, minimum, maximum)
+    if value == minimum and value == maximum:
+        assert result == minimum
+        assert result == maximum
+    if value <= minimum:
+        assert result == minimum
+    if value >= maximum:
+        assert result == maximum
+    if minimum >= maximum:
+        assert result == minimum
+    assert minimum <= result <= maximum
 
 @given(integers(), integers(), integers())
 def test_clamp_int(value: int, minimum: int, maximum: int):
