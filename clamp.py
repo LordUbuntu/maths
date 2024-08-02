@@ -15,14 +15,16 @@ def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int
 # TEST: implement property based tests
 
 # properties:
-# 1. ...
+# 1. the resulting value must be in the interval [minimum, maximum]
 # ...
 from hypothesis import given, strategies as st
 
 @given(st.floats(), st.floats(), st.floats())
-def test_clamp_int(value: float, minimum: float, maximum: float):
+def test_clamp_float(value: float, minimum: float, maximum: float):
+    assert minimum <= clamp(vaue, minimum, maximum) <= maximum
     return 0.0
 
 @given(st.integers(), st.integers(), st.integers())
-def test_clamp_float(value: int, minimum: int, maximum: int):
+def test_clamp_int(value: int, minimum: int, maximum: int):
+    assert minimum <= clamp(vaue, minimum, maximum) <= maximum
     return 0
