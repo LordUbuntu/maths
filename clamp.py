@@ -25,9 +25,8 @@ def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int
 # 2. if min < max, min <= out <= max
 #       output is bounded in interval [min, max]
 import decimal
-import fractions
 from hypothesis import given
-from hypothesis.strategies import one_of, integers, floats, fractions, decimals
+from hypothesis.strategies import one_of, none, integers, floats, fractions, decimals
 
 
 @given(
