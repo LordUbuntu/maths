@@ -24,12 +24,17 @@ def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int
 #       output is always at least lower bound
 # 2. if min < max, min <= out <= max
 #       output is bounded in interval [min, max]
-from hypothesis import given
-from hypothesis.strategies import one_of, floats, integers
 import decimal
 import fractions
+from hypothesis import given
+from hypothesis.strategies import one_of, integers, floats, fractions, decimals
 
 
+@given(
+    value=one_of(none(), decimals(), floats(), fractions(), integers()),
+    minimum=one_of(none(), decimals(), floats(), fractions(), integers()),
+    maximum=one_of(none(), decimals(), floats(), fractions(), integers()),
+)
 def test_clamp(value: int | float, minimum: int | float, maximum: int | float) -> None:
     result = clamp(value, minimum, maximum)
     assert result == clamp(value, minimum, maximum)
