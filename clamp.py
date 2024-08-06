@@ -8,9 +8,16 @@
 #   Limits values within a specified minimum and maximum value
 # Uses:
 #   - keeping values within an interval (inclusive)
-import typing
+from math import isfinite
+import decimal
+from hypothesis import given
+from hypothesis.strategies import one_of, none, integers, floats, fractions, decimals
+
+
 
 def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int | float:
+    if value is None or minimum is None or maximum is None:
+        return float('nan')
     return max(minimum, min(value, maximum))
 
 
@@ -24,11 +31,8 @@ def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int
 #       output is always at least lower bound
 # 2. if min < max, min <= out <= max
 #       output is bounded in interval [min, max]
-import decimal
-from hypothesis import given
-from hypothesis.strategies import one_of, none, integers, floats, fractions, decimals
-
-
+# 3. if value, min, max == None, NaN, Infinity, etc, return NaN
+#       undefined inputs return an undefined output
 @given(
     value=one_of(none(), decimals(), floats(), fractions(), integers()),
     minimum=one_of(none(), decimals(), floats(), fractions(), integers()),
