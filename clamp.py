@@ -13,6 +13,8 @@ from hypothesis import given
 from hypothesis.strategies import one_of, none, integers, floats, fractions, decimals
 
 
+# clamp function
+# clamp: [a, b, c] -> R, if forall b in R, a <= f(b) <= c
 def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int | float:
     # return nan for undefined inputs
     if value is None or minimum is None or maximum is None:
