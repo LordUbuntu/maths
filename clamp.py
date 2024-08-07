@@ -13,8 +13,6 @@ from hypothesis import given
 from hypothesis.strategies import one_of, none, integers, floats, fractions, decimals
 
 
-# clamp function
-# clamp: [a, b, c] -> R, if forall b in R, a <= f(b) <= c
 def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int | float:
     """
     Binds value between (and including) a minimum and maximum bound.
