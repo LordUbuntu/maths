@@ -1,4 +1,4 @@
-# Jacobus Burger (2024-08-01)
+# Jacobus Burger (Created 2024-08-01, Last Updated 2024-08-07)
 # Desc:
 #   Clamping is a useful mathematical function when you want to ensure a
 #   value remains fixed within a bound.
@@ -32,6 +32,15 @@ def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int
     -------
     int | float
         Bounded Output number.
+
+    Preconditions
+    -------------
+    Parameters cannot be None, NAN, or +/-Infinity
+
+    Postconditions
+    --------------
+    Output will not be < minimum
+    Output will not be > maximum
     """
     # return nan for undefined inputs
     if value is None or minimum is None or maximum is None:
