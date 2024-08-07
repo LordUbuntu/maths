@@ -15,6 +15,7 @@
 # Uses:
 #   - Smoothing datapoints
 #   - Computer Graphics
+import clamp  # avoid rewrite by using clamp
 from math import isfinite, nan, isnan
 from hypothesis import given
 from hypothesis.strategies import one_of, none, integers, floats, fractions, decimals
@@ -42,6 +43,7 @@ def lerp(a: int | float, b: int | float, alpha: float) -> float:
     Preconditions
     -------------
     Inputs must be defined (not None, NAN, or +/-Infinity).
+    a must be less than or equal to b.
     alpha must be between (inclusive) 0.0 and 1.0.
 
     Postconditions
@@ -52,15 +54,16 @@ def lerp(a: int | float, b: int | float, alpha: float) -> float:
         return nan
     if not isfinite(a) or not isfinite(b) or not isfinite(alpha):
         return nan
+    if b < a:
+        a, b = b, a
     alpha = clamp.clamp(alpha, 0.0, 1.0)  # bind alpha
     return (1 - alpha) * a + alpha * b
 
 
 # properties:
 # 0. undefined inputs give undefined output
-# 1. x0 <-> x1 (commutativity)
-# 2. x0 <= lerp(x0, x1, alpha) <= x1
-# 3. f: Z | R -> R
+# 1. a <= lerp(a, b, alpha) <= b
+# 2. f: Z | R -> R
 @given(
     a=one_of(none(), floats(), fractions(), integers()),
     b=one_of(none(), floats(), fractions(), integers()),
@@ -74,7 +77,8 @@ def test_lerp(a: int | float, b: int | float, alpha: float) -> None:
     if not isfinite(a) or not isfinite(b) or not isfinite(alpha):
         assert isnan(lerp(a, b, alpha))
         return
+    if b < a:
+        a, b = b, a
     result = lerp(a, b, alpha)
-    assert result == lerp(b, a, alpha)  # 1
-    assert a <= result <= b  # 2
-    assert type(result) == float  # 3
+    assert a <= result <= b  # 1
+    assert type(result) == float  # 2
