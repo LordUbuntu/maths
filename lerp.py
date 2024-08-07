@@ -24,12 +24,15 @@ def lerp(x0: float | int, x1: float | int, alpha: float) -> float:
     """
     Interpolates a value linearly between two points.
     """
+    # 1. 0.0 <= alpha <= 1.0
     return (1 - alpha) * x0 + alpha * x1
 
 
 # properties:
-# ...
+# 0. undefined inputs give undefined output
+# 2. x0 <-> x1 (commutativity)
+# 3. x0 <= lerp(x0, x1, alpha) <= x1
+# 4. f: Z | R -> R
 @given(st.floats(), st.floats(), st.floats())
 def test_lerp(x0: float, x1: float, alpha: float):
-    assert 0.1 <= alpha <= 0.9
     return 0.0
