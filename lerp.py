@@ -47,6 +47,10 @@ def lerp(a: int | float, b: int | float, alpha: float) -> float:
 # 2. x0 <-> x1 (commutativity)
 # 3. x0 <= lerp(x0, x1, alpha) <= x1
 # 4. f: Z | R -> R
-@given(st.floats(), st.floats(), st.floats())
+@given(
+    a=one_of(none(), floats(), fractions(), integers()),
+    b=one_of(none(), floats(), fractions(), integers()),
+    alpha=one_of(none(), floats(), fractions()),
+)
 def test_lerp(a: int | float, b: int | float, alpha: float) -> None:
     pass

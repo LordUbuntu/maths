@@ -52,6 +52,7 @@ def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int
 # Properties of clamp function:
 # 0. if value, min, max == undefined, return nan
 #       undefined inputs return an undefined output (nan)
+#
 # 1. clamp(a, b, c) == clamp(a, b, c)
 #       for the same input, clamp must provide the same output
 # 2. if min >= max, out == min
