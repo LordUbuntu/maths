@@ -16,6 +16,23 @@ from hypothesis.strategies import one_of, none, integers, floats, fractions, dec
 # clamp function
 # clamp: [a, b, c] -> R, if forall b in R, a <= f(b) <= c
 def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int | float:
+    """
+    Binds value between (and including) a minimum and maximum bound.
+
+    Parameters
+    ----------
+    value : int | float
+        Input to be bounded.
+    minimum : int | float
+        Lower bound for Output.
+    maximum : int | float
+        Upper bound for Output.
+
+    Returns
+    -------
+    int | float
+        Bounded Output number.
+    """
     # return nan for undefined inputs
     if value is None or minimum is None or maximum is None:
         return nan
