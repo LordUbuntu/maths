@@ -1,4 +1,4 @@
-# Jacobus Burger (2024-08-01)
+# Jacobus Burger (Created 2024-08-01, Last Updated 2024-08-07)
 # Desc:
 #   I was trying to solve a problem with smoothing RPM data from my
 #   tachometry code (tacho.py) while working on the Robotics Research
@@ -15,16 +15,20 @@
 # Uses:
 #   - Smoothing datapoints
 #   - Computer Graphics
-def lerp(x0: float, x1: float, alpha: float) -> float:
+from math import isfinite, nan, isnan
+from hypothesis import given
+from hypothesis.strategies import one_of, none, integers, floats, fractions, decimals
+
+
+def lerp(x0: float | int, x1: float | int, alpha: float) -> float:
+    """
+    Interpolates a value linearly between two points.
+    """
     return (1 - alpha) * x0 + alpha * x1
 
 
-# TEST: implement property based tests
-
 # properties:
-# 1. ...
 # ...
-from hypothesis import given, strategies as st
 @given(st.floats(), st.floats(), st.floats())
 def test_lerp(x0: float, x1: float, alpha: float):
     assert 0.1 <= alpha <= 0.9
