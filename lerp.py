@@ -37,8 +37,22 @@ def lerp(a: int | float, b: int | float, alpha: float) -> float:
     -------
     float
         Interpolated value between a and b
+
+    
+    Preconditions
+    -------------
+    Inputs must be defined (not None, NAN, or +/-Infinity).
+    alpha must be between (inclusive) 0.0 and 1.0.
+
+    Postconditions
+    --------------
+    Output will be between a and b (inclusive).
     """
-    # 1. 0.0 <= alpha <= 1.0
+    if a is None or b is None or alpha is None:
+        return nan
+    if not isfinite(a) or not isfinite(b) or not isfinite(alpha):
+        return nan
+    alpha = clamp.clamp(alpha, 0.0, 1.0)  # bind alpha
     return (1 - alpha) * a + alpha * b
 
 
