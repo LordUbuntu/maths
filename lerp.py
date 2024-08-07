@@ -20,12 +20,26 @@ from hypothesis import given
 from hypothesis.strategies import one_of, none, integers, floats, fractions, decimals
 
 
-def lerp(x0: float | int, x1: float | int, alpha: float) -> float:
+def lerp(a: int | float, b: int | float, alpha: float) -> float:
     """
     Interpolates a value linearly between two points.
+
+    Parameters
+    ----------
+    a : int | float
+        previous value.
+    b : int | float
+        current value.
+    alpha : float
+        interpolation ratio (higher prefers b, lower prefers a).
+
+    Returns
+    -------
+    float
+        Interpolated value between a and b
     """
     # 1. 0.0 <= alpha <= 1.0
-    return (1 - alpha) * x0 + alpha * x1
+    return (1 - alpha) * a + alpha * b
 
 
 # properties:
@@ -34,5 +48,5 @@ def lerp(x0: float | int, x1: float | int, alpha: float) -> float:
 # 3. x0 <= lerp(x0, x1, alpha) <= x1
 # 4. f: Z | R -> R
 @given(st.floats(), st.floats(), st.floats())
-def test_lerp(x0: float, x1: float, alpha: float):
-    return 0.0
+def test_lerp(a: int | float, b: int | float, alpha: float) -> None:
+    pass
