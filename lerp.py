@@ -44,13 +44,23 @@ def lerp(a: int | float, b: int | float, alpha: float) -> float:
 
 # properties:
 # 0. undefined inputs give undefined output
-# 2. x0 <-> x1 (commutativity)
-# 3. x0 <= lerp(x0, x1, alpha) <= x1
-# 4. f: Z | R -> R
+# 1. x0 <-> x1 (commutativity)
+# 2. x0 <= lerp(x0, x1, alpha) <= x1
+# 3. f: Z | R -> R
 @given(
     a=one_of(none(), floats(), fractions(), integers()),
     b=one_of(none(), floats(), fractions(), integers()),
     alpha=one_of(none(), floats(), fractions()),
 )
 def test_lerp(a: int | float, b: int | float, alpha: float) -> None:
-    pass
+    # 0
+    if a is None or b is None or alpha is None:
+        assert isnan(lerp(a, b, alpha))
+        return
+    if not isfinite(a) or not isfinite(b) or not isfinite(alpha):
+        assert isnan(lerp(a, b, alpha))
+        return
+    result = lerp(a, b, alpha)
+    assert result == lerp(b, a, alpha)  # 1
+    assert a <= result <= b  # 2
+    assert type(result) == float  # 3
