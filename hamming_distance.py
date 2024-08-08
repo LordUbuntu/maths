@@ -13,10 +13,13 @@
 # Desc:
 #   Hamming Distance calculates the distance / amount of difference
 #   between two strings of information (usually binary numbers, but
-#   can be for any sequential pieces of data, aka: strings).
+#   can be for any sequential pieces of data, aka: strings/vectors).
 # Info:
+#   https://en.wikipedia.org/wiki/Hamming_distance
+from typing import Sequence, TypeVar
+T = TypeVar('T', List[int], List[float], str)
 
 # find the hamming distance of any two strings
 # this should work with lists, strings, and other sequential data types
-def hamming_distance(a, b):
+def hamming_distance(a: T, b: T) -> int:
     return sum(map(op.ne, a, b))
