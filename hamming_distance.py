@@ -16,8 +16,10 @@
 #   can be for any sequential pieces of data, aka: strings/vectors).
 # Info:
 #   https://en.wikipedia.org/wiki/Hamming_distance
+import operator as op
 from typing import Sequence, TypeVar
-T = TypeVar('T', List[int], List[float], str)
+T = TypeVar('T', Sequence[int], Sequence[float], str)
+
 
 # find the hamming distance of any two strings
 # this should work with lists, strings, and other sequential data types
