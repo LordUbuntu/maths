@@ -19,9 +19,23 @@
 import operator as op
 from typing import Sequence, TypeVar
 T = TypeVar('T', Sequence[int], Sequence[float], str)
+from hypothesis.strategies import one_of, none, lists, integers, floats, fractions, decimals
 
 
 # find the hamming distance of any two strings
 # this should work with lists, strings, and other sequential data types
 def hamming_distance(a: T, b: T) -> int:
     return sum(map(op.ne, a, b))
+
+
+
+# properties
+# 0. undefined values
+# 1. mismatching lengths truncate longer list and count extra length to hamming distance
+# 2. the same input for both a and b should give 0
+@given(
+    a=one_of(none(), lists(integers()), lists(floats()))
+    b=one_of(none(), lists(integers()), lists(floats()))
+)
+def test_hamming_distance(a: T, b: T):
+    pass
