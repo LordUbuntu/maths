@@ -19,6 +19,7 @@
 import operator as op
 from typing import Sequence, TypeVar
 T = TypeVar('T', Sequence[int], Sequence[float], str)
+from hypothesis import given
 from hypothesis.strategies import one_of, none, lists, integers, floats, fractions, decimals
 
 
@@ -37,8 +38,8 @@ def hamming_distance(a: T, b: T) -> int:
 # - read whole series to understand property based testing better
 # - https://fsharpforfunandprofit.com/posts/property-based-testing-2/
 @given(
-    a=one_of(none(), lists(integers()), lists(floats()))
-    b=one_of(none(), lists(integers()), lists(floats()))
+    a=one_of(none(), lists(integers()), lists(floats())),
+    b=one_of(none(), lists(integers()), lists(floats())),
 )
 def test_hamming_distance(a: T, b: T):
     pass
