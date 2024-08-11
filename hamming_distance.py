@@ -16,9 +16,10 @@
 #   can be for any sequential pieces of data, aka: strings/vectors).
 # Info:
 #   https://en.wikipedia.org/wiki/Hamming_distance
+import math
 import operator as op
-from typing import Sequence, TypeVar
-T = TypeVar('T', Sequence[int], Sequence[float], str)
+from typing import List, TypeVar
+T = TypeVar('T', List[int], List[float], str)
 from hypothesis import given
 from hypothesis.strategies import one_of, none, lists, integers, floats, fractions, decimals
 
@@ -42,4 +43,9 @@ def hamming_distance(a: T, b: T) -> int:
     b=one_of(none(), lists(integers()), lists(floats())),
 )
 def test_hamming_distance(a: T, b: T):
+    # 0. undefined inputs yield undefined outputs
+    if a is None or b is None:
+        assert math.isnan(hamming_distance(a=a, b=b))
+    if not math.isfinite(a) or not math.isfinite(b):
+        assert math.isnan(hamming_distance(a=a, b=b))
     pass
