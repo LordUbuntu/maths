@@ -33,6 +33,9 @@ def hamming_distance(a: T, b: T) -> int:
 # 0. undefined values
 # 1. mismatching lengths truncate longer list and count extra length to hamming distance
 # 2. the same input for both a and b should give 0
+# TODO:
+# - read whole series to understand property based testing better
+# - https://fsharpforfunandprofit.com/posts/property-based-testing-2/
 @given(
     a=one_of(none(), lists(integers()), lists(floats()))
     b=one_of(none(), lists(integers()), lists(floats()))
