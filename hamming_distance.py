@@ -32,7 +32,8 @@ def hamming_distance(a: T, b: T) -> int:
         return math.nan
     if not math.isfinite(a) or not math.isfinite(b):
         return math.nan
-    return sum(map(op.ne, a, b))
+    # haming distance + difference of lengths
+    return sum(map(op.ne, a, b)) + abs(len(a) - len(b))
 
 
 
