@@ -50,6 +50,8 @@ def test_hamming_distance(a: T, b: T):
     if not math.isfinite(a) or not math.isfinite(b):
         assert math.isnan(hamming_distance(a=a, b=b))
     # 1. should always yield same outputs for same inputs
+    # 2. doing the same operation twice should yield the same output
     assert hamming_distance(a, a) == hamming_distance(a, a)
     assert hamming_distance(b, b) == hamming_distance(b, b)
+    assert hamming_distance(a, b) == hamming_distance(a, b)
     pass
