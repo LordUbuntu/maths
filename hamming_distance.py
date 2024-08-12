@@ -32,9 +32,10 @@ def hamming_distance(a: T, b: T) -> int:
 
 
 # properties
-# 0. undefined values
-# 1. mismatching lengths truncate longer list and count extra length to hamming distance
-# 2. the same input for both a and b should give 0
+# 0. should yield undefined outputs for undefined inputs
+# 1. should always yield same outputs for same inputs
+# 2. doing the same operation twice should yield the same output
+# 3. mismatching lengths truncate longer list and count extra length to hamming distance
 # TODO:
 # - read whole series to understand property based testing better
 # - https://fsharpforfunandprofit.com/posts/property-based-testing-2/
@@ -48,4 +49,7 @@ def test_hamming_distance(a: T, b: T):
         assert math.isnan(hamming_distance(a=a, b=b))
     if not math.isfinite(a) or not math.isfinite(b):
         assert math.isnan(hamming_distance(a=a, b=b))
+    # 1. should always yield same outputs for same inputs
+    assert hamming_distance(a, a) == hamming_distance(a, a)
+    assert hamming_distance(b, b) == hamming_distance(b, b)
     pass
