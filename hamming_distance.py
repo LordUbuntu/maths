@@ -39,10 +39,9 @@ def hamming_distance(a: T, b: T) -> int:
 
 # properties
 # 0. null precondition: should yield undefined outputs for undefined inputs
-# 1. lenght precondition: both inputs should be the same length
-# 2. identity: if a == b, hamming_distance(a, b) == 0
-# 3. idempotence: doing the same operation twice should yield the same output
-# 4. mismatching lengths truncate longer list and count extra length to hamming distance
+# 1. identity: if a == b, hamming_distance(a, b) == 0
+# 2. idempotence: doing the same operation twice should yield the same output
+# 3. mismatching lengths truncate longer list and count extra length to hamming distance
 # TODO:
 # - read whole series to understand property based testing better
 # - https://fsharpforfunandprofit.com/posts/property-based-testing-2/
@@ -61,9 +60,24 @@ def test_hamming_distance(a: T, b: T):
     # 1. identity
     if a == b:
         assert hamming_distance(a, b) == 0
-    # 2. doing the same operation twice should yield the same output
+    # 2. idempotence
     assert hamming_distance(a, a) == hamming_distance(a, a)
     assert hamming_distance(b, b) == hamming_distance(b, b)
     assert hamming_distance(a, b) == hamming_distance(a, b)
     assert hamming_distance(b, a) == hamming_distance(b, a)
-    pass
+    # 3. mismatch length should return total of hamming and length diff
+    if len(a) != len(b):
+        if len(a) > len(b):
+            length_diff = len(a) - len(b)
+            hamming = 0
+            for i in range(len(b)):
+                if a[i] != b[i]:
+                    hamming += 1
+            assert hamming + length_diff == hamming_distance(a, b)
+        else:
+            expected = len(b) - len(a)
+            hamming = 0
+            for i in range(len(a)):
+                if a[i] != b[i]:
+                    hamming += 1
+            assert hamming + length_diff == hamming_distance(a, b)
