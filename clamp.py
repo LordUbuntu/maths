@@ -46,7 +46,7 @@ def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int
     if not isfinite(value) or not isfinite(minimum) or not isfinite(maximum):
         return nan
     # return clamp of function otherwise
-    return max(minimum, min(value, maximum))
+    return min(max(value, minimum), maximum)
 
 
 # Properties of clamp function:
