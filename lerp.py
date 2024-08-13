@@ -62,8 +62,8 @@ def lerp(a: int | float, b: int | float, alpha: float) -> float:
 
 # properties:
 # 0. undefined inputs give undefined output
-# 1. a <= lerp(a, b, alpha) <= b
-# 2. f: Z | R -> R
+# 1. f: Z | R -> R
+# 2. a <= lerp(a, b, alpha) <= b
 @given(
     a=one_of(none(), floats(), fractions(), integers()),
     b=one_of(none(), floats(), fractions(), integers()),
@@ -77,8 +77,8 @@ def test_lerp(a: int | float, b: int | float, alpha: float) -> None:
     if not isfinite(a) or not isfinite(b) or not isfinite(alpha):
         assert isnan(lerp(a, b, alpha))
         return
+    assert type(lerp(a, b, alpha)) == float  # 2
     if b < a:
         a, b = b, a
     result = lerp(a, b, alpha)
     assert a <= result <= b  # 1
-    assert type(result) == float  # 2
