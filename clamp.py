@@ -46,7 +46,7 @@ def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int
     if not isfinite(value) or not isfinite(minimum) or not isfinite(maximum):
         return nan
     # return clamp of function otherwise
-    return min(max(value, minimum), maximum)
+    return max(minimum, min(value, maximum))
 
 
 # Properties of clamp function:
@@ -72,10 +72,9 @@ def test_clamp(value: int | float, minimum: int | float, maximum: int | float) -
         assert isnan(clamp(value, minimum, maximum))
         return
     # 1
-    result = clamp(value, minimum, maximum)
-    assert result == clamp(value, minimum, maximum)
+    assert clamp(value, minimum, maximum) == clamp(value, minimum, maximum)
     # 2
-    assert minimum <= result <= maximum
+    assert minimum <= clamp(value, minimum, maximum) <= maximum
     # 3
     answer = value
     if answer < minimum:
