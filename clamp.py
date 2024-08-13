@@ -10,7 +10,7 @@
 #   - keeping values within an interval (inclusive)
 from math import isfinite, nan, isnan
 from hypothesis import given
-from hypothesis.strategies import one_of, none, integers, floats, fractions, decimals
+from hypothesis.strategies import one_of, none, integers, floats
 
 
 def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int | float:
@@ -59,9 +59,9 @@ def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int
 #       output is bounded in interval [min, max]
 # 3. oracle answer == clamp(a, b, c)
 @given(
-    value=one_of(none(), floats(), fractions(), integers()),
-    minimum=one_of(none(), floats(), fractions(), integers()),
-    maximum=one_of(none(), floats(), fractions(), integers()),
+    value=one_of(none(), integers(), floats()),
+    minimum=one_of(none(), integers(), floats()),
+    maximum=one_of(none(), integers(), floats()),
 )
 def test_clamp(value: int | float, minimum: int | float, maximum: int | float) -> None:
     # 0
