@@ -55,10 +55,9 @@ def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int
 #
 # 1. clamp(a, b, c) == clamp(a, b, c)
 #       for the same input, clamp must provide the same output
-# 2. if min >= max, out == min
-#       output is always at least lower bound
-# 3. if min < max, min <= out <= max
+# 2. if min < max, min <= out <= max
 #       output is bounded in interval [min, max]
+# 3. oracle answer == clamp(a, b, c)
 @given(
     value=one_of(none(), floats(), fractions(), integers()),
     minimum=one_of(none(), floats(), fractions(), integers()),
@@ -76,8 +75,11 @@ def test_clamp(value: int | float, minimum: int | float, maximum: int | float) -
     result = clamp(value, minimum, maximum)
     assert result == clamp(value, minimum, maximum)
     # 2
-    if minimum >= maximum:
-        assert result == minimum
+    assert minimum <= result <= maximum
     # 3
-    elif minimum < maximum:
-        assert minimum <= result <= maximum
+    answer = value
+    if answer < minimum:
+        answer = minimum
+    if answer > maximum:
+        answer = maximum
+    assert clamp(value, minimum, maximum) == answer
