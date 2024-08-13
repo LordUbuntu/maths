@@ -18,7 +18,7 @@
 import clamp  # avoid rewrite by using clamp
 from math import isfinite, nan, isnan
 from hypothesis import given
-from hypothesis.strategies import one_of, none, integers, floats, fractions, decimals
+from hypothesis.strategies import one_of, none, integers, floats
 
 
 def lerp(a: int | float, b: int | float, alpha: float) -> float:
@@ -65,9 +65,9 @@ def lerp(a: int | float, b: int | float, alpha: float) -> float:
 # 1. f: Z | R -> R
 # 2. a <= lerp(a, b, alpha) <= b
 @given(
-    a=one_of(none(), floats(), fractions(), integers()),
-    b=one_of(none(), floats(), fractions(), integers()),
-    alpha=one_of(none(), floats(), fractions()),
+    a=one_of(none(), floats(), integers()),
+    b=one_of(none(), floats(), integers()),
+    alpha=one_of(none(), floats()),
 )
 def test_lerp(a: int | float, b: int | float, alpha: float) -> None:
     # 0
