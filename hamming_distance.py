@@ -28,20 +28,23 @@ from hypothesis.strategies import one_of, none, lists, integers, floats, fractio
 # this should work with lists, strings, and other sequential data types
 def hamming_distance(a: T, b: T) -> int:
     # satisfy preconditions
-    if a is None or b is None:
-        return math.nan
-    if not math.isfinite(a) or not math.isfinite(b):
-        return math.nan
+    if a is None and b is None:
+        return 0
+    if a is None and b is not None:
+        return len(b)
+    if a is not None and b is None:
+        return len(a)
     # haming distance + difference of lengths
     return sum(map(op.ne, a, b)) + abs(len(a) - len(b))
 
 
 
 # properties
-# 0. null precondition: should yield undefined outputs for undefined inputs
-# 1. identity: if a == b, hamming_distance(a, b) == 0
-# 2. idempotence: doing the same operation twice should yield the same output
-# 3. mismatching lengths truncate longer list and count extra length to hamming distance
+# 0. if either undefined, return other's length
+# 1. if both undefined, return nan
+# 2. identity: if a == b, hamming_distance(a, b) == 0
+# 3. idempotence: doing the same operation twice should yield the same output
+# 4. mismatching lengths truncate longer list and count extra length to hamming distance
 # TODO:
 # - read whole series to understand property based testing better
 # - https://fsharpforfunandprofit.com/posts/property-based-testing-2/
@@ -50,7 +53,7 @@ def hamming_distance(a: T, b: T) -> int:
     b=one_of(none(), lists(integers()), lists(floats())),
 )
 def test_hamming_distance(a: T, b: T):
-    # 0. undefined inputs yield undefined outputs
+    # 0. if either undefined, return other's length
     if a is None or b is None:
         assert math.isnan(hamming_distance(a=a, b=b))
         return
