@@ -75,4 +75,5 @@ def test_lerp(a: int | float, b: int | float, alpha: float) -> None:
     if not isfinite(a) or not isfinite(b) or not isfinite(alpha):
         assert isnan(lerp(a, b, alpha))
         return
-    assert type(lerp(a, b, alpha)) == float  # 1
+    # 1
+    assert type(lerp(a, b, alpha)) == float
