@@ -41,8 +41,6 @@ def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int
     Output will not be > maximum
     """
     # return nan for undefined inputs
-    if value is None or minimum is None or maximum is None:
-        return nan
     if not isfinite(value) or not isfinite(minimum) or not isfinite(maximum):
         return nan
     # return clamp of function otherwise
@@ -57,24 +55,23 @@ def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int
 #       for the same input, clamp must provide the same output
 # 2. oracle answer == clamp(a, b, c)
 @given(
-    value=one_of(none(), integers(), floats()),
-    minimum=one_of(none(), integers(), floats()),
-    maximum=one_of(none(), integers(), floats()),
+    value=one_of(integers(), floats()),
+    minimum=one_of(integers(), floats()),
+    maximum=one_of(integers(), floats()),
 )
 def test_clamp(value: int | float, minimum: int | float, maximum: int | float) -> None:
-    # 0
-    if value is None or minimum is None or maximum is None:
-        assert isnan(clamp(value, minimum, maximum))
-        return
+    # 0. undefined inputs return an undefined output (nan)
     if not isfinite(value) or not isfinite(minimum) or not isfinite(maximum):
         assert isnan(clamp(value, minimum, maximum))
         return
-    # 1
+    # 1. for the same input, clamp must provide the same output
     assert clamp(value, minimum, maximum) == clamp(value, minimum, maximum)
-    # 2
+    # 2. oracle answer == clamp(a, b, c)
     answer = value
     if answer < minimum:
         answer = minimum
-    if answer > maximum:
+    elif answer > maximum:
         answer = maximum
+    else:
+        answer = value
     assert clamp(value, minimum, maximum) == answer
