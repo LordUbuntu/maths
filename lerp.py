@@ -50,8 +50,6 @@ def lerp(a: int | float, b: int | float, alpha: float) -> float:
     --------------
     Output will be between a and b (inclusive).
     """
-    if a is None or b is None or alpha is None:
-        return nan
     if not isfinite(a) or not isfinite(b) or not isfinite(alpha):
         return nan
     if b < a:
@@ -63,15 +61,12 @@ def lerp(a: int | float, b: int | float, alpha: float) -> float:
 # 0. undefined inputs give undefined output
 # 1. f: Z | R -> R
 @given(
-    a=one_of(none(), floats(), integers()),
-    b=one_of(none(), floats(), integers()),
-    alpha=one_of(none(), floats()),
+    a=one_of(floats(), integers()),
+    b=one_of(floats(), integers()),
+    alpha=one_of(floats()),
 )
 def test_lerp(a: int | float, b: int | float, alpha: float) -> None:
     # 0
-    if a is None or b is None or alpha is None:
-        assert isnan(lerp(a, b, alpha))
-        return
     if not isfinite(a) or not isfinite(b) or not isfinite(alpha):
         assert isnan(lerp(a, b, alpha))
         return
