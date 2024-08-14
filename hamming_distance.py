@@ -41,7 +41,7 @@ def hamming_distance(a: T, b: T) -> int:
 
 # properties
 # 0. if either undefined, return other's length
-# 1. if both undefined, return nan
+# 1. if both undefined, return 0
 # 2. identity: if a == b, hamming_distance(a, b) == 0
 # 3. idempotence: doing the same operation twice should yield the same output
 # 4. mismatching lengths truncate longer list and count extra length to hamming distance
@@ -54,12 +54,13 @@ def hamming_distance(a: T, b: T) -> int:
 )
 def test_hamming_distance(a: T, b: T):
     # 0. if either undefined, return other's length
-    if a is None or b is None:
-        assert math.isnan(hamming_distance(a=a, b=b))
-        return
-    if not math.isfinite(a) or not math.isfinite(b):
-        assert math.isnan(hamming_distance(a=a, b=b))
-        return
+    if a is None and b is not None:
+        return len(b)
+    if a is not None and b is None:
+        return len(a)
+    # 1. if both undefined, return 0
+    if a is None and b is None:
+        return 0
     # 1. identity
     if a == b:
         assert hamming_distance(a, b) == 0
@@ -78,7 +79,7 @@ def test_hamming_distance(a: T, b: T):
                     hamming += 1
             assert hamming + length_diff == hamming_distance(a, b)
         else:
-            expected = len(b) - len(a)
+            length_diff = len(b) - len(a)
             hamming = 0
             for i in range(len(a)):
                 if a[i] != b[i]:
