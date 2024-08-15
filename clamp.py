@@ -43,6 +43,9 @@ def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int
     # return nan for undefined inputs
     if not isfinite(value) or not isfinite(minimum) or not isfinite(maximum):
         return nan
+    # reorder min and max
+    if maximum < minimum:
+        minimum, maximum = maximum, minimum
     # return clamp of function otherwise
     return max(minimum, min(value, maximum))
 
