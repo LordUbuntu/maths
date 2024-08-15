@@ -16,6 +16,7 @@
 #   interesting properties like approximating the golden ratio.
 # Info:
 #   https://en.wikipedia.org/wiki/Fibonacci_sequence
+#   https://en.wikipedia.org/wiki/Generalizations_of_Fibonacci_numbers
 from functools import cache
 from hypothesis import given
 from hypothesis.strategies import integers
@@ -37,3 +38,26 @@ def fib_iterative(n: int) -> int:
     for i in range(n):
         a, b = a + b, a
     return a
+
+
+fib = fib_iterative
+
+
+# properties
+# 0. n >= 0
+#   input cannot be less than 0
+# 1. f: W -> W
+#   input and output are integers
+# 2. Fi + Fi+1 = Fi+2
+#   each following element is the sum of the previous
+@given(
+    n=integers(),
+)
+def test_fib(n: int) -> None:
+    # 0
+    if n < 0:
+        return
+    # 1
+    assert type(fib(n)) == int
+    # 2
+    assert fib(n) + fib(n + 1) == fib(n + 2)
