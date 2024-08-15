@@ -118,21 +118,6 @@ def div_iter(a, b):
     return count
 
 
-# fibbonacci sequence
-def fib_rec(n, a = 1, b = 1):
-    if n == 0:
-        return a
-    return fib(n - 1, a + b, a)
-
-
-# fibbonacci sequence (iterative)
-def fib_iter(n):
-    a, b = 1, 1
-    for i in range(n):
-        a, b = a + b, a
-    return a
-
-
 # euclidean division (modulo)
 def mod(a, b):
     return a - (b * (a // b))  # a = bq + r, => r = a - bq

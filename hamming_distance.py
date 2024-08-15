@@ -36,9 +36,6 @@ def hamming_distance(a: T, b: T) -> int:
 # 1. identity: if a == b, hamming_distance(a, b) == 0
 # 2. idempotence: doing the same operation twice should yield the same output
 # 3. mismatching lengths truncate longer list and count extra length to hamming distance
-# TODO:
-# - read whole series to understand property based testing better
-# - https://fsharpforfunandprofit.com/posts/property-based-testing-2/
 @given(
     a=one_of(lists(integers()), lists(floats())),
     b=one_of(lists(integers()), lists(floats())),
