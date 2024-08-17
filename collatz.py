@@ -9,7 +9,7 @@ def flatten(generator):
     return [*generator]
 
 
-def collatz_generator(n):
+def collatz_generator(n: int):
     """
     The collatz function creates a generator for the collatz conjecture
     starting at n and ending when n == 1.
@@ -29,7 +29,7 @@ def collatz_generator(n):
         step += 1
 
 
-def collatz(n):
+def collatz(n: int) -> int:
     step = 0
     while n != 1:
         # if n is even, divide n by 2
