@@ -24,3 +24,11 @@
 # a = bq + r, => r = a - bq
 def mod(a, b):
     return a - (b * (a // b))
+
+
+
+from hypothesis import given
+from hypothesis.strategies import integers
+@given(a=integers(), b=integers())
+def test_mod(a, b):
+    pass
