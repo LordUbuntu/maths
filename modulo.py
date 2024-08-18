@@ -26,7 +26,8 @@ def mod(a: int, b: int) -> int:
     return a - (b * (a // b))
 
 
-
+# properties
+# 1. n mod n == 0
 from hypothesis import given
 from hypothesis.strategies import integers
 @given(a=integers(), b=integers())
