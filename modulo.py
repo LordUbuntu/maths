@@ -22,7 +22,7 @@
 
 # euclidean division (modulo)
 # a = bq + r, => r = a - bq
-def mod(a, b):
+def mod(a: int, b: int) -> int:
     return a - (b * (a // b))
 
 
@@ -30,5 +30,5 @@ def mod(a, b):
 from hypothesis import given
 from hypothesis.strategies import integers
 @given(a=integers(), b=integers())
-def test_mod(a, b):
+def test_mod(a: int, b: int):
     pass
