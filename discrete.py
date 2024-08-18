@@ -118,11 +118,6 @@ def div_iter(a, b):
     return count
 
 
-# euclidean division (modulo)
-def mod(a, b):
-    return a - (b * (a // b))  # a = bq + r, => r = a - bq
-
-
 # maximal flow network backtracking algorithm
 def max_flow():
     pass  # TODO
