@@ -82,22 +82,6 @@ def pow_iter(a, b):
     return a
 
 
-# multiplication
-# recursive multiplication
-def mul_rec(a, b):
-    if a == 0:
-        return b
-    return mul_rec(a - 1, b + a)
-
-
-# iterative multiplication
-def mul_iter(a, b):
-    # or with builtins just `return sum(itertools.repeat(b, a))`
-    total = 0  # a _times_ b, a summed b times
-    while a != 0:
-        a -= 1
-        total += b
-    return total
 
 
 # division
