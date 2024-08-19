@@ -17,6 +17,8 @@
 #   you a many b's.
 # Info:
 #   https://en.wikipedia.org/wiki/Multiplication
+from hypothesis import given
+from hypothesis.strategies import one_of, none, lists, integers, floats
 
 
 # multiplication
@@ -35,3 +37,17 @@ def multiplication_iterative(a, b):
         a -= 1
         total += b
     return total
+
+
+
+# properties
+#   https://en.wikipedia.org/wiki/Multiplication#Properties
+# 0. zero property
+# 1. commutativity
+# 2. associativity
+# 3. distributivity
+# 4. identity
+# 5. negation
+# 6. inverse
+# 7. order preservation
+# 8. peano succession

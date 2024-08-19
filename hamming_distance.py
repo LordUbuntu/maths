@@ -21,7 +21,7 @@ import operator as op
 from typing import List, TypeVar
 T = TypeVar('T', List[int], List[float], str)
 from hypothesis import given
-from hypothesis.strategies import one_of, none, lists, integers, floats, fractions, decimals
+from hypothesis.strategies import one_of, none, lists, integers, floats
 
 
 # find the hamming distance of any two strings
