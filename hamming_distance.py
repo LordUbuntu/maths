@@ -21,6 +21,7 @@ import operator as op
 from typing import List, TypeVar
 T = TypeVar('T', List[int], List[float], str)
 from hypothesis import given
+from hypothesis import settings
 from hypothesis.strategies import one_of, none, lists, integers, floats
 
 
@@ -40,6 +41,7 @@ def hamming_distance(a: T, b: T) -> int:
     a=one_of(lists(integers()), lists(floats())),
     b=one_of(lists(integers()), lists(floats())),
 )
+@settings(max_examples=10000)
 def test_hamming_distance(a: T, b: T):
     # 1. identity: if a == b, hamming_distance(a, b) == 0
     if a == b:
