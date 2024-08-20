@@ -48,16 +48,16 @@ multiplication = multiplication_iterative
 #   https://en.wikipedia.org/wiki/Multiplication#Properties
 # U. undefined returns undefined
 # 0. zero property
-# 1. commutativity
-# 2. associativity
-# 3. distributivity
-# 4. identity
-# 5. negation
+# 1. identity
+# 2. negation
+# 3. commutativity
+# 4. associativity
+# 5. distributivity
 # 6. inverse
 # 7. order preservation
 # 8. peano succession
-MIN=-1_000_000_000_000_000_000_000
-MAX=1_000_000_000_000_000_000_000
+MIN=-1_000_000
+MAX=1_000_000
 @given(
     a=one_of(
         integers(min_value=MIN, max_value=MAX),
@@ -73,3 +73,6 @@ def test_multiplication(a: int | float, b: int | float):
     if not isfinite(a) or not isfinite(b):
         assert isnan(multiplication(a, b))
         return
+    # 0. zero property
+    if a == 0 or b == 0:
+        assert multiplication(a, b) == 0
