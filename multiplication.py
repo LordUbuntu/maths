@@ -17,8 +17,9 @@
 #   you a many b's.
 # Info:
 #   https://en.wikipedia.org/wiki/Multiplication
+from math import isfinite, nan, isnan
 from hypothesis import given
-from hypothesis.strategies import one_of, none, lists, integers, floats
+from hypothesis.strategies import one_of, integers, floats
 
 
 # multiplication
@@ -42,6 +43,7 @@ def multiplication_iterative(a: int | float, b: int | float):
 
 # properties
 #   https://en.wikipedia.org/wiki/Multiplication#Properties
+# undef. undefined returns undefined
 # 0. zero property
 # 1. commutativity
 # 2. associativity
@@ -51,6 +53,9 @@ def multiplication_iterative(a: int | float, b: int | float):
 # 6. inverse
 # 7. order preservation
 # 8. peano succession
-@given()
+@given(
+    a=one_of(integers(), floats()),
+    b=one_of(integers(), floats()),
+)
 def test_multiplication(a: int | float, b: int | float):
     pass
