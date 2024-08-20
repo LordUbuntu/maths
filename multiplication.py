@@ -19,6 +19,7 @@
 #   https://en.wikipedia.org/wiki/Multiplication
 from math import isfinite, nan, isnan
 from hypothesis import given
+from hypothesis import settings
 from hypothesis.strategies import one_of, integers, floats
 
 
@@ -59,6 +60,7 @@ multiplication = multiplication_iterative
     a=one_of(integers(), floats()),
     b=one_of(integers(), floats()),
 )
+@settings(max_examples=10000)
 def test_multiplication(a: int | float, b: int | float):
     # U. undefined returns undefined
     if not isfinite(a) or not isfinite(b):
