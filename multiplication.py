@@ -40,10 +40,12 @@ def multiplication_iterative(a: int | float, b: int | float):
     return total
 
 
+multiplication = multiplication_iterative
+
 
 # properties
 #   https://en.wikipedia.org/wiki/Multiplication#Properties
-# undef. undefined returns undefined
+# U. undefined returns undefined
 # 0. zero property
 # 1. commutativity
 # 2. associativity
@@ -58,4 +60,7 @@ def multiplication_iterative(a: int | float, b: int | float):
     b=one_of(integers(), floats()),
 )
 def test_multiplication(a: int | float, b: int | float):
-    pass
+    # U. undefined returns undefined
+    if not isfinite(a) or not isfinite(b):
+        assert isnan(multiplication(a, b))
+        return
