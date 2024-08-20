@@ -51,3 +51,6 @@ def multiplication_iterative(a: int | float, b: int | float):
 # 6. inverse
 # 7. order preservation
 # 8. peano succession
+@given()
+def test_multiplication(a: int | float, b: int | float):
+    pass
