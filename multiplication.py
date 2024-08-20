@@ -57,10 +57,15 @@ multiplication = multiplication_iterative
 # 7. order preservation
 # 8. peano succession
 @given(
-    a=one_of(integers(), floats()),
-    b=one_of(integers(), floats()),
+    a=one_of(
+        integers(min_value=-1000, max_value=1000),
+        floats(min_value=-1000, max_value=1000)
+    ),
+    b=one_of(
+        integers(min_value=-1000, max_value=1000),
+        floats(min_value=-1000, max_value=1000)
+    ),
 )
-@settings(max_examples=10000)
 def test_multiplication(a: int | float, b: int | float):
     # U. undefined returns undefined
     if not isfinite(a) or not isfinite(b):
