@@ -56,14 +56,16 @@ multiplication = multiplication_iterative
 # 6. inverse
 # 7. order preservation
 # 8. peano succession
+MIN=-1_000_000_000_000
+MAX=1_000_000_000_000
 @given(
     a=one_of(
-        integers(min_value=-1000, max_value=1000),
-        floats(min_value=-1000, max_value=1000)
+        integers(min_value=MIN, max_value=MAX),
+        floats(min_value=MIN, max_value=MAX)
     ),
     b=one_of(
-        integers(min_value=-1000, max_value=1000),
-        floats(min_value=-1000, max_value=1000)
+        integers(min_value=MIN, max_value=MAX),
+        floats(min_value=MIN, max_value=MAX)
     ),
 )
 def test_multiplication(a: int | float, b: int | float):
