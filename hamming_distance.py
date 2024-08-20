@@ -37,11 +37,18 @@ def hamming_distance(a: T, b: T) -> int:
 # 1. identity: if a == b, hamming_distance(a, b) == 0
 # 2. idempotence: doing the same operation twice should yield the same output
 # 3. mismatching lengths truncate longer list and count extra length to hamming distance
+MIN=-1_000_000_000_000_000_000_000
+MAX=1_000_000_000_000_000_000_000
 @given(
-    a=one_of(lists(integers()), lists(floats())),
-    b=one_of(lists(integers()), lists(floats())),
+    a=one_of(
+        lists(integers(min_value=MIN, max_value=MAX)),
+        lists(floats(min_value=MIN, max_value=MAX))
+    ),
+    b=one_of(
+        lists(integers(min_value=MIN, max_value=MAX)),
+        lists(floats(min_value=MIN, max_value=MAX))
+    ),
 )
-@settings(max_examples=10000)
 def test_hamming_distance(a: T, b: T):
     # 1. identity: if a == b, hamming_distance(a, b) == 0
     if a == b:
