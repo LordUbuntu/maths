@@ -70,6 +70,7 @@ MAX=1_000_000
 )
 def test_multiplication(a: int | float, b: int | float):
     # U. undefined returns undefined
+    # TODO: is this sufficient?
     if not isfinite(a) or not isfinite(b):
         assert isnan(multiplication(a, b))
         return
