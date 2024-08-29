@@ -76,3 +76,6 @@ def test_multiplication(a: int | float, b: int | float):
     # 0. zero property
     if a == 0 or b == 0:
         assert multiplication(a, b) == 0
+    # 1. identity
+    assert multiplication(a, 1) == a
+    assert multiplication(1, b) == b
