@@ -70,7 +70,6 @@ MAX=1_000_000
 )
 def test_multiplication(a: int | float, b: int | float):
     # U. undefined returns undefined
-    # TODO: is this sufficient?
     if not isfinite(a) or not isfinite(b):
         assert isnan(multiplication(a, b))
         return
@@ -79,4 +78,10 @@ def test_multiplication(a: int | float, b: int | float):
         assert multiplication(a, b) == 0
     # 1. identity
     assert multiplication(a, 1) == a
-    assert multiplication(1, b) == b
+    assert multiplication(b, 1) == b
+    # 2. negation
+    # TODO: just realizing that my implementation assumes positive numbers only...
+    assert multiplication(a, -1) == -a
+    assert multiplication(b, -1) == -b
+    assert multiplication(-a, -1) == a
+    assert multiplication(-b, -1) == b
