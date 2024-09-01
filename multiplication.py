@@ -87,4 +87,3 @@ def test_multiplication(a: int | float, b: int | float):
     assert multiplication(-b, -1) == b
     # 3. commutativity
     assert multiplication(a, b) == multiplication(b, a)
-    # TODO: realized i should reimplement to take a variable number of parameters in any order...
