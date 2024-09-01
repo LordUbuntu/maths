@@ -50,6 +50,7 @@ fib = fib_iterative
 #   input and output are integers
 # 2. Fi + Fi+1 = Fi+2
 #   each following element is the sum of the previous
+# 3. extended functionality for negatives
 @given(
     n=integers(),
 )
