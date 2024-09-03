@@ -87,3 +87,6 @@ def test_multiplication(a: int | float, b: int | float):
     assert multiplication(-b, -1) == b
     # 3. commutativity
     assert multiplication(a, b) == multiplication(b, a)
+    # 4. associativity
+    # TODO: not sure if this is right
+    assert multiplication(multiplication(a, b), a) == multiplication(a, multiplication(a, b))
