@@ -92,3 +92,5 @@ def test_multiplication(a: int | float, b: int | float):
     assert multiplication(multiplication(a, b), a) == multiplication(a, multiplication(a, b))
     # 5. distributivity
     # how would I do this?
+    # 6. inverse
+    # how would I do this?
