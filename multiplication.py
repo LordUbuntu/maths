@@ -90,3 +90,5 @@ def test_multiplication(a: int | float, b: int | float):
     # 4. associativity
     # TODO: not sure if this is right
     assert multiplication(multiplication(a, b), a) == multiplication(a, multiplication(a, b))
+    # 5. distributivity
+    # how would I do this?
