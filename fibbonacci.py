@@ -51,6 +51,7 @@ fib = fib_iterative
 # 2. Fi + Fi+1 = Fi+2
 #   each following element is the sum of the previous
 # 3. extended functionality for negatives
+# 4. oracle test
 @given(
     n=integers(),
 )
