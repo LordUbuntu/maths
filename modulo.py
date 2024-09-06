@@ -32,4 +32,5 @@ from hypothesis import given
 from hypothesis.strategies import integers
 @given(a=integers(), b=integers())
 def test_mod(a: int, b: int):
-    pass
+    assert mod(a, a) == 0
+    assert mod(b, b) == 0
