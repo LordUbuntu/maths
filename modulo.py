@@ -18,20 +18,27 @@
 #   divisibility (like n % 2 == 0 indicated a number is even).
 # Info:
 #   https://en.wikipedia.org/wiki/Modulo
+import math
 
 
 # euclidean division (modulo)
 # a = bq + r, => r = a - bq
 def mod(a: int, b: int) -> int:
+    if a == 0 or b == 0:
+        return math.nan
     return a - (b * (a // b))
 
 
 # properties
+# 0. zero - n mod 0 == undefined
 # 1. identity - n mod n == 0
 from hypothesis import given
 from hypothesis.strategies import integers
 @given(a=integers(), b=integers())
 def test_mod(a: int, b: int):
+    # 0
+    if a == 0 or b == 0:
+        assert math.isnan(mod(a, b))
     # 1
     assert mod(a, a) == 0
     assert mod(b, b) == 0
