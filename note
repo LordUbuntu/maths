@@ -7,3 +7,5 @@ In the case of Python, that will be down with:
   - mypy (type checking)
   - pytest + hypothesis (property-based testing)
     - https://fsharpforfunandprofit.com/posts/property-based-testing-2/
+
+This approach is working fantastically so far!
