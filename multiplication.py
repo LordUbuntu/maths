@@ -96,3 +96,4 @@ def test_multiplication(a: int | float, b: int | float):
     # how would I do this?
     # 7. order preservation
     # 8. peano succession
+    assert multiplication(a, 2) == a + a
