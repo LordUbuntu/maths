@@ -11,3 +11,4 @@ In the case of Python, that will be down with:
 This approach is working fantastically so far!
 
 I need to do more research on hypthesis and property based testing.
+And I should focus on writing the code first instead of worrying about tests, since that adds more friction and difficulty to the process.
