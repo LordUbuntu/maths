@@ -93,7 +93,7 @@ def test_multiplication(a: int | float, b: int | float):
     # 5. distributivity
     # how would I do this?
     # 6. inverse
-    # how would I do this?
+    assert multiplication(a, 1/a) == 1
     # 7. order preservation
     # 8. peano succession
     assert multiplication(a, 2) == a + a
