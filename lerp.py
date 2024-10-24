@@ -60,6 +60,7 @@ def lerp(a: int | float, b: int | float, alpha: float) -> float:
 # properties:
 # 0. undefined inputs give undefined output
 # 1. f: Z | R -> R
+# 2. output is bound to interval [a, b]
 @given(
     a=one_of(floats(), integers()),
     b=one_of(floats(), integers()),
@@ -72,3 +73,5 @@ def test_lerp(a: int | float, b: int | float, alpha: float) -> None:
         return
     # 1
     assert type(lerp(a, b, alpha)) == float
+    # 2
+    assert a <= lerp(a, b, alpha) <= b
