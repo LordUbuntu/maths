@@ -12,3 +12,4 @@ This approach is working fantastically so far!
 
 I need to do more research on hypthesis and property based testing.
 And I should focus on writing the code first instead of worrying about tests, since that adds more friction and difficulty to the process.
+Is there a way to test against logical constraints? How would I test theory and outcome with proovers like Coq or LEAN?
