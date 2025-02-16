@@ -21,3 +21,5 @@ I think the best choice is to start with just writing the algorithms and botheri
 2025-02-16
 It might be best to not over-engineer each file with proofs and other tests and stuff like that. Instead, I should keep it simple to implement and show. I'll keep docstrings and mypy type declarations, but I'll keep tests seperate or not have them at all.
 There must be a simpler and better way to verify and prove the validity of a program than to write tests like hypothesis for them...
+Still, the Curry-Howard correspondance and Programming By Proof are very alluring concepts for a repository about mathematical programs.
+I think I should keep the programs themselves simple and free of noise and imports and dependencies. I would like to include verificaiton later somehow though.
