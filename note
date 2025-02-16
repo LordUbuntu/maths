@@ -16,3 +16,8 @@ Is there a way to test against logical constraints? How would I test theory and 
 
 
 I think the best choice is to start with just writing the algorithms and bothering with testing after that. The testing can get tedious.
+
+
+2025-02-16
+It might be best to not over-engineer each file with proofs and other tests and stuff like that. Instead, I should keep it simple to implement and show. I'll keep docstrings and mypy type declarations, but I'll keep tests seperate or not have them at all.
+There must be a simpler and better way to verify and prove the validity of a program than to write tests like hypothesis for them...
