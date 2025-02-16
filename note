@@ -23,3 +23,4 @@ It might be best to not over-engineer each file with proofs and other tests and 
 There must be a simpler and better way to verify and prove the validity of a program than to write tests like hypothesis for them...
 Still, the Curry-Howard correspondance and Programming By Proof are very alluring concepts for a repository about mathematical programs.
 I think I should keep the programs themselves simple and free of noise and imports and dependencies. I would like to include verificaiton later somehow though.
+A close one I've decided to use is deal (https://github.com/life4/deal), by using the command `python -m deal prove <file>` I can run a formal verification on the file and it might catch out bugs in the mathematics of the particular file.
