@@ -28,7 +28,9 @@ from hypothesis.strategies import one_of, none, lists, integers, floats
 # find the hamming distance of any two strings
 # this should work with lists, strings, and other sequential data types
 def hamming_distance(a: T, b: T) -> int:
-    # haming distance + difference of lengths
+    """
+    Calculates the hamming distance between two strings.
+    """
     return sum(map(op.ne, a, b)) + abs(len(a) - len(b))
 
 
