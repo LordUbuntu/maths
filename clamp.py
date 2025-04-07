@@ -15,7 +15,7 @@ from hypothesis.strategies import one_of, none, integers, floats
 
 def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int | float:
     """
-    Binds value between (and including) a minimum and maximum bound.
+    Bind value on inverval [minimum, maximum]
 
     Parameters
     ----------
