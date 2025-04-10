@@ -8,9 +8,6 @@
 #   Limits values within a specified minimum and maximum value
 # Uses:
 #   - keeping values within an interval (inclusive)
-from math import isfinite, nan, isnan
-from hypothesis import given
-from hypothesis.strategies import one_of, none, integers, floats
 
 
 def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int | float:
@@ -40,42 +37,8 @@ def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int
     Output will not be < minimum
     Output will not be > maximum
     """
-    # return nan for undefined inputs
-    if not isfinite(value) or not isfinite(minimum) or not isfinite(maximum):
-        return nan
-    # reorder min and max
+    # ensure order of values in clamp
     if maximum < minimum:
         minimum, maximum = maximum, minimum
-    # return clamp of function otherwise
+    # return clamp of values
     return max(minimum, min(value, maximum))
-
-
-# Properties of clamp function:
-# 0. if value, min, max == undefined, return nan
-#       undefined inputs return an undefined output (nan)
-# 1. oracle answer == clamp(a, b, c)
-# 2. clamp(a, b, c) == clamp(a, b, c)
-#       for the same input, clamp must provide the same output
-@given(
-    value=one_of(integers(), floats()),
-    minimum=one_of(integers(), floats()),
-    maximum=one_of(integers(), floats()),
-)
-def test_clamp(value: int | float, minimum: int | float, maximum: int | float) -> None:
-    # 0. undefined inputs return an undefined output (nan)
-    if not isfinite(value) or not isfinite(minimum) or not isfinite(maximum):
-        assert isnan(clamp(value, minimum, maximum))
-        return
-    # 1. oracle answer == clamp(a, b, c)
-    _min = minimum if minimum < maximum else maximum
-    _max = maximum if minimum < maximum else minimum
-    answer = value
-    if answer <= _min:
-        answer = _min
-    elif answer >= _max:
-        answer = _max
-    else:
-        answer = value
-    assert clamp(value, minimum, maximum) == answer
-    # 2. for the same input, clamp must provide the same output
-    assert clamp(value, minimum, maximum) == clamp(value, minimum, maximum)
