@@ -40,6 +40,11 @@ def fib_iterative(n: int) -> int:
     return a
 
 
+# TODO: discovered today (2025-04-09) that there is a O(log n) algorithm
+#       to calculate the nth fibbonacci number by raising a matrix to
+#       some power. That may be the best approach to then test against
+
+
 fib = fib_iterative
 
 
