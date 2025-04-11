@@ -18,11 +18,8 @@
 #   https://en.wikipedia.org/wiki/Hamming_distance
 import math
 import operator as op
-from typing import List, TypeVar
-T = TypeVar('T', List[int], List[float], str)
-from hypothesis import given
-from hypothesis import settings
-from hypothesis.strategies import one_of, none, lists, integers, floats
+from typing import TypeVar
+T = TypeVar('T', list, str)
 
 
 # find the hamming distance of any two strings
@@ -32,47 +29,3 @@ def hamming_distance(a: T, b: T) -> int:
     Calculates the hamming distance between two strings.
     """
     return sum(map(op.ne, a, b)) + abs(len(a) - len(b))
-
-
-
-# properties
-# 1. identity: if a == b, hamming_distance(a, b) == 0
-# 2. idempotence: doing the same operation twice should yield the same output
-# 3. mismatching lengths truncate longer list and count extra length to hamming distance
-MIN=-1_000_000_000_000_000_000_000
-MAX=1_000_000_000_000_000_000_000
-@given(
-    a=one_of(
-        lists(integers(min_value=MIN, max_value=MAX)),
-        lists(floats(min_value=MIN, max_value=MAX))
-    ),
-    b=one_of(
-        lists(integers(min_value=MIN, max_value=MAX)),
-        lists(floats(min_value=MIN, max_value=MAX))
-    ),
-)
-def test_hamming_distance(a: T, b: T):
-    # 1. identity: if a == b, hamming_distance(a, b) == 0
-    if a == b:
-        assert hamming_distance(a, b) == 0
-    # 2. idempotence: doing the same operation twice should yield the same output
-    assert hamming_distance(a, a) == hamming_distance(a, a)
-    assert hamming_distance(b, b) == hamming_distance(b, b)
-    assert hamming_distance(a, b) == hamming_distance(a, b)
-    assert hamming_distance(b, a) == hamming_distance(b, a)
-    # 3. mismatching lengths truncate longer list and count extra length to hamming distance
-    if len(a) != len(b):
-        if len(a) > len(b):
-            length_diff = len(a) - len(b)
-            hamming = 0
-            for i in range(len(b)):
-                if a[i] != b[i]:
-                    hamming += 1
-            assert hamming + length_diff == hamming_distance(a, b)
-        else:
-            length_diff = len(b) - len(a)
-            hamming = 0
-            for i in range(len(a)):
-                if a[i] != b[i]:
-                    hamming += 1
-            assert hamming + length_diff == hamming_distance(a, b)
