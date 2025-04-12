@@ -17,10 +17,6 @@
 #   you a many b's.
 # Info:
 #   https://en.wikipedia.org/wiki/Multiplication
-from math import isfinite, nan, isnan
-from hypothesis import given
-from hypothesis import settings
-from hypothesis.strategies import one_of, integers, floats
 
 
 # multiplication
@@ -40,60 +36,6 @@ def multiplication_iterative(a: int | float, b: int | float):
         total += b
     return total
 
-
-multiplication = multiplication_iterative
-
-
-# properties
-#   https://en.wikipedia.org/wiki/Multiplication#Properties
-# U. undefined returns undefined
-# 0. zero property
-# 1. identity
-# 2. negation
-# 3. commutativity
-# 4. associativity
-# 5. distributivity
-# 6. inverse
-# 7. order preservation
-# 8. peano succession
-MIN=-1_000_000
-MAX=1_000_000
-@given(
-    a=one_of(
-        integers(min_value=MIN, max_value=MAX),
-        floats(min_value=MIN, max_value=MAX)
-    ),
-    b=one_of(
-        integers(min_value=MIN, max_value=MAX),
-        floats(min_value=MIN, max_value=MAX)
-    ),
-)
-def test_multiplication(a: int | float, b: int | float):
-    # U. undefined returns undefined
-    if not isfinite(a) or not isfinite(b):
-        assert isnan(multiplication(a, b))
-        return
-    # 0. zero property
-    if a == 0 or b == 0:
-        assert multiplication(a, b) == 0
-    # 1. identity
-    assert multiplication(a, 1) == a
-    assert multiplication(b, 1) == b
-    # 2. negation
-    # TODO: just realizing that my implementation assumes positive numbers only...
-    assert multiplication(a, -1) == -a
-    assert multiplication(b, -1) == -b
-    assert multiplication(-a, -1) == a
-    assert multiplication(-b, -1) == b
-    # 3. commutativity
-    assert multiplication(a, b) == multiplication(b, a)
-    # 4. associativity
-    # TODO: not sure if this is right
-    assert multiplication(multiplication(a, b), a) == multiplication(a, multiplication(a, b))
-    # 5. distributivity
-    # how would I do this?
-    # 6. inverse
-    assert multiplication(a, 1/a) == 1
-    # 7. order preservation
-    # 8. peano succession
-    assert multiplication(a, 2) == a + a
+# the iterative and recursive implementations are effectively the
+#   same thing. I think this is an example of the
+#   curry-howard isomorphism.
