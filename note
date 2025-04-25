@@ -31,3 +31,9 @@ A close one I've decided to use is deal (https://github.com/life4/deal), by usin
 Need to figure out how exactly to write and automate tests for these on github and elsewhere.
 I should also take inspiration from that group-theory repo I contributed to and consider using dataclasses or other approaches to organize the code better. Right now each module/file is a container for one function. That's fine for many applications, but for larger systems like Category theory, Topology theory, Geometry, Algebra, Group theory, among others, that can be a bit too fine.
 In general, I should group things together only when they're truly related in that way and it makes sense to. Premature optimization is a road to great sorrows.
+
+
+
+2025-04-24
+Decided to reorganize file structure. Need to figure out how to get
+  module imports for tests and other stuff working out...
