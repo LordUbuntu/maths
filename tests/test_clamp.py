@@ -1,7 +1,7 @@
 # This test code was written by the `hypothesis.extra.ghostwriter` module
 # and is provided under the Creative Commons Zero public domain dedication.
 
-import clamp
+import clamp  # how do i import from the main module???!?!?!??!!
 import typing
 from hypothesis import given, strategies as st
 
