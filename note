@@ -37,3 +37,5 @@ In general, I should group things together only when they're truly related in th
 2025-04-24
 Decided to reorganize file structure. Need to figure out how to get
   module imports for tests and other stuff working out...
+FIGURED OUT TESTS. Install in editable mode, or more easily, run tests
+  like "PYTHONPATH=maths pytest" at the root of the project!
