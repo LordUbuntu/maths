@@ -12,7 +12,7 @@
 
 def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int | float:
     """
-    Bind value on inverval [minimum, maximum]
+    Bind value in inverval [minimum, maximum]
 
     Parameters
     ----------
@@ -37,8 +37,8 @@ def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int
     Output will not be < minimum
     Output will not be > maximum
     """
-    # ensure order of values in clamp
+    # ensure minimum is minimum and maximum is maximum
     if maximum < minimum:
         minimum, maximum = maximum, minimum
-    # return clamp of values
+    # return the value clamped between minimum and maximum
     return max(minimum, min(value, maximum))
