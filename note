@@ -39,3 +39,10 @@ Decided to reorganize file structure. Need to figure out how to get
   module imports for tests and other stuff working out...
 FIGURED OUT TESTS. Install in editable mode, or more easily, run tests
   like "PYTHONPATH=maths pytest" at the root of the project!
+
+2025-04-26
+Utilizing hypothesis for property-based testing and deal for design
+  by contract development. Together these approaches ensure decently
+  rigorous and verifiable software. More approaches in the future will
+  be added as discovered for a high standard of verifiability and
+  provability in this mathematics library.
