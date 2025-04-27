@@ -23,7 +23,7 @@ import deal
 # return value will be between minimum and maximum
 # TODO cannot figure out how postconditions checking inputs would work...
 # finally, the clamp function is a pure function so it should have no side-effects
-@deal.pure()
+@deal.pure
 def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int | float:
     """
     Bind value in inverval [minimum, maximum]
