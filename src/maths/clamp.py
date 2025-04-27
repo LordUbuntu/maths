@@ -8,8 +8,22 @@
 #   Limits values within a specified minimum and maximum value
 # Uses:
 #   - keeping values within an interval (inclusive)
+from math import isfinite
+import deal
 
 
+# parameters are not NAN or +/-Infinity
+@deal.pre(lambda value: isfinite(value))
+@deal.pre(lambda minimum: isfinite(minimum))
+@deal.pre(lambda maximum: isfinite(maximum))
+# parameters are not None
+@deal.pre(lambda value: value is not None)
+@deal.pre(lambda minimum: minimum is not None)
+@deal.pre(lambda maximum: maximum is not None)
+# return value will be between minimum and maximum
+# TODO cannot figure out how postconditions checking inputs would work...
+# finally, the clamp function is a pure function so it should have no side-effects
+@deal.pure()
 def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int | float:
     """
     Bind value in inverval [minimum, maximum]
@@ -34,8 +48,7 @@ def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int
 
     Postconditions
     --------------
-    Output will not be < minimum
-    Output will not be > maximum
+    Return value will be between minimum and maximum
     """
     # ensure minimum is minimum and maximum is maximum
     if maximum < minimum:
