@@ -12,17 +12,11 @@ from math import isfinite
 import deal
 
 
-# parameters are not NAN or +/-Infinity
-@deal.pre(lambda value: isfinite(value))
-@deal.pre(lambda minimum: isfinite(minimum))
-@deal.pre(lambda maximum: isfinite(maximum))
-# parameters are not None
-@deal.pre(lambda value: value is not None)
-@deal.pre(lambda minimum: minimum is not None)
-@deal.pre(lambda maximum: maximum is not None)
+# parameters are not None, NAN, or +/-Infinity
+@deal.pre(lambda value, minimum, maximum: (value is not None and isfinite(value)) and (minimum is not None and isfinite(minimum)) and (maximum is not None and isfinite(maximum)))
 # return value will be between minimum and maximum
-# TODO cannot figure out how postconditions checking inputs would work...
-# finally, the clamp function is a pure function so it should have no side-effects
+@deal.ensure(lambda value, minimum, maximum, result: minimum <= result <= maximum)
+# function is pure (no side-effects)
 @deal.pure
 def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int | float:
     """
