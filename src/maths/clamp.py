@@ -1,4 +1,4 @@
-# Jacobus Burger (Created 2024-08-01, Last Updated 2024-08-07)
+# Jacobus Burger (Created 2024-08-01, Last Updated 2025-04-27)
 # Desc:
 #   Clamping is a useful mathematical function when you want to ensure a
 #   value remains fixed within a bound.
