@@ -15,7 +15,7 @@ import deal
 # parameters are not None, NAN, or +/-Infinity
 @deal.pre(lambda value, minimum, maximum: (value is not None and isfinite(value)) and (minimum is not None and isfinite(minimum)) and (maximum is not None and isfinite(maximum)))
 # return value will be between minimum and maximum
-@deal.ensure(lambda value, minimum, maximum, result: abs(minimum) <= abs(result) <= abs(maximum))
+@deal.ensure(lambda value, minimum, maximum, result: min(minimum, maximum) <= result <= max(minimum, maximum))
 # function is pure (no side-effects)
 @deal.pure
 def clamp(value: int | float, minimum: int | float, maximum: int | float) -> int | float:
