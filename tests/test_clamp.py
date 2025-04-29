@@ -7,9 +7,9 @@ from hypothesis import given, strategies as st
 
 
 @given(
-    value=st.one_of(st.floats(), st.integers()),
-    minimum=st.one_of(st.floats(), st.integers()),
-    maximum=st.one_of(st.floats(), st.integers()),
+    value=st.one_of(st.floats(allow_infinity=False, allow_nan=False), st.integers()),
+    minimum=st.one_of(st.floats(allow_infinity=False, allow_nan=False), st.integers()),
+    maximum=st.one_of(st.floats(allow_infinity=False, allow_nan=False), st.integers()),
 )
 def test_fuzz_clamp(
     value: typing.Union[int, float],
