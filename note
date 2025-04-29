@@ -46,3 +46,9 @@ Utilizing hypothesis for property-based testing and deal for design
   rigorous and verifiable software. More approaches in the future will
   be added as discovered for a high standard of verifiability and
   provability in this mathematics library.
+
+2025-04-28
+It is truly infuriating that Python needs so many configuration files
+  in a project directory. It's so frustrating to have all of this and
+  disagreements about how best to do it istead of a straight-forwards
+  and simple approach.
