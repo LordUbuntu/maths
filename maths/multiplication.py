@@ -17,6 +17,7 @@
 #   you a many b's.
 # Info:
 #   https://en.wikipedia.org/wiki/Multiplication
+#   https://en.wikipedia.org/wiki/Multiplication_algorithm
 
 
 # multiplication
@@ -38,4 +39,4 @@ def multiplication_iterative(a: int | float, b: int | float):
 
 # the iterative and recursive implementations are effectively the
 #   same thing. I think this is an example of the
-#   curry-howard isomorphism.
+#   curry-howard isomorphism?
