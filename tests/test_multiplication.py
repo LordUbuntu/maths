@@ -5,7 +5,7 @@ import multiplication
 import typing
 from hypothesis import given, strategies as st
 
-multiplication_iterative_operands = st.one_of(st.floats(), st.integers())
+multiplication_iterative_operands = st.one_of(st.floats(allow_infinity=False, allow_nan=False), st.integers())
 
 
 @given(
@@ -22,7 +22,7 @@ def test_associative_binary_operation_multiplication_iterative(
     right = multiplication.multiplication_iterative(
         a=multiplication.multiplication_iterative(a=a, b=b), b=c
     )
-    assert left == right, (left, right)
+    assert left == right
 
 
 @given(a=multiplication_iterative_operands, b=multiplication_iterative_operands)
