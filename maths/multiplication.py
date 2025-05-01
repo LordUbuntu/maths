@@ -18,10 +18,15 @@
 # Info:
 #   https://en.wikipedia.org/wiki/Multiplication
 #   https://en.wikipedia.org/wiki/Multiplication_algorithm
+from math import isfinite
+import deal
 
 
 # multiplication
 # recursive multiplication
+@deal.pre(lambda a, b: (a is not None and isfinite(a)) and (b is not None and isfinite(b)))
+@deal.ensure(lambda a, b, result: result == a * b)
+@deal.pure
 def multiplication_recursive(a: int | float, b: int | float):
     if a == 0:
         return b
