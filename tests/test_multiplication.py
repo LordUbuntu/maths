@@ -1,6 +1,12 @@
 # This test code was written by the `hypothesis.extra.ghostwriter` module
 # and is provided under the Creative Commons Zero public domain dedication.
 
+# NOTE:
+# the algorithms for multiplication have inefficient time complexities
+#   and so can take a long time to test.
+# I wonder if there's a way to write tests that specify a limitation
+#   on the time and space complexities of a given function?
+
 import multiplication
 import typing
 from hypothesis import given, strategies as st
