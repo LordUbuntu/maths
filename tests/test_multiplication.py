@@ -9,7 +9,7 @@
 
 import multiplication
 import typing
-from hypothesis import given, strategies as st
+from hypothesis import given, settings, strategies as st
 
 multiplication_iterative_operands = st.one_of(st.floats(allow_infinity=False, allow_nan=False), st.integers())
 
@@ -19,6 +19,7 @@ multiplication_iterative_operands = st.one_of(st.floats(allow_infinity=False, al
     b=multiplication_iterative_operands,
     c=multiplication_iterative_operands,
 )
+@settings(max_examples=1000)
 def test_associative_binary_operation_multiplication_iterative(
     a: typing.Union[int, float], b: typing.Union[int, float], c
 ) -> None:
@@ -32,6 +33,7 @@ def test_associative_binary_operation_multiplication_iterative(
 
 
 @given(a=multiplication_iterative_operands, b=multiplication_iterative_operands)
+@settings(max_examples=1000)
 def test_commutative_binary_operation_multiplication_iterative(
     a: typing.Union[int, float], b: typing.Union[int, float]
 ) -> None:
@@ -41,6 +43,7 @@ def test_commutative_binary_operation_multiplication_iterative(
 
 
 @given(a=multiplication_iterative_operands)
+@settings(max_examples=1000)
 def test_identity_binary_operation_multiplication_iterative(
     a: typing.Union[int, float]
 ) -> None:
@@ -60,6 +63,7 @@ multiplication_recursive_operands = st.one_of(st.floats(), st.integers())
     b=multiplication_recursive_operands,
     c=multiplication_recursive_operands,
 )
+@settings(max_examples=1000)
 def test_associative_binary_operation_multiplication_recursive(
     a: typing.Union[int, float], b: typing.Union[int, float], c
 ) -> None:
@@ -73,6 +77,7 @@ def test_associative_binary_operation_multiplication_recursive(
 
 
 @given(a=multiplication_recursive_operands, b=multiplication_recursive_operands)
+@settings(max_examples=1000)
 def test_commutative_binary_operation_multiplication_recursive(
     a: typing.Union[int, float], b: typing.Union[int, float]
 ) -> None:
@@ -82,6 +87,7 @@ def test_commutative_binary_operation_multiplication_recursive(
 
 
 @given(a=multiplication_recursive_operands)
+@settings(max_examples=1000)
 def test_identity_binary_operation_multiplication_recursive(
     a: typing.Union[int, float]
 ) -> None:
