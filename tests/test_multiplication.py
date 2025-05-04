@@ -11,15 +11,11 @@ import multiplication
 import typing
 from hypothesis import given, settings, strategies as st
 
-multiplication_iterative_operands = st.one_of(st.floats(allow_infinity=False, allow_nan=False), st.integers())
+T = st.one_of(st.floats(allow_infinity=False, allow_nan=False), st.integers())
 
 
-@given(
-    a=multiplication_iterative_operands,
-    b=multiplication_iterative_operands,
-    c=multiplication_iterative_operands,
-)
-@settings(max_examples=1000)
+@given(a=T, b=T, c=T)
+@settings(max_examples=10_000)
 def test_associative_binary_operation_multiplication_iterative(
     a: typing.Union[int, float], b: typing.Union[int, float], c
 ) -> None:
