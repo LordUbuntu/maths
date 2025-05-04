@@ -11,19 +11,22 @@ import multiplication
 import typing
 from hypothesis import given, settings, strategies as st
 
-T = st.one_of(st.floats(allow_infinity=False, allow_nan=False), st.integers())
+st_int_float = st.one_of(st.floats(allow_infinity=False, allow_nan=False), st.integers())
+T_int_float = typing.Union[int, float]
 
 
-@given(a=T, b=T, c=T)
+@given(a=st_int_float, b=st_int_float, c=st_int_float)
 @settings(max_examples=10_000)
 def test_associative_binary_operation_multiplication_iterative(
-    a: typing.Union[int, float], b: typing.Union[int, float], c
+    a: T_int_float, b: T_int_float, c: T_int_float
 ) -> None:
     left = multiplication.multiplication_iterative(
-        a=a, b=multiplication.multiplication_iterative(a=b, b=c)
+        a=a,
+        b=multiplication.multiplication_iterative(a=b, b=c)
     )
-    right = multiplication.multiplication_iterative(
-        a=multiplication.multiplication_iterative(a=a, b=b), b=c
+    left = multiplication.multiplication_iterative(
+        a=multiplication.multiplication_iterative(a=b, b=c),
+        b=b
     )
     assert left == right
 
