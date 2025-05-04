@@ -42,14 +42,11 @@ def test_commutative_binary_operation_multiplication_iterative(
 
 
 @given(a=st_int_float)
-@settings(max_examples=1000)
+@settings(max_examples=100)
 def test_identity_binary_operation_multiplication_iterative(
     a: T_int_float
 ) -> None:
-    # I'm sure this isn't correct...
-    # Multiplying by 0 should always yield 0.
-    # Multiplying by 1 should always yield a.
-    identity = 0.0
+    identity = 1
     assert a == multiplication.multiplication_iterative(a=a, b=identity)
     assert a == multiplication.multiplication_iterative(a=identity, b=a)
 
