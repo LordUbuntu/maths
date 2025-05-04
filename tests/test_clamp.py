@@ -6,15 +6,18 @@ import typing
 from hypothesis import given, strategies as st
 
 
+st_int_float = st.one_of(st.floats(allow_infinity=False, allow_nan=False), st.integers())
+T_int_float = typing.Union[int, float]  # backwards compatable `int | float`
+
+
 @given(
-    value=st.one_of(st.floats(allow_infinity=False, allow_nan=False), st.integers()),
-    minimum=st.one_of(st.floats(allow_infinity=False, allow_nan=False), st.integers()),
-    maximum=st.one_of(st.floats(allow_infinity=False, allow_nan=False), st.integers()),
+    value=st_int_float,
+    minimum=st_int_float,
+    maximum=st_int_float,
 )
 def test_fuzz_clamp(
-    value: typing.Union[int, float],
-    minimum: typing.Union[int, float],
-    maximum: typing.Union[int, float],
+        value: T_int_float,
+        minimum: T_int_float,
+        maximum: T_int_float
 ) -> None:
     clamp.clamp(value=value, minimum=minimum, maximum=maximum)
-
