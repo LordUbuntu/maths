@@ -52,3 +52,24 @@ It is truly infuriating that Python needs so many configuration files
   in a project directory. It's so frustrating to have all of this and
   disagreements about how best to do it istead of a straight-forwards
   and simple approach.
+
+2025-05-04
+Researching ways to make this library more robust.
+So far
+- mypy for static type checking
+- hypothesis for property based testing
+- deal for design-by-contract assurances
+But still unsure how to validate time and memory limitations in the
+  code with tests. I found memray which looks promising for memory
+  profiling and can be implemented as a limit with pytest. Mostly
+  profilers will just be used to report the performance of tests
+  to spot out anomalies. Limits may be set such as a timeout for
+  tests longer that 10s for example. But overall deal and hypothesis
+  will be the main bed for testing, and then memory and time profilers
+  will simply report performances (with some exceptions).
+The goal is to automate testing and ensure a high quality, robustness,
+  correctness, verifiability to the math programs implemented in this
+  library.
+!!! I think the goal of this project is to learn Python 3 development
+  best practices, and to make a collection of well-tested and useful
+  mathematical functions and algorithms. !!!
