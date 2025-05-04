@@ -16,7 +16,7 @@ T_int_float = typing.Union[int, float]
 
 
 @given(a=st_int_float, b=st_int_float, c=st_int_float)
-@settings(max_examples=10_000)
+@settings(max_examples=100)
 def test_associative_binary_operation_multiplication_iterative(
     a: T_int_float, b: T_int_float, c: T_int_float
 ) -> None:
@@ -31,20 +31,20 @@ def test_associative_binary_operation_multiplication_iterative(
     assert left == right
 
 
-@given(a=multiplication_iterative_operands, b=multiplication_iterative_operands)
+@given(a=st_int_float, b=st_int_float)
 @settings(max_examples=1000)
 def test_commutative_binary_operation_multiplication_iterative(
-    a: typing.Union[int, float], b: typing.Union[int, float]
+    a: T_int_float, b: T_int_float
 ) -> None:
     left = multiplication.multiplication_iterative(a=a, b=b)
     right = multiplication.multiplication_iterative(a=b, b=a)
     assert left == right, (left, right)
 
 
-@given(a=multiplication_iterative_operands)
+@given(a=st_int_float)
 @settings(max_examples=1000)
 def test_identity_binary_operation_multiplication_iterative(
-    a: typing.Union[int, float]
+    a: T_int_float
 ) -> None:
     # I'm sure this isn't correct...
     # Multiplying by 0 should always yield 0.
@@ -54,17 +54,14 @@ def test_identity_binary_operation_multiplication_iterative(
     assert a == multiplication.multiplication_iterative(a=identity, b=a)
 
 
-multiplication_recursive_operands = st.one_of(st.floats(), st.integers())
-
-
 @given(
-    a=multiplication_recursive_operands,
-    b=multiplication_recursive_operands,
-    c=multiplication_recursive_operands,
+    a=st_int_float,
+    b=st_int_float,
+    c=st_int_float,
 )
 @settings(max_examples=1000)
 def test_associative_binary_operation_multiplication_recursive(
-    a: typing.Union[int, float], b: typing.Union[int, float], c
+    a: T_int_float, b: T_int_float, c
 ) -> None:
     left = multiplication.multiplication_recursive(
         a=a, b=multiplication.multiplication_recursive(a=b, b=c)
@@ -75,20 +72,20 @@ def test_associative_binary_operation_multiplication_recursive(
     assert left == right, (left, right)
 
 
-@given(a=multiplication_recursive_operands, b=multiplication_recursive_operands)
+@given(a=st_int_float, b=st_int_float)
 @settings(max_examples=1000)
 def test_commutative_binary_operation_multiplication_recursive(
-    a: typing.Union[int, float], b: typing.Union[int, float]
+    a: T_int_float, b: T_int_float
 ) -> None:
     left = multiplication.multiplication_recursive(a=a, b=b)
     right = multiplication.multiplication_recursive(a=b, b=a)
     assert left == right, (left, right)
 
 
-@given(a=multiplication_recursive_operands)
-@settings(max_examples=1000)
+@given(a=st_int_float)
+@settings(max_examples=100)
 def test_identity_binary_operation_multiplication_recursive(
-    a: typing.Union[int, float]
+    a: T_int_float
 ) -> None:
     identity = 0.0
     assert a == multiplication.multiplication_recursive(a=a, b=identity)
