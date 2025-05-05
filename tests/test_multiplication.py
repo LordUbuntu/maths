@@ -51,6 +51,16 @@ def test_identity_binary_operation_multiplication_iterative(
     assert a == multiplication.multiplication_iterative(a=identity, b=a)
 
 
+@given(a=st_int_float)
+@settings(max_examples=100)
+def test_idempotence_binary_operation_multiplication_iterative(
+    a: T_int_float
+) -> None:
+    idempotent = 0
+    assert 0 == multiplication.multiplication_iterative(a=a, b=0)
+    assert 0 == multiplication.multiplication_iterative(a=0, b=a)
+
+
 @given(
     a=st_int_float,
     b=st_int_float,
