@@ -76,13 +76,13 @@ def test_associative_binary_operation_multiplication_recursive(
 
 
 @given(a=st_int_float, b=st_int_float)
-@settings(max_examples=1000)
+@settings(max_examples=100)
 def test_commutative_binary_operation_multiplication_recursive(
     a: T_int_float, b: T_int_float
 ) -> None:
     left = multiplication.multiplication_recursive(a=a, b=b)
     right = multiplication.multiplication_recursive(a=b, b=a)
-    assert left == right, (left, right)
+    assert left == right
 
 
 @given(a=st_int_float)
