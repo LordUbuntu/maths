@@ -24,7 +24,7 @@ def test_associative_binary_operation_multiplication_iterative(
         a=a,
         b=multiplication.multiplication_iterative(a=b, b=c)
     )
-    left = multiplication.multiplication_iterative(
+    right = multiplication.multiplication_iterative(
         a=multiplication.multiplication_iterative(a=b, b=c),
         b=b
     )
