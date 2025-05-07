@@ -90,7 +90,8 @@ def test_commutative_binary_operation_multiplication_recursive(
 def test_identity_binary_operation_multiplication_recursive(
     a: T_int_float
 ) -> None:
-    identity = 0.0
+    identity = 1
     assert a == multiplication.multiplication_recursive(a=a, b=identity)
     assert a == multiplication.multiplication_recursive(a=identity, b=a)
+
 
