@@ -95,3 +95,13 @@ def test_identity_binary_operation_multiplication_recursive(
     assert a == multiplication.multiplication_recursive(a=identity, b=a)
 
 
+@given(a=st_int_float)
+@settings(max_examples=100)
+def test_idempotence_binary_operation_multiplication_recursive(
+    a: T_int_float
+) -> None
+    idempotent = 0
+    assert 0 == multiplication.multiplication_recursive(a=a, b=0)
+    assert 0 == multiplication.multiplication_recursive(a=0, b=a)
+
+
