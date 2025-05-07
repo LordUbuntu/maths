@@ -61,40 +61,36 @@ def test_idempotence_binary_operation_multiplication_iterative(
     assert 0 == multiplication.multiplication_iterative(a=0, b=a)
 
 
-# @given(
-#     a=st_int_float,
-#     b=st_int_float,
-#     c=st_int_float,
-# )
-# @settings(max_examples=1000)
-# def test_associative_binary_operation_multiplication_recursive(
-#     a: T_int_float, b: T_int_float, c
-# ) -> None:
-#     left = multiplication.multiplication_recursive(
-#         a=a, b=multiplication.multiplication_recursive(a=b, b=c)
-#     )
-#     right = multiplication.multiplication_recursive(
-#         a=multiplication.multiplication_recursive(a=a, b=b), b=c
-#     )
-#     assert left == right, (left, right)
-#
-#
-# @given(a=st_int_float, b=st_int_float)
-# @settings(max_examples=1000)
-# def test_commutative_binary_operation_multiplication_recursive(
-#     a: T_int_float, b: T_int_float
-# ) -> None:
-#     left = multiplication.multiplication_recursive(a=a, b=b)
-#     right = multiplication.multiplication_recursive(a=b, b=a)
-#     assert left == right, (left, right)
-#
-#
-# @given(a=st_int_float)
-# @settings(max_examples=100)
-# def test_identity_binary_operation_multiplication_recursive(
-#     a: T_int_float
-# ) -> None:
-#     identity = 0.0
-#     assert a == multiplication.multiplication_recursive(a=a, b=identity)
-#     assert a == multiplication.multiplication_recursive(a=identity, b=a)
-#
+@given(
+    a=st_int_float,
+    b=st_int_float,
+    c=st_int_float,
+)
+@settings(max_examples=100)
+def test_associative_binary_operation_multiplication_recursive(
+    a: T_int_float, b: T_int_float, c: T_int_float
+) -> None:
+    left = multiplication.multiplication_recursive(a=a, b=multiplication.multiplication_recursive(a=b, b=c))
+    right = multiplication.multiplication_recursive(a=multiplication.multiplication_recursive(a=a, b=b), b=c)
+    assert left == right
+
+
+@given(a=st_int_float, b=st_int_float)
+@settings(max_examples=1000)
+def test_commutative_binary_operation_multiplication_recursive(
+    a: T_int_float, b: T_int_float
+) -> None:
+    left = multiplication.multiplication_recursive(a=a, b=b)
+    right = multiplication.multiplication_recursive(a=b, b=a)
+    assert left == right, (left, right)
+
+
+@given(a=st_int_float)
+@settings(max_examples=100)
+def test_identity_binary_operation_multiplication_recursive(
+    a: T_int_float
+) -> None:
+    identity = 0.0
+    assert a == multiplication.multiplication_recursive(a=a, b=identity)
+    assert a == multiplication.multiplication_recursive(a=identity, b=a)
+
