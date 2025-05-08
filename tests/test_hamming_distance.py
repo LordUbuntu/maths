@@ -4,13 +4,18 @@
 import hamming_distance
 from hypothesis import given, strategies as st
 
-hamming_distance_operands = st.from_type(~T)
-
+T_int_float = typing.Union[list, tuple, str]
+st_int_float = st.one_of(
+    st.lists(),
+    st.tuples(),
+    st.text(),
+    st.characters()
+)
 
 @given(
-    a=hamming_distance_operands,
-    b=hamming_distance_operands,
-    c=hamming_distance_operands,
+    a=T_strings,
+    b=T_strings,
+    c=T_strings,
 )
 def test_associative_binary_operation_hamming_distance(
     a: hamming_distance.T, b: hamming_distance.T, c
@@ -24,7 +29,7 @@ def test_associative_binary_operation_hamming_distance(
     assert left == right, (left, right)
 
 
-@given(a=hamming_distance_operands, b=hamming_distance_operands)
+@given(a=T_strings, b=T_strings)
 def test_commutative_binary_operation_hamming_distance(
     a: hamming_distance.T, b: hamming_distance.T
 ) -> None:
@@ -33,7 +38,7 @@ def test_commutative_binary_operation_hamming_distance(
     assert left == right, (left, right)
 
 
-@given(a=hamming_distance_operands)
+@given(a=T_strings)
 def test_identity_binary_operation_hamming_distance(a: hamming_distance.T) -> None:
     identity = []
     assert a == hamming_distance.hamming_distance(a=a, b=identity)

@@ -18,8 +18,8 @@
 #   https://en.wikipedia.org/wiki/Hamming_distance
 import math
 import operator as op
-from typing import TypeVar
-T = TypeVar('T', list, str)
+import typing
+T = typing.Union[list, str]
 
 
 # find the hamming distance of any two strings
