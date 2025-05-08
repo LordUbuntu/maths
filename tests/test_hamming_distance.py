@@ -1,6 +1,14 @@
 # This test code was written by the `hypothesis.extra.ghostwriter` module
 # and is provided under the Creative Commons Zero public domain dedication.
 
+
+# properties to implement are:
+# - non-negativity
+# - symmetry
+# - triangle inequality
+# - identity (the distance between the same string is 0)
+
+
 import hamming_distance
 from hypothesis import given, strategies as st
 
@@ -12,13 +20,17 @@ ST_strings = st.one_of(
     st.characters()
 )
 
+
+# TODO: implement oracle to test behaviour itself
+
+
 @given(
     a=ST_strings,
     b=ST_strings,
     c=ST_strings,
 )
 def test_associative_binary_operation_hamming_distance(
-    a: T_strings, b: T_strings, c
+    a: T_strings, b: T_strings, c: T_strings
 ) -> None:
     left = hamming_distance.hamming_distance(
         a=a, b=hamming_distance.hamming_distance(a=b, b=c)
