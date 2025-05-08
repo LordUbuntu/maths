@@ -26,7 +26,5 @@ ST_strings = st.one_of(
 
 @given(a=ST_strings)
 def test_identity_binary_operation_hamming_distance(a: T_strings) -> None:
-    identity = []
-    assert a == hamming_distance.hamming_distance(a=a, b=identity)
-    assert a == hamming_distance.hamming_distance(a=identity, b=a)
+    assert 0 == hamming_distance.hamming_distance(a=a, b=a)
 
