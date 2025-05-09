@@ -2,13 +2,6 @@
 # and is provided under the Creative Commons Zero public domain dedication.
 
 
-# properties to implement are:
-# - non-negativity
-# - symmetry
-# - triangle inequality
-# - identity (the distance between the same string is 0)
-
-
 import hamming_distance
 from hypothesis import given, strategies as st
 
@@ -22,6 +15,12 @@ ST_strings = st.one_of(
 
 
 # TODO: implement oracle to test behaviour itself
+
+
+# properties to implement are:
+# - non-negativity
+# - symmetry
+# - triangle inequality
 
 
 @given(a=ST_strings)
