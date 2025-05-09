@@ -17,6 +17,11 @@ ST_strings = st.one_of(
 # TODO: implement oracle to test behaviour itself
 
 
+@given(a=ST_strings, b=ST_strings)
+def test_oracle_hamming_distance(a: T_strings, b: T_strings) -> None:
+    assert True  # need to find an efficient way to test with oracle...
+
+
 # properties to implement are:
 # - symmetry
 # - triangle inequality
