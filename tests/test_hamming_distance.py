@@ -18,9 +18,16 @@ ST_strings = st.one_of(
 
 
 # properties to implement are:
-# - non-negativity
 # - symmetry
 # - triangle inequality
+
+
+@given(a=ST_strings, b=ST_strings)
+def test_non_negativity_hamming_distance(
+    a: T_strings,
+    b: T_strings
+) -> None:
+    assert 0 <= hamming_distance.hamming_distance(a=a, b=b)
 
 
 @given(a=ST_strings)
