@@ -30,6 +30,11 @@ def test_non_negativity_hamming_distance(
     assert 0 <= hamming_distance.hamming_distance(a=a, b=b)
 
 
+@given(a=ST_strings, b=ST_strings)
+def test_symmetry_hamming_distance(a: T_strings, b: T_strings) -> None:
+    assert hamming_distance.hamming_distance(a=a, b=b) == hamming_distance.hamming_distance(a=b, b=a)
+
+
 @given(a=ST_strings)
 def test_identity_binary_operation_hamming_distance(a: T_strings) -> None:
     assert 0 == hamming_distance.hamming_distance(a=a, b=a)
