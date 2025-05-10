@@ -3,11 +3,17 @@
 
 
 import hamming_distance
+import typing
 from hypothesis import given, strategies as st
 
 T_strings = typing.Union[list, tuple, str]
 ST_strings = st.one_of(
-    st.lists(),
+    st.lists(
+        st.integers(),
+        st.floats(allow_nan=False,
+                  allow_infinity=False),
+        st.characters()
+    ),
     st.tuples(),
     st.text(),
     st.characters()
