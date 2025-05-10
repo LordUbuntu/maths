@@ -9,7 +9,7 @@ from hypothesis import given, strategies as st
 T_strings = typing.Union[
     str,
     list[typing.Union[int, float, str]],
-    tuple[typing.Union[int, float, str]
+    tuple[typing.Union[int, float, str]],
 ]
 ST_strings = st.one_of(
     st.text(),
