@@ -23,6 +23,5 @@ addopts = "-n auto"
 pythonpath = ["maths"]
 
 [tool.mypy]
-python_version = ">=3.13.3"
 strict = true
 ignore_missing_imports = true
