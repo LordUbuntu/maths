@@ -85,9 +85,10 @@ Notably nearly every function is pure and thus parallelizable,
 2025-05-09
 I should completely add a pyproject.toml and add more tooling to make
   a better system. deal and hypothesis to do design-by-contract and
-    property-based testing respectively, run by pytest. I should add
-    formatters, linters, and profilers. And automate it all with
-    pre-commit and other CICD pieces and pipelines! So that the process
-    of building, verification, and so much more is as automated and
-    reliable as possible!
-
+  property-based testing respectively, run by pytest. I should add
+  formatters, linters, and profilers. And automate it all with
+  pre-commit and other CICD pieces and pipelines! So that the process
+  of building, verification, and so much more is as automated and
+  reliable as possible!
+Discovered CrossHair which may add an additional layer of proof and
+  verification on top of hypothesis and deal!
