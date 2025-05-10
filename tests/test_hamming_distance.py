@@ -6,11 +6,19 @@ import hamming_distance
 import typing
 from hypothesis import given, strategies as st
 
-T_strings = typing.Union[list, tuple, str]
+T_strings = typing.Union[
+    str,
+    list[typing.Union[int, float, str]],
+    tuple[typing.Union[int, float, str]
+]
 ST_strings = st.one_of(
     st.text(),
     st.lists(st.integers()),
-    st.lists(st.characters()),
+    st.lists(st.floats(allow_nan=False, allow_infinity=False)),
+    st.lists(st.text()),
+    st.tuples(st.integers()),
+    st.tuples(st.floats(allow_nan=False, allow_infinity=False)),
+    st.tuples(st.text()),
 )
 
 # TODO: implement oracle to test behaviour itself
