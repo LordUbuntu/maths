@@ -8,17 +8,10 @@ from hypothesis import given, strategies as st
 
 T_strings = typing.Union[list, tuple, str]
 ST_strings = st.one_of(
-    st.lists(
-        st.integers(),
-        st.floats(allow_nan=False,
-                  allow_infinity=False),
-        st.characters()
-    ),
-    st.tuples(),
     st.text(),
-    st.characters()
+    st.lists(st.integers()),
+    st.lists(st.characters()),
 )
-
 
 # TODO: implement oracle to test behaviour itself
 
