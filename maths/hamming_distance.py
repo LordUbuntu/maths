@@ -18,14 +18,35 @@
 #   https://en.wikipedia.org/wiki/Hamming_distance
 import math
 import operator as op
+import deal
 import typing
-T = typing.Union[list, str]
+T = typing.Union[list, tuple, str]
 
 
 # find the hamming distance of any two strings
 # this should work with lists, strings, and other sequential data types
 def hamming_distance(a: T, b: T) -> int:
     """
-    Calculates the hamming distance between two strings.
+    Calculate the hamming distance between two sequences of same type.
+
+    Parameters
+    ----------
+    a : list | tuple | str
+        First sequence to compare with.
+    b : list | tuple | str
+        Second sequence to compare with.
+
+    Returns
+    -------
+    int
+        The difference between the two sequences.
+
+    Preconditions
+    -------------
+    Input parameters must be of the same type.
+
+    Postconditions
+    --------------
+    Output parameter must be of type int and greater than 0.
     """
     return sum(map(op.ne, a, b)) + abs(len(a) - len(b))
