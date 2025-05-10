@@ -80,3 +80,14 @@ Notably nearly every function is pure and thus parallelizable,
   meaning we can use pytest-xdist to run tests much faster with
   the `pytest -n <number of threads>` command! So in total, to
   run tests run `PYTHONPATH=maths pytest -n <number of threads> tests`
+
+
+2025-05-09
+I should completely add a pyproject.toml and add more tooling to make
+  a better system. deal and hypothesis to do design-by-contract and
+    property-based testing respectively, run by pytest. I should add
+    formatters, linters, and profilers. And automate it all with
+    pre-commit and other CICD pieces and pipelines! So that the process
+    of building, verification, and so much more is as automated and
+    reliable as possible!
+
