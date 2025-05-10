@@ -25,6 +25,9 @@ T = typing.Union[list, tuple, str]
 
 # find the hamming distance of any two strings
 # this should work with lists, strings, and other sequential data types
+@deal.pre(lambda a, b: type(a) is type(b) and len(a) == len(b))
+@deal.post(lambda result: type(result) is int and result >= 0)
+@deal.pure
 def hamming_distance(a: T, b: T) -> int:
     """
     Calculate the hamming distance between two sequences of same type.
@@ -43,10 +46,10 @@ def hamming_distance(a: T, b: T) -> int:
 
     Preconditions
     -------------
-    Input parameters must be of the same type.
+    Input parameters must be of the same type and length.
 
     Postconditions
     --------------
     Output parameter must be of type int and greater than 0.
     """
-    return sum(map(op.ne, a, b)) + abs(len(a) - len(b))
+    return sum(map(op.ne, a, b)))
