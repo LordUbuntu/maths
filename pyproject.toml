@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools >= 80.4.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "maths"
+version = "0.0.1"
+requires-python = ">=3.13.3"
+authors = [
+  {name = "Jacobus Burger", email = "therealjacoburger@gmail.com"},
+]
+maintainers = [
+  {name = "Jacobus Burger", email = "therealjacoburger@gmail.com"},
+]
+descriptions = "A library of formally verified mathematical functions"
+readme = "README.md"
+license = "MIT"
+# more todo
+
+
+[tool.pytest.ini_options]
+addopts = "-n auto"
+pythonpath = ["maths"]
+
+[tool.mypy]
+python_version = ">=3.13.3"
+strict = true
+ignore_missing_imports = true
