@@ -91,4 +91,6 @@ I should completely add a pyproject.toml and add more tooling to make
   of building, verification, and so much more is as automated and
   reliable as possible!
 Discovered CrossHair which may add an additional layer of proof and
-  verification on top of hypothesis and deal!
+  verification on top of hypothesis and deal! I should implement
+  CrossHair next and hurry to get the whole workflow set up before
+  Saturday!
