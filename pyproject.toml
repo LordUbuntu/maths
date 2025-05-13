@@ -6,6 +6,33 @@ build-backend = "setuptools.build_meta"
 name = "maths"
 version = "0.0.1"
 requires-python = ">=3.13.3"
+keywords = [
+  "mathematics",
+  "maths",
+  "math",
+  "design by contract",
+  "property based testing",
+  "mathematical programming",
+  "calculus",
+  "algebra",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Education",
+  "Intended Audience :: Science/Research",
+  "Intended Audience :: Other Audience",
+  "Topic :: Scientific/Engineering :: Mathematics",
+  "Topic :: Software Development :: Libraries",
+  "Topic :: Software Development :: Testing",
+  "Framework :: Hypothesis",
+  "Framework :: Pytest",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: Implementation :: CPython",
+]
 authors = [
   {name = "Jacobus Burger", email = "therealjacoburger@gmail.com"},
 ]
