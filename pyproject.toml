@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "maths"
-version = "0.0.1"
+version = "0.1"
 requires-python = ">=3.13.3"
 dependencies = [
   "deal==4.24.5",
@@ -49,8 +49,8 @@ maintainers = [
 descriptions = "A library of formally verified mathematical functions"
 readme = "README.md"
 license = "MIT"
-# more todo
-
+[project.urls]
+Repository = "https://github.com/LordUbuntu/maths"
 
 [tool.pytest.ini_options]
 addopts = "-n auto"
