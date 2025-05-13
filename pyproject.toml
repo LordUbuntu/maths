@@ -25,7 +25,7 @@ keywords = [
 ]
 classifiers = [
   "Development Status :: 3 - Alpha",
-  "License :: OSI Approved :: MIT License",
+  # "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
   "Intended Audience :: Developers",
   "Intended Audience :: Education",
@@ -46,7 +46,7 @@ authors = [
 maintainers = [
   {name = "Jacobus Burger", email = "therealjacoburger@gmail.com"},
 ]
-descriptions = "A library of formally verified mathematical functions"
+description = "A library of formally verified mathematical functions"
 readme = "README.md"
 license = "MIT"
 [project.urls]
