@@ -9,6 +9,7 @@ requires-python = ">=3.13.3"
 dependencies = [
   "deal==4.24.5",
   "hypothesis==6.131.9",
+  "crosshair-tool==0.0.86",
   "mypy==1.15.0",
   "pytest==8.3.5",
   "pytest-xdist==3.6.1",
