@@ -101,3 +101,10 @@ pyproject is added. Deal and Hypothesis are quite sufficient on their own for
   the moment. Formatters, linters, and profilers should still be added.
   Memray seems like a good one. I'll start with formatter and linters like
   black, ruff, etc
+
+
+2025-05-17
+Pyenv, Poetry, Tox, uv, oh my! There's so many tools in the Python ecosystem I'm still discovering! I'll need to figure out which to use together. So so many tools...
+I've chosen to start with Flake8 and black. I'll switch to ruff
+  etc. later.
+I'll need to add profilers, linters, formatters, debuggers, and more.
