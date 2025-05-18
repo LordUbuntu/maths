@@ -12,6 +12,8 @@ dependencies = [
   "mypy==1.15.0",
   "pytest==8.3.5",
   "pytest-xdist==3.6.1",
+  "black==25.1.0",
+  "flake8==7.2.0"
 ]
 keywords = [
   "mathematics",
@@ -59,3 +61,7 @@ pythonpath = ["maths"]
 [tool.mypy]
 strict = true
 ignore_missing_imports = true
+
+[tool.black]
+line-length = 80
+target-version = ["py313"]
