@@ -108,3 +108,12 @@ Pyenv, Poetry, Tox, uv, oh my! There's so many tools in the Python ecosystem I'm
 I've chosen to start with Flake8 and black. I'll switch to ruff
   etc. later.
 I'll need to add profilers, linters, formatters, debuggers, and more.
+
+
+2025-05-18
+Need to figure out a better way to run hypothesis strategies for such complex
+  and recursive types as the kind hamming distance operates on (from strings
+  to high dimensional tensors, anything two things that are iterable, have
+  the same length, and can have their values be compared). Something so
+  comprehensive is difficult to count for and be robust against, but
+  it should be possible to start on a smaller scale first!
