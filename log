@@ -117,3 +117,14 @@ Need to figure out a better way to run hypothesis strategies for such complex
   the same length, and can have their values be compared). Something so
   comprehensive is difficult to count for and be robust against, but
   it should be possible to start on a smaller scale first!
+
+
+2025-05-19
+Between the option of installing flake8, black, and about a dozen flake8
+  plugins, or installing ruff and getting all of that along with
+  better performance and more, the choice was quite obvious. This is
+  a new project, it doesn't have to use old tools and approaches, i
+  can be bleeding edge!
+So i've decided to research ruff and its use in the project. I may still
+  end up using flake8, black, and the dozens of flake8 plugins anyways
+  since ruff seems to require the plugins still (unless it doesn't).
