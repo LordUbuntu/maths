@@ -62,10 +62,8 @@ pythonpath = ["maths"]
 strict = true
 ignore_missing_imports = true
 
-
-# consider flakehell
-# conside ruff instead
-
+[tool.ruff]
+line-length = 80
 
 [tool.black]
 line-length = 80
