@@ -64,6 +64,12 @@ ignore_missing_imports = true
 
 [tool.ruff]
 line-length = 80
+# [tool.ruff.lint]
+# extend-select = [
+#   "D",    # pydocstyle
+# ]
+# [tool.ruff.lint.pydocstyle]
+# convention = "numpy"
 
 [tool.black]
 line-length = 80
