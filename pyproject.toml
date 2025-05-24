@@ -64,12 +64,18 @@ ignore_missing_imports = true
 
 [tool.ruff]
 line-length = 80
-# [tool.ruff.lint]
-# extend-select = [
-#   "D",    # pydocstyle
-# ]
-# [tool.ruff.lint.pydocstyle]
-# convention = "numpy"
+[tool.ruff.lint]
+exclude = [
+  # avoid false positives on test files
+  "tests/**",
+]
+extend-select = [
+  "D",      # pydocstyle
+]
+extend-ignore = [
+]
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
 
 [tool.black]
 line-length = 80
