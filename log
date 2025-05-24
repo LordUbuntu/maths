@@ -134,3 +134,7 @@ So i've decided to research ruff and its use in the project. I may still
 FlakeHell is archived, Flake8 isn't very up to date with pyproject.toml,
   so it appears certain that ruff + Flake8 plugins + black is the way
   to go!
+
+
+2025-05-23
+Going to be adding ruff tomorrow!
