@@ -70,6 +70,18 @@ exclude = [
   "tests/**",
 ]
 extend-select = [
+  # for more see: https://docs.astral.sh/ruff/rules/
+  # more may be added if necessary
+  "ERA",    # remove lingering comments
+  "ANN",    # ensure type annotations
+  "ASYNC",  # if using async
+  # "B",      # bugbear (very strict)
+  "A",      # avoid shadowing builtins
+  "FBT",    # no boolean traps (impure)
+  "Q",      # quote styling
+  "SIM",    # Simple is better than complex.
+  "C90",    # keep mccabe (cyclomatic) complexity low
+  "N",      # follow pep8 naming conventions
   "D",      # pydocstyle
 ]
 extend-ignore = [
