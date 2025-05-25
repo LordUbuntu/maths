@@ -14,6 +14,7 @@ KAPREKAR_CONSTANT = 6174
 def count_steps(n, delay=0):
     from collections import deque
     from time import sleep
+
     """
     count_steps(n)
 
@@ -26,9 +27,9 @@ def count_steps(n, delay=0):
         increasing = sorted(digits)
         decreasing = sorted(digits, reverse=True)
         # calculate next number in sequence
-        n = int(''.join(decreasing)) - int(''.join(increasing))
+        n = int("".join(decreasing)) - int("".join(increasing))
         # count step
-        total_steps = total_steps + 1 
+        total_steps = total_steps + 1
         sleep(delay)
     return total_steps
 
@@ -47,7 +48,7 @@ def generate_sequence(n):
         increasing = sorted(digits)
         decreasing = sorted(digits, reverse=True)
         # generate next number in sequence
-        n = int(''.join(decreasing)) - int(''.join(increasing))
+        n = int("".join(decreasing)) - int("".join(increasing))
         yield n
 
 
@@ -65,5 +66,5 @@ def show_iterations(n):
         increasing = sorted(digits)
         decreasing = sorted(digits, reverse=True)
         # generate next number in sequence
-        n = int(''.join(decreasing)) - int(''.join(increasing))
+        n = int("".join(decreasing)) - int("".join(increasing))
         print(f"{''.join(decreasing)} - {''.join(increasing)} = {n}")

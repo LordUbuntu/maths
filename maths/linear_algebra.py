@@ -14,9 +14,6 @@ from itertools import product, repeat
 from functools import reduce, total_ordering
 
 
-
-
-
 # matrix class (may generalize to tensor once I know what that is lol)
 @total_ordering  # simplify comparison operators with total ordering
 class Matrix:
@@ -102,41 +99,29 @@ class Matrix:
         flexible to contain any type (which might be incredibly powerful).
     """
 
-
     def __init__(self, rows, columns, *elements):
         self.m = rows
         self.n = columns
-        I = [
-            1 if i == j else 0
-            for j in range(rows)
-            for i in range(columns)
-        ]
+        I = [1 if i == j else 0 for j in range(rows) for i in range(columns)]
         self.M = [
-            elements[i]
-            if i < len(elements)
-            else I[i]
+            elements[i] if i < len(elements) else I[i]
             for i in range(rows * columns)
         ]
 
-
     def __len__(self):
         return len(self.M)
-
 
     def __iter__(self):
         for element in self.M:
             yield element
 
-
     def __getitem__(self, index):
         y, x = index
         return self.M[y * self.n + x]
 
-
     def __setitem__(self, index, item):
         y, x = index
         self.M[y * self.n + x] = item
-
 
     def __repr__(self):
         # get formatting width of the cells
@@ -145,57 +130,49 @@ class Matrix:
         string = ""
         for i in range(0, len(self.M), self.n):
             # make each row an equally spaced string
-            string += ' '.join([
-                            n.ljust(width)
-                            for n in map(str, self.M)
-                        ][i:i + self.n]) + '\n'
+            string += (
+                " ".join(
+                    [n.ljust(width) for n in map(str, self.M)][i : i + self.n]
+                )
+                + "\n"
+            )
         return string
-
 
     # A + B
     def __add__(self, other):
         return self.bin_op(other, op.add)
 
-
     # A - B
     def __sub__(self, other):
         return self.bin_op(other, op.sub)
-
 
     # A // B
     def __floordiv__(self, other):
         return self.bin_op(other, op.floordiv)
 
-
     # A / B
     def __truediv__(self, other):
         return self.bin_op(other, op.truediv)
-
 
     # A * B
     def __mul__(self, other):
         pass  # needs specialized implementation
 
-
     # A**n aka A * A n times (also includes inverse?)
     def __pow__(self, n):
         return reduce(Matrix.dot, [self for _ in range(n)])
-
 
     # -A
     def __neg__(self):
         return Matrix(self.m, self.n, *map(op.neg, self.M))
 
-
     # +A
     def __pos__(self):
         return Matrix(self.m, self.n, *map(op.pos, self.M))
 
-
     # | A |
     def __abs__(self):
         return Matrix(self.m, self.n, *map(op.abs, self.M))
-
 
     # A == B
     def __eq__(self, other):
@@ -203,13 +180,11 @@ class Matrix:
             return False
         return all(map(op.eq, self, other))
 
-
     # A < B
     def __lt__(self, other):
         if len(self) != len(other):
             return False
         return all(map(op.lt, self, other))
-
 
     # A op B
     # I realized that many of the binary operations use repeated code
@@ -223,11 +198,9 @@ class Matrix:
             C.M = list(map(op, self, other))
         return C
 
-
     # create a new object with all the same attributes
     def copy(self):
         return Matrix(self.m, self.n, *self.M)
-
 
     # return first [i, j] position of first matching object
     def index(self, object):
@@ -237,21 +210,17 @@ class Matrix:
                 return [index // self.n, index % self.n]
         return -1
 
-
     # return object at index
     def value(self, i, j):
         return self[i, j]
-
 
     # return a list of elements in the row
     def row(self, i):
         return self.M[i * self.n : i * self.n + self.n]
 
-    
     # return a list of elements in the column
     def col(self, j):
         return [self.M[i * self.n + j] for i in range(self.m)]
-
 
     # dot product (matrix multiplication) - neiive solution
     def dot(self, other):
@@ -259,10 +228,10 @@ class Matrix:
             C = Matrix(self.m, other.n, *self)
             for i in range(self.m):
                 for j in range(other.n):
-                    C.M[i] = reduce(op.add, map(op.mul, self.row(i), self.col(j)))
+                    C.M[i] = reduce(
+                        op.add, map(op.mul, self.row(i), self.col(j))
+                    )
             return C
-
-
 
     # matrix transposition
     def transpose(self):
@@ -270,41 +239,33 @@ class Matrix:
         A = Matrix(self.n, self.m, *N)
         return A
 
-
     # matrix determinant
     def det(self):
         pass
-
 
     # reduced eschelon form
     def ref(self):
         pass
 
-
     # row reduced eschelon form
     def rref(self):
         pass
-
 
     # LU(P) decomposition
     def LU(self):
         pass
 
-
     # QR decomposition
     def QR(self):
         pass
-
 
     # forward subsitution to solve linear systems of form Lx = B
     def forward(self):
         pass
 
-
     # backward substitution to solve linear systems of form Ux = Y
     def backward(self):
         pass
-
 
     # LU(P) decomposition to solve linear systems of form Ax = B
     def LU_solve(self):

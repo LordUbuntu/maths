@@ -2,7 +2,6 @@
 # Personal finance functions for the fun of learning
 
 
-
 ##### PERSONAL FINANCE #####
 def simple_interest(P, r, t):
     """
@@ -43,20 +42,16 @@ def amortization(P, r, n, t):
 
 
 # total return from mutual funds
-def total_return(units,
-        cost_per_unit,
-        dividend_per_unit,
-        interest_per_unit,
-        closing_navps):
-    opening   = units * cost_per_unit
+def total_return(
+    units, cost_per_unit, dividend_per_unit, interest_per_unit, closing_navps
+):
+    opening = units * cost_per_unit
     dividends = units * dividend_per_unit
-    interest  = units * interest_per_unit
-    closing   = units * closing_navps
+    interest = units * interest_per_unit
+    closing = units * closing_navps
     return ((closing - opening) + dividends + interest) / opening
 
 
 # unrealized capital loss/gain over period
 def unrealized_capital_loss_or_gain(units, beginning_navps, ending_navps):
     return (units * beginning_navps) - (units * ending_navps)
-
-

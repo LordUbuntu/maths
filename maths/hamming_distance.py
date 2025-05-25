@@ -20,15 +20,17 @@ import math
 import operator as op
 import deal
 import typing
+
 T = typing.Union[
     str,
     list[typing.Union[int, float, str]],
-    tuple[typing.Union[int, float, str]]
+    tuple[typing.Union[int, float, str]],
 ]
+
 
 # find the hamming distance of any two strings
 # this should work with lists, strings, and other sequential data types
-# 
+#
 # I need to rework input type for hamming distance tests before this
 #   precondition can be met
 # @deal.pre(lambda a, b: len(a) == len(b))

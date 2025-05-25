@@ -4,7 +4,7 @@
 #   tachometry code (tacho.py) while working on the Robotics Research
 #   Project at TWU. I talked about the problem with Finian Lugtigheid
 #   to see if there was a better way to do it than the average over a
-#   dequeue. 
+#   dequeue.
 #   He proposed LERPing which was a perfect fit to smooth the tachometry
 #   data and many other things too! Thanks Finian!
 # Info:
@@ -39,7 +39,7 @@ def lerp(a: int | float, b: int | float, alpha: float) -> float:
     float
         Interpolated value between a and b
 
-    
+
     Preconditions
     -------------
     Inputs must be defined (not None, NAN, or +/-Infinity).
@@ -56,6 +56,7 @@ def lerp(a: int | float, b: int | float, alpha: float) -> float:
         a, b = b, a
     alpha = clamp.clamp(alpha, 0.0, 1.0)
     return (1 - alpha) * a + alpha * b
+
 
 # properties:
 # 0. undefined inputs give undefined output

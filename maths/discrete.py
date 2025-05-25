@@ -18,7 +18,6 @@ import operator as op
 import math
 
 
-
 # this shows the steps taken by GCD as it runs
 def gcd_reduction(n, d):
     GCD = gcd(n, d)
@@ -80,8 +79,6 @@ def pow_iter(a, b):
         a = a + a
         print(a, i)
     return a
-
-
 
 
 # division

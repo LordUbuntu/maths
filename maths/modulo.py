@@ -34,6 +34,8 @@ def mod(a: int, b: int) -> int:
 # 1. identity - n mod n == 0
 from hypothesis import given
 from hypothesis.strategies import integers
+
+
 @given(a=integers(), b=integers())
 def test_mod(a: int, b: int):
     # 0
