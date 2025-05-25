@@ -18,8 +18,9 @@
 #   https://en.wikipedia.org/wiki/Hamming_distance
 import math
 import operator as op
-import deal
 import typing
+
+import deal
 
 T = typing.Union[
     str,

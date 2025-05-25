@@ -10,8 +10,8 @@
 #   https://en.wikipedia.org/wiki/Norm_(mathematics)
 #   https://en.wikipedia.org/wiki/Dot_product
 import operator as op
-from itertools import product, repeat
 from functools import reduce, total_ordering
+from itertools import product, repeat
 
 
 # matrix class (may generalize to tensor once I know what that is lol)

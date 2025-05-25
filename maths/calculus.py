@@ -8,7 +8,7 @@
 #   Thanks so much to Professor Sam Pimentel for teaching me Calculus 2
 #   and supporting me while I struggled and fell on my path to growth
 #   in learning.
-from math import sqrt, factorial, atan, asin
+from math import asin, atan, factorial, sqrt
 from random import uniform
 
 

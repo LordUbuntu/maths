@@ -15,10 +15,11 @@
 # Uses:
 #   - Smoothing datapoints
 #   - Computer Graphics
+from math import isfinite, isnan, nan
+
 import clamp  # avoid rewrite by using clamp
-from math import isfinite, nan, isnan
 from hypothesis import given
-from hypothesis.strategies import one_of, none, integers, floats
+from hypothesis.strategies import floats, integers, none, one_of
 
 
 def lerp(a: int | float, b: int | float, alpha: float) -> float:

@@ -9,6 +9,7 @@
 # Uses:
 #   - keeping values within an interval (inclusive)
 from math import isfinite
+
 import deal
 
 

@@ -12,10 +12,10 @@
 #   I had a lot of fun taking that course (though it was hard) and hope to
 #   carry this knowledge into my future, and continue to learn and improve
 #   because of it. Hopefully I will grow and transform.
+import math
+import operator as op
 from functools import cache
 from sys import maxsize as maxsize
-import operator as op
-import math
 
 
 # this shows the steps taken by GCD as it runs
