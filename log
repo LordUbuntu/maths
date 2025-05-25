@@ -138,3 +138,7 @@ FlakeHell is archived, Flake8 isn't very up to date with pyproject.toml,
 
 2025-05-23
 Going to be adding ruff tomorrow!
+
+2025-05-25
+Ruff was added yesterday. I'm debating whether to keep black or just
+  use `ruff format` instead...
