@@ -72,17 +72,22 @@ exclude = [
 extend-select = [
   # for more see: https://docs.astral.sh/ruff/rules/
   # more may be added if necessary
-  "ERA",    # remove lingering comments
+  "A",      # avoid shadowing builtins
   "ANN",    # ensure type annotations
   "ASYNC",  # if using async
-  # "B",      # bugbear (very strict)
-  "A",      # avoid shadowing builtins
-  "FBT",    # no boolean traps (impure)
-  "Q",      # quote styling
-  "SIM",    # Simple is better than complex.
   "C90",    # keep mccabe (cyclomatic) complexity low
-  "N",      # follow pep8 naming conventions
   "D",      # pydocstyle
+  "E",      # pycodestyle
+  "ERA",    # remove lingering comments
+  "F",      # pyflakes
+  "FURB",   # refurbish
+  "FBT",    # no boolean traps (impure)
+  "I",      # isort
+  "N",      # follow pep8 naming conventions
+  "Q",      # quote styling
+  "SIM",    # "Simple is better than complex."
+  "UP",     # pyupgrade
+  # "B",      # bugbear (very strict)
 ]
 extend-ignore = [
 ]
