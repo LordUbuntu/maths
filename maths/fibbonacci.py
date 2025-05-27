@@ -41,31 +41,10 @@ def fib_iterative(n: int) -> int:
     return a
 
 
+# NOTE: The limit for the recursive is 1000, for the iterative is
+#   20000. Keep these in mind for tests.
+
+
 # TODO: discovered today (2025-04-09) that there is a O(log n) algorithm
 #       to calculate the nth fibbonacci number by raising a matrix to
 #       some power. That may be the best approach to then test against
-
-
-fib = fib_iterative
-
-
-# properties
-# 0. n >= 0
-#   input cannot be less than 0
-# 1. f: W -> W
-#   input and output are integers
-# 2. Fi + Fi+1 = Fi+2
-#   each following element is the sum of the previous
-# 3. extended functionality for negatives
-# 4. oracle test
-@given(
-    n=integers(),
-)
-def test_fib(n: int) -> None:
-    # 0
-    if n < 0:
-        return
-    # 1
-    assert type(fib(n)) == int
-    # 2
-    assert fib(n) + fib(n + 1) == fib(n + 2)
