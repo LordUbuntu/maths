@@ -143,3 +143,17 @@ Going to be adding ruff tomorrow!
 Ruff was added yesterday. I'm debating whether to keep black or just
   use `ruff format` instead...
 Decided to keep black for the time being, I can remove it later...
+
+
+2025-05-26
+- mypy to check types
+- ruff to lint code
+- black to format code
+- memray for memory profiling (TODO)
+- radon for code complexity profiling (TODO)
+- tox or nox?
+- automate testing of the above
+- pre-commit integrations
+- github action integrations
+- sphinx or some other for docs?
+
