@@ -8,10 +8,14 @@
 # see:
 #   https://en.wikipedia.org/wiki/6174
 #   https://brilliant.org/wiki/kaprekars-constant/
+from typing import Generator
+
+
+
 KAPREKAR_CONSTANT = 6174
 
 
-def count_steps(n, delay=0):
+def count_steps(n: int, delay=0) -> int:
     from collections import deque
     from time import sleep
 
@@ -34,7 +38,7 @@ def count_steps(n, delay=0):
     return total_steps
 
 
-def generate_sequence(n):
+def generate_sequence(n: int) -> Generator:
     """
     generate_sequence(n)
 
@@ -52,7 +56,7 @@ def generate_sequence(n):
         yield n
 
 
-def show_iterations(n):
+def show_iterations(n: int) -> None:
     """
     show_iterations(n)
 

@@ -1,8 +1,9 @@
 # Jacobus Burger (2023)
 # An implementation of the Collatz Algorithm
+from typing import Generator
 
 
-def collatz_generator(n: int):
+def collatz_generator(n: int) -> Generator:
     """
     The collatz function creates a generator for the collatz conjecture
     starting at n and ending when n == 1.
