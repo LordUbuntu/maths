@@ -31,7 +31,7 @@ def clamp(
     value: int | float, minimum: int | float, maximum: int | float
 ) -> int | float:
     """
-    Bind value in inverval [minimum, maximum]
+    Bind value in inverval [minimum, maximum].
 
     Parameters
     ----------
@@ -49,11 +49,11 @@ def clamp(
 
     Preconditions
     -------------
-    Parameters cannot be None, NAN, or +/-Infinity
+    Parameters cannot be None, NAN, or +/-Infinity.
 
     Postconditions
     --------------
-    Return value will be between minimum and maximum
+    Return value will be between minimum and maximum.
     """
     # ensure minimum is minimum and maximum is maximum
     if maximum < minimum:
