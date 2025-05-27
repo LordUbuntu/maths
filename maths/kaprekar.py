@@ -15,7 +15,7 @@ from typing import Generator
 KAPREKAR_CONSTANT = 6174
 
 
-def count_steps(n: int, delay=0) -> int:
+def count_steps(n: int, delay: int = 0) -> int:
     from collections import deque
     from time import sleep
 
@@ -38,7 +38,7 @@ def count_steps(n: int, delay=0) -> int:
     return total_steps
 
 
-def generate_sequence(n: int) -> Generator:
+def generate_sequence(n: int) -> Generator[int]:
     """
     generate_sequence(n)
 

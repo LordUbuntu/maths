@@ -3,7 +3,7 @@
 from typing import Generator
 
 
-def collatz_generator(n: int) -> Generator:
+def collatz_generator(n: int) -> Generator[tuple[int, int]]:
     """
     The collatz function creates a generator for the collatz conjecture
     starting at n and ending when n == 1.
