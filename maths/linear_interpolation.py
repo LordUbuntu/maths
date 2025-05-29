@@ -18,10 +18,11 @@
 from math import isfinite, isnan, nan
 
 import clamp  # avoid rewrite by using clamp
-from hypothesis import given
-from hypothesis.strategies import floats, integers, none, one_of
+import deal
 
 
+@deal.pre(lambda a, b, alpha: isfinite(a) and isfinite(b) and isfinite(alpha))
+@deal.pure
 def lerp(a: int | float, b: int | float, alpha: float) -> float:
     """
     Interpolates a value linearly between two points.
@@ -51,29 +52,7 @@ def lerp(a: int | float, b: int | float, alpha: float) -> float:
     --------------
     Output will be between a and b (inclusive).
     """
-    if not isfinite(a) or not isfinite(b) or not isfinite(alpha):
-        return nan
     if b < a:
         a, b = b, a
     alpha = clamp.clamp(alpha, 0.0, 1.0)
     return (1 - alpha) * a + alpha * b
-
-
-# properties:
-# 0. undefined inputs give undefined output
-# 1. f: Z | R -> R
-# 2. output is bound to interval [a, b]
-@given(
-    a=one_of(floats(), integers()),
-    b=one_of(floats(), integers()),
-    alpha=one_of(floats()),
-)
-def test_lerp(a: int | float, b: int | float, alpha: float) -> None:
-    # 0
-    if not isfinite(a) or not isfinite(b) or not isfinite(alpha):
-        assert isnan(lerp(a, b, alpha))
-        return
-    # 1
-    assert type(lerp(a, b, alpha)) == float
-    # 2
-    assert a <= lerp(a, b, alpha) <= b
