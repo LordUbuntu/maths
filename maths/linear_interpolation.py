@@ -16,11 +16,16 @@
 #   - Smoothing datapoints
 #   - Computer Graphics
 from math import isfinite
+
 import deal
 
 
 @deal.pre(lambda a, b, alpha: isfinite(a) and isfinite(b) and isfinite(alpha))
-@deal.pre(lambda a, b, alpha: (a is not None) and (b is not None) and (alpha is not None))
+@deal.pre(
+    lambda a, b, alpha: (a is not None)
+    and (b is not None)
+    and (alpha is not None)
+)
 @deal.ensure(lambda a, b, alpha, result: a <= result <= b)
 @deal.pure
 def lerp(a: int | float, b: int | float, alpha: float) -> float:
