@@ -93,6 +93,8 @@ extend-select = [
   "UP",     # pyupgrade
   # "B",      # bugbear (very strict)
 ]
-extend-ignore = []
+extend-ignore = [
+  "D100",
+]
 [tool.ruff.lint.pydocstyle]
 convention = "numpy"
