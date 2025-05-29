@@ -15,7 +15,6 @@
 # Uses:
 #   - Smoothing datapoints
 #   - Computer Graphics
-import clamp  # avoid rewrite by using clamp
 from math import isfinite
 import deal
 
