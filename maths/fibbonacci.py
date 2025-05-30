@@ -24,10 +24,8 @@ from functools import cache
 @cache
 def fib_recursive(n: int) -> int:
     """Calculate the fibbonacci sequence recursively."""
-    if n == 0:
-        return 0
-    if n == 1:
-        return 1
+    if n <= 1:
+        return n
     return fib_recursive(n - 1) + fib_recursive(n - 2)
 
 
