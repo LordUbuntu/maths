@@ -1,16 +1,9 @@
 # This test code was written by the `hypothesis.extra.ghostwriter` module
 # and is provided under the Creative Commons Zero public domain dedication.
-
-
 import hamming_distance
-import typing
 from hypothesis import given, strategies as st
 
-T_strings = typing.Union[
-    str,
-    list[typing.Union[int, float, str]],
-    tuple[typing.Union[int, float, str]],
-]
+T_strings = str | list[int | float | str] | tuple[int | float | str]
 ST_strings = st.one_of(
     st.text(),
     st.lists(st.integers()),
