@@ -19,9 +19,6 @@
 #   https://en.wikipedia.org/wiki/Generalizations_of_Fibonacci_numbers
 from functools import cache
 
-from hypothesis import given
-from hypothesis.strategies import integers
-
 
 # fibbonacci sequence (recursive)
 @cache
