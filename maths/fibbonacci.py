@@ -23,6 +23,7 @@ from functools import cache
 # fibbonacci sequence (recursive)
 @cache
 def fib_recursive(n: int) -> int:
+    """Calculate the fibbonacci sequence recursively."""
     if n == 0:
         return 0
     if n == 1:
@@ -32,6 +33,7 @@ def fib_recursive(n: int) -> int:
 
 # fibbonacci sequence (iterative)
 def fib_iterative(n: int) -> int:
+    """Calculate the fibbonacci sequence iteratively."""
     a, b = 1, 1
     for i in range(n):
         a, b = a + b, a
