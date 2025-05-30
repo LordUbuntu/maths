@@ -95,6 +95,7 @@ extend-select = [
 ]
 extend-ignore = [
   "D100",
+  "D104",
 ]
 [tool.ruff.lint.pydocstyle]
 convention = "numpy"
