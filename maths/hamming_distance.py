@@ -16,17 +16,11 @@
 #   can be for any sequential pieces of data, aka: strings/vectors).
 # Info:
 #   https://en.wikipedia.org/wiki/Hamming_distance
-import math
-import operator as op
-import typing
+from operator import ne
 
 import deal
 
-T = typing.Union[
-    str,
-    list[typing.Union[int, float, str]],
-    tuple[typing.Union[int, float, str]],
-]
+T = str | list[int | float | str] | tuple[int | float | str]
 
 
 # find the hamming distance of any two strings
@@ -62,4 +56,4 @@ def hamming_distance(a: T, b: T) -> int:
     --------------
     Output parameter must be of type int and greater than 0.
     """
-    return sum(map(op.ne, a, b))
+    return sum(map(ne, a, b))
