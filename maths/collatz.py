@@ -1,15 +1,23 @@
 # Jacobus Burger (2023)
 # An implementation of the Collatz Algorithm
-from typing import Generator
+from collections.abc import Generator
 
 
 def collatz_generator(n: int) -> Generator[tuple[int, int]]:
     """
-    The collatz function creates a generator for the collatz conjecture
-    starting at n and ending when n == 1.
-    Each step yields the tuple (step, n) where
-      step is the step number
-      n is the current value
+    Generate a sequence for the collatz conjecture starting at n.
+
+    Parameters
+    ----------
+    n : int | float
+        Starting value of collatz conjecture.
+
+    Returns
+    -------
+    Generator[tuple[int, int]]
+        Each step yields the tuple (step, n) where
+          step is the step number
+          n is the current value
     """
     step = 0
     while n != 1:
