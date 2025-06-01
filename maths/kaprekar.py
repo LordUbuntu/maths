@@ -8,22 +8,14 @@
 # see:
 #   https://en.wikipedia.org/wiki/6174
 #   https://brilliant.org/wiki/kaprekars-constant/
-from typing import Generator
-
-
+from collections.abc import Generator
+from time import sleep
 
 KAPREKAR_CONSTANT = 6174
 
 
 def count_steps(n: int, delay: int = 0) -> int:
-    from collections import deque
-    from time import sleep
-
-    """
-    count_steps(n)
-
-    counts the number of calculations between 'n' and the kaprekar constant
-    """
+    """Count the steps between 'n' and the Kaprekar constant."""
     total_steps = 0
     while n != KAPREKAR_CONSTANT:
         # sort into increasing and decreasing numeric arrangement
@@ -39,12 +31,7 @@ def count_steps(n: int, delay: int = 0) -> int:
 
 
 def generate_sequence(n: int) -> Generator[int]:
-    """
-    generate_sequence(n)
-
-    yield the numbers between and including n until it reaches the
-        kaprekar constant.
-    """
+    """Yield numbers between n to the Kaprekar constant."""
     yield n
     while n != KAPREKAR_CONSTANT:
         # sort into increasing and decreasing numeric arrangement
@@ -57,12 +44,7 @@ def generate_sequence(n: int) -> Generator[int]:
 
 
 def show_iterations(n: int) -> None:
-    """
-    show_iterations(n)
-
-    print the calculations of each iteration from the starting number
-        n to the eventual arrival at the kaprekar constant.
-    """
+    """Print the sequence from n to the Kaprekar constant."""
     print(n)
     while n != KAPREKAR_CONSTANT:
         # sort into increasing and decreasing numeric arrangement
