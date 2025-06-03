@@ -3,7 +3,7 @@
 from collections.abc import Generator
 
 
-def collatz_generator(n: int) -> Generator[tuple[int, int]]:
+def collatz_generator(n: int) -> Generator[int]:
     """
     Generate a sequence for the collatz conjecture starting at n.
 
@@ -14,16 +14,12 @@ def collatz_generator(n: int) -> Generator[tuple[int, int]]:
 
     Returns
     -------
-    Generator[tuple[int, int]]
-        Each step yields the tuple (step, n) where
-          step is the step number
-          n is the current value
+    Generator[int]
+        Each step yields the nth value of the sequence.
     """
-    step = 0
     while n != 1:
-        yield (step, n)
+        yield n
         n = n // 2 if n % 2 == 0 else n * 3 + 1
-        step += 1
 
 
 def collatz(n: int) -> int:
