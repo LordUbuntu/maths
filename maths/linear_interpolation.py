@@ -26,7 +26,7 @@ import deal
     and (b is not None)
     and (alpha is not None)
 )
-@deal.ensure(lambda a, b, alpha, result: a <= result <= b)
+@deal.ensure(lambda a, b, alpha, result: min(a, b) <= result <= max(a, b))
 @deal.pure
 def lerp(a: int | float, b: int | float, alpha: float) -> float:
     """
