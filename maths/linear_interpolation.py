@@ -15,7 +15,7 @@
 # Uses:
 #   - Smoothing datapoints
 #   - Computer Graphics
-from math import isfinite
+from math import isfinite, isclose
 
 import deal
 
@@ -26,8 +26,11 @@ import deal
     and (b is not None)
     and (alpha is not None)
 )
-# can't be guaranteed for now because of floating point imprecision
-# @deal.ensure(lambda a, b, alpha, result: min(a, b) <= result <= max(a, b))
+@deal.ensure(
+    lambda a, b, alpha, result: min(a, b) <= result <= max(a, b)
+    or isclose(result, a)
+    or isclose(result, b)
+)
 @deal.pure
 def lerp(a: int | float, b: int | float, alpha: float) -> float:
     """
