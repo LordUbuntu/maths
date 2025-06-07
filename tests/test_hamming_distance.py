@@ -23,7 +23,6 @@ def test_oracle_hamming_distance(a: T_strings, b: T_strings) -> None:
 
 
 # properties to implement are:
-# - symmetry
 # - triangle inequality
 
 
