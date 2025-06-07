@@ -8,7 +8,7 @@
 #   Limits values within a specified minimum and maximum value
 # Uses:
 #   - keeping values within an interval (inclusive)
-from math import isfinite
+from math import isfinite, isclose
 
 import deal
 
@@ -21,9 +21,7 @@ import deal
 )
 # return value will be between minimum and maximum
 @deal.ensure(
-    lambda value, minimum, maximum, result: min(minimum, maximum)
-    <= result
-    <= max(minimum, maximum)
+    lambda value, minimum, maximum, result: min(minimum, maximum) <= result <= max(minimum, maximum) or isclose(result, minimum) or isclose(result, maximum)
 )
 # function is pure (no side-effects)
 @deal.pure
