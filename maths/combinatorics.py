@@ -5,6 +5,10 @@ from collections.abc import Generator
 from functools import cache
 
 
+# design by contract?
+# hypothesis tests
+
+
 # factorial function
 @cache
 def factorial(n: int) -> int:
