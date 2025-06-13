@@ -157,3 +157,6 @@ Decided to keep black for the time being, I can remove it later...
 - github action integrations
 - sphinx or some other for docs?
 
+
+2025-06-13
+It should be easier to add new maths and other stuff. It can be frustrating and add a lot of friction to have so much to do just to add a cool math algorithm. So let maths be added, tests can be added later.
