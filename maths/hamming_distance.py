@@ -20,7 +20,7 @@ from operator import ne
 
 import deal
 
-T = str | list[int | float | str] | tuple[int | float | str]
+T = str | list[int | float | str]
 
 
 # find the hamming distance of any two strings

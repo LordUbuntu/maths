@@ -3,20 +3,15 @@
 import hamming_distance
 from hypothesis import given, strategies as st
 
-T_strings = str | list[int | float | str] | tuple[int | float | str]
+T_strings = str | list[int | float | str]
 ST_strings = st.one_of(
     st.text(),
     st.lists(st.integers()),
     st.lists(st.floats(allow_nan=False, allow_infinity=False)),
     st.lists(st.text()),
-    st.tuples(st.integers()),
-    st.tuples(st.floats(allow_nan=False, allow_infinity=False)),
-    st.tuples(st.text()),
 )
 
 # TODO: implement oracle to test behaviour itself
-
-
 @given(a=ST_strings, b=ST_strings)
 def test_oracle_hamming_distance(a: T_strings, b: T_strings) -> None:
     assert True  # need to find an efficient way to test with oracle...
