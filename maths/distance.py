@@ -13,7 +13,7 @@
 This module provides access to mathematical functions for calculating
 distance.
 """
-from math import isfinite
+from math import isfinite, sqrt
 import deal
 
 
@@ -52,7 +52,12 @@ def euclidean(
         ps = ps + tuple(0 for _ in range(len(qs) - len(ps)))
     if len(ps) > len(qs):
         qs = qs + tuple(0 for _ in range(len(ps) - len(qs)))
-    return (ps, qs)
+    # calculate euclidean / pythagorean distance
+    #   for 1D
+    if len(ps) == 1 and len(qs) == 1:
+        return abs(ps[0] - qs[0])
+    #   for nD
+    return sqrt(sum([(p - q) ** 2 for p, q in zip(ps, qs)]))
 
 
 @deal.pre(lambda ps, qs: (ps is not None and ps != ()) and (qs is not None and qs != ()))
