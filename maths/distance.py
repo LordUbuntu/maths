@@ -90,11 +90,16 @@ def manhattan(
     Postconditions
     --------------
     """
+    # correct missing dimensions
     if len(ps) < len(qs):
         ps = ps + tuple(0 for _ in range(len(qs) - len(ps)))
     if len(ps) > len(qs):
         qs = qs + tuple(0 for _ in range(len(ps) - len(qs)))
-    return (ps, qs)
+    # for 1D (note: same as euclidean)
+    if len(ps) == 1 and len(qs) == 1:
+        return abs(ps[0] - qs[0])
+    # for nD
+    return sum([abs(p - q) for p, q in zip(ps, qs)])
 
 
 @deal.pre(lambda ps, qs: (ps is not None and ps != ()) and (qs is not None and qs != ()))
