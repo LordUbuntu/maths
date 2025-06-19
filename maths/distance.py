@@ -13,8 +13,10 @@
 This module provides access to mathematical functions for calculating
 distance.
 """
+import deal
 
 
+@deal.pure
 def euclidean(
     ps: tuple[int | float], qs: tuple[int | float]
 ) -> int | float:
@@ -42,6 +44,7 @@ def euclidean(
     pass
 
 
+@deal.pure
 def manhattan(
     ps: tuple[int | float], qs: tuple[int | float]
 ) -> int | float:
@@ -69,6 +72,7 @@ def manhattan(
     pass
 
 
+@deal.pure
 def chebyshev(
     ps: tuple[int | float], qs: tuple[int | float]
 ) -> int | float:
