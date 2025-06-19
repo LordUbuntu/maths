@@ -57,7 +57,7 @@ def euclidean(
     if len(ps) == 1 and len(qs) == 1:
         return abs(ps[0] - qs[0])
     #   for nD
-    return sqrt(sum([(p - q) ** 2 for p, q in zip(ps, qs)]))
+    return sqrt(sum((p - q) ** 2 for p, q in zip(ps, qs)))
 
 
 @deal.pre(lambda ps, qs: (ps is not None and ps != ()) and (qs is not None and qs != ()))
@@ -99,7 +99,7 @@ def manhattan(
     if len(ps) == 1 and len(qs) == 1:
         return abs(ps[0] - qs[0])
     # for nD
-    return sum([abs(p - q) for p, q in zip(ps, qs)])
+    return sum(abs(p - q) for p, q in zip(ps, qs))
 
 
 @deal.pre(lambda ps, qs: (ps is not None and ps != ()) and (qs is not None and qs != ()))
