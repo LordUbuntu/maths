@@ -13,9 +13,12 @@
 This module provides access to mathematical functions for calculating
 distance.
 """
+from math import isfinite
 import deal
 
 
+@deal.pre(lambda ps, qs: (ps is not None and ps != ()) and (qs is not None and qs != ()))
+@deal.pre(lambda ps, qs: all(isfinite(p) for p in ps) and all(isfinite(q) for q in qs))
 @deal.pure
 def euclidean(
     ps: tuple[int | float], qs: tuple[int | float]
@@ -37,13 +40,23 @@ def euclidean(
 
     Preconditions
     -------------
+    Inputs cannot be None, +/-Inf, Nan, or empty tuples.
+    Both P and Q must be in the same dimensionaltiy or missing dimensions
+        will be assumed to have a value of 0.
 
     Postconditions
     --------------
     """
-    pass
+    # correct missing dimensions
+    if len(ps) < len(qs):
+        ps = ps + tuple(0 for _ in range(len(qs) - len(ps)))
+    if len(ps) > len(qs):
+        qs = qs + tuple(0 for _ in range(len(ps) - len(qs)))
+    return (ps, qs)
 
 
+@deal.pre(lambda ps, qs: (ps is not None and ps != ()) and (qs is not None and qs != ()))
+@deal.pre(lambda ps, qs: all(isfinite(p) for p in ps) and all(isfinite(q) for q in qs))
 @deal.pure
 def manhattan(
     ps: tuple[int | float], qs: tuple[int | float]
@@ -69,9 +82,15 @@ def manhattan(
     Postconditions
     --------------
     """
-    pass
+    if len(ps) < len(qs):
+        ps = ps + tuple(0 for _ in range(len(qs) - len(ps)))
+    if len(ps) > len(qs):
+        qs = qs + tuple(0 for _ in range(len(ps) - len(qs)))
+    return (ps, qs)
 
 
+@deal.pre(lambda ps, qs: (ps is not None and ps != ()) and (qs is not None and qs != ()))
+@deal.pre(lambda ps, qs: all(isfinite(p) for p in ps) and all(isfinite(q) for q in qs))
 @deal.pure
 def chebyshev(
     ps: tuple[int | float], qs: tuple[int | float]
@@ -97,7 +116,11 @@ def chebyshev(
     Postconditions
     --------------
     """
-    pass
+    if len(ps) < len(qs):
+        ps = ps + tuple(0 for _ in range(len(qs) - len(ps)))
+    if len(ps) > len(qs):
+        qs = qs + tuple(0 for _ in range(len(ps) - len(qs)))
+    return (ps, qs)
 
 
 # function aliases
