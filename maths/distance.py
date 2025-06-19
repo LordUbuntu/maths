@@ -83,6 +83,9 @@ def manhattan(
 
     Preconditions
     -------------
+    Inputs cannot be None, +/-Inf, Nan, or empty tuples.
+    Both P and Q must be in the same dimensionaltiy or missing dimensions
+        will be assumed to have a value of 0.
 
     Postconditions
     --------------
@@ -117,6 +120,9 @@ def chebyshev(
 
     Preconditions
     -------------
+    Inputs cannot be None, +/-Inf, Nan, or empty tuples.
+    Both P and Q must be in the same dimensionaltiy or missing dimensions
+        will be assumed to have a value of 0.
 
     Postconditions
     --------------
