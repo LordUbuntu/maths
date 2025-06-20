@@ -17,21 +17,21 @@ from math import isfinite, sqrt
 import deal
 
 
-@deal.pre(lambda ps, qs: (ps is not None and ps != ()) and (qs is not None and qs != ()))
+@deal.pre(lambda ps, qs: (ps is not None and ps != []) and (qs is not None and qs != []))
 @deal.pre(lambda ps, qs: all(isfinite(p) for p in ps) and all(isfinite(q) for q in qs))
 @deal.pure
 def euclidean(
-    ps: tuple[int | float], qs: tuple[int | float]
+    ps: list[int | float], qs: list[int | float]
 ) -> int | float:
     """
     Calculate the Euclidean distance between two points p and q.
 
     Parameters
     ----------
-    ps: tuple[int | float]
-        Coordinate point of P represented as an n-tuple.
-    qs: tuple[int | float]
-        Coordinate point of Q represented as an n-tuple.
+    ps: list[int | float]
+        Coordinate point of P.
+    qs: list[int | float]
+        Coordinate point of Q.
 
     Returns
     -------
@@ -40,7 +40,7 @@ def euclidean(
 
     Preconditions
     -------------
-    Inputs cannot be None, +/-Inf, Nan, or empty tuples.
+    Inputs cannot be None, +/-Inf, Nan, or [].
     Both P and Q must be in the same dimensionaltiy or missing dimensions
         will be assumed to have a value of 0.
 
@@ -49,9 +49,9 @@ def euclidean(
     """
     # correct missing dimensions
     if len(ps) < len(qs):
-        ps = ps + tuple(0 for _ in range(len(qs) - len(ps)))
+        ps.extend(0 for _ in range(len(qs) - len(ps)))
     if len(ps) > len(qs):
-        qs = qs + tuple(0 for _ in range(len(ps) - len(qs)))
+        qs.extend(0 for _ in range(len(ps) - len(qs)))
     # calculate euclidean / pythagorean distance
     #   for 1D
     if len(ps) == 1 and len(qs) == 1:
