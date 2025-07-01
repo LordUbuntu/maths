@@ -2,9 +2,8 @@ import distance
 from hypothesis import given, strategies as st
 
 
-# how to do lists of at least 1 element?
-st_int_float = st.one_of(
-    st.floats(allow_infinity=False, allow_nan=False), st.integers()
+st_list_int_float = st.one_of(
+    st.lists(st.floats(allow_infinity=False, allow_nan=False), min_size=1), st.lists(st.integers(), min_size=1)
 )
 
 
@@ -15,4 +14,4 @@ st_int_float = st.one_of(
 def test_fuzz_euclidean(
     ps: list[int | float], qs: list[int | float]
 ) -> None:
-    ditance.euclidean(ps, qs)
+    distance.euclidean(ps, qs)
