@@ -17,9 +17,8 @@
 # Info:
 #   https://en.wikipedia.org/wiki/Hamming_distance
 from operator import ne
-
+from itertools import zip_longest
 import deal
-
 T = str | list[int | float | str]
 
 
@@ -56,5 +55,5 @@ def hamming_distance(a: T, b: T) -> int:
     --------------
     Output parameter must be of type int and greater than 0.
     """
+    # plan: zip longest, compare elements, adding sum of comparison?
     return sum(map(ne, a, b))
-    # this is incorrect for unmatched lenght
