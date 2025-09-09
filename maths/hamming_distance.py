@@ -57,3 +57,4 @@ def hamming_distance(a: T, b: T) -> int:
     Output parameter must be of type int and greater than 0.
     """
     return sum(map(ne, a, b))
+    # this is incorrect for unmatched lenght
