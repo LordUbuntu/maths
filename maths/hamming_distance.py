@@ -56,4 +56,4 @@ def hamming_distance(a: T, b: T) -> int:
     Output parameter must be of type int and greater than 0.
     """
     # plan: zip longest, compare elements, adding sum of comparison?
-    return sum(map(ne, a, b))
+    return sum(map(lambda t: ne(t[0], t[1]), zip_longest(a, b)))
