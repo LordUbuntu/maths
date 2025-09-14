@@ -29,3 +29,8 @@ def test_symmetry_hamming_distance(a: T_strings, b: T_strings) -> None:
 @given(a=ST_strings)
 def test_identity_binary_operation_hamming_distance(a: T_strings) -> None:
     assert 0 == hamming_distance.hamming_distance(a=a, b=a)
+
+
+@given(a=ST_strings, b=ST_strings)
+def test_fuzz_hamming_distance(a: T_strings, b: T_strings) -> None:
+    hamming_distance.hamming_distance(a=a, b=b)
