@@ -48,6 +48,7 @@ def euclidean(
     --------------
     """
     # correct missing dimensions
+    # TODO: replace these checks using zip_longest with 0 for default
     if len(ps) < len(qs):
         ps.extend(0 for _ in range(len(qs) - len(ps)))
     if len(ps) > len(qs):
