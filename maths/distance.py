@@ -138,16 +138,11 @@ def chebyshev(ps: list[int | float], qs: list[int | float]) -> int | float:
     Postconditions
     --------------
     """
-    # correct missing dimensions
-    if len(ps) < len(qs):
-        ps.extend(0 for _ in range(len(qs) - len(ps)))
-    if len(ps) > len(qs):
-        qs.extend(0 for _ in range(len(ps) - len(qs)))
     # for 1D
     if len(ps) == 1 and len(qs) == 1:
         return abs(ps[0] - qs[0])  # by definition, max of just e is e
     # for nD
-    return max(abs(p - q) for p, q in zip(ps, qs))
+    return max(abs(p - q) for p, q in zip_longest(ps, qs, fillvalue=0))
 
 
 # function aliases
