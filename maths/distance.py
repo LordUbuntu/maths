@@ -13,6 +13,7 @@
 This module provides access to mathematical functions for calculating
 distance.
 """
+from itertools import zip_longest
 from math import isfinite, sqrt
 
 import deal
@@ -51,18 +52,12 @@ def euclidean(ps: list[int | float], qs: list[int | float]) -> int | float:
     Postconditions
     --------------
     """
-    # correct missing dimensions
-    # TODO: replace these checks using zip_longest with 0 for default
-    if len(ps) < len(qs):
-        ps.extend(0 for _ in range(len(qs) - len(ps)))
-    if len(ps) > len(qs):
-        qs.extend(0 for _ in range(len(ps) - len(qs)))
     # calculate euclidean / pythagorean distance
     #   for 1D
     if len(ps) == 1 and len(qs) == 1:
         return abs(ps[0] - qs[0])
     #   for nD
-    return sqrt(sum((p - q) ** 2 for p, q in zip(ps, qs)))
+    return sqrt(sum((p - q) ** 2 for p, q in zip_longest(ps, qs, fillvalue=0)))
 
 
 @deal.pre(
