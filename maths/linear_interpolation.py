@@ -16,7 +16,6 @@
 #   - Smoothing datapoints
 #   - Computer Graphics
 from math import isfinite, isclose
-
 import deal
 
 
