@@ -14,15 +14,19 @@ This module provides access to mathematical functions for calculating
 distance.
 """
 from math import isfinite, sqrt
+
 import deal
 
 
-@deal.pre(lambda ps, qs: (ps is not None and ps != []) and (qs is not None and qs != []))
-@deal.pre(lambda ps, qs: all(isfinite(p) for p in ps) and all(isfinite(q) for q in qs))
+@deal.pre(
+    lambda ps, qs: (ps is not None and ps != [])
+    and (qs is not None and qs != [])
+)
+@deal.pre(
+    lambda ps, qs: all(isfinite(p) for p in ps) and all(isfinite(q) for q in qs)
+)
 @deal.pure
-def euclidean(
-    ps: list[int | float], qs: list[int | float]
-) -> int | float:
+def euclidean(ps: list[int | float], qs: list[int | float]) -> int | float:
     """
     Calculate the Euclidean distance between two points p and q.
 
@@ -61,12 +65,15 @@ def euclidean(
     return sqrt(sum((p - q) ** 2 for p, q in zip(ps, qs)))
 
 
-@deal.pre(lambda ps, qs: (ps is not None and ps != []) and (qs is not None and qs != []))
-@deal.pre(lambda ps, qs: all(isfinite(p) for p in ps) and all(isfinite(q) for q in qs))
+@deal.pre(
+    lambda ps, qs: (ps is not None and ps != [])
+    and (qs is not None and qs != [])
+)
+@deal.pre(
+    lambda ps, qs: all(isfinite(p) for p in ps) and all(isfinite(q) for q in qs)
+)
 @deal.pure
-def manhattan(
-    ps: list[int | float], qs: list[int | float]
-) -> int | float:
+def manhattan(ps: list[int | float], qs: list[int | float]) -> int | float:
     """
     Calculate the manhattan distance between two points p and q.
 
@@ -103,12 +110,15 @@ def manhattan(
     return sum(abs(p - q) for p, q in zip(ps, qs))
 
 
-@deal.pre(lambda ps, qs: (ps is not None and ps != ()) and (qs is not None and qs != ()))
-@deal.pre(lambda ps, qs: all(isfinite(p) for p in ps) and all(isfinite(q) for q in qs))
+@deal.pre(
+    lambda ps, qs: (ps is not None and ps != ())
+    and (qs is not None and qs != ())
+)
+@deal.pre(
+    lambda ps, qs: all(isfinite(p) for p in ps) and all(isfinite(q) for q in qs)
+)
 @deal.pure
-def chebyshev(
-    ps: list[int | float], qs: list[int | float]
-) -> int | float:
+def chebyshev(ps: list[int | float], qs: list[int | float]) -> int | float:
     """
     Calculate the Chebyshev distance between two points p and q.
 

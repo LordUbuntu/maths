@@ -16,9 +16,11 @@
 #   can be for any sequential pieces of data, aka: strings/vectors).
 # Info:
 #   https://en.wikipedia.org/wiki/Hamming_distance
-from operator import ne
 from itertools import zip_longest
+from operator import ne
+
 import deal
+
 T = str | list[int | float | str]
 
 

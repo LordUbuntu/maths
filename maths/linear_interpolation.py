@@ -15,7 +15,8 @@
 # Uses:
 #   - Smoothing datapoints
 #   - Computer Graphics
-from math import isfinite, isclose
+from math import isclose, isfinite
+
 import deal
 
 

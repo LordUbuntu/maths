@@ -8,7 +8,8 @@
 #   Limits values within a specified minimum and maximum value
 # Uses:
 #   - keeping values within an interval (inclusive)
-from math import isfinite, isclose
+from math import isclose, isfinite
+
 import deal
 
 
@@ -18,7 +19,11 @@ import deal
     and (maximum is not None and isfinite(maximum))
 )
 @deal.ensure(
-    lambda value, minimum, maximum, result: min(minimum, maximum) <= result <= max(minimum, maximum) or isclose(result, minimum) or isclose(result, maximum)
+    lambda value, minimum, maximum, result: min(minimum, maximum)
+    <= result
+    <= max(minimum, maximum)
+    or isclose(result, minimum)
+    or isclose(result, maximum)
 )
 @deal.pure
 def clamp(
