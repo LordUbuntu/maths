@@ -2,8 +2,10 @@
 # Sieve of Eratosthenes in Python
 # see: https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 from math import sqrt as sqrt
+import deal
 
 
+@deal.pure
 def sieve(n: int) -> list[bool]:
     # initialize all except 0 and 1 to True
     primes = [True if i > 1 else False for i in range(n + 1)]
