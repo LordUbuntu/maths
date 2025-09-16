@@ -9,21 +9,17 @@
 # Uses:
 #   - keeping values within an interval (inclusive)
 from math import isfinite, isclose
-
 import deal
 
 
-# parameters are not None, NAN, or +/-Infinity
 @deal.pre(
     lambda value, minimum, maximum: (value is not None and isfinite(value))
     and (minimum is not None and isfinite(minimum))
     and (maximum is not None and isfinite(maximum))
 )
-# return value will be between minimum and maximum
 @deal.ensure(
     lambda value, minimum, maximum, result: min(minimum, maximum) <= result <= max(minimum, maximum) or isclose(result, minimum) or isclose(result, maximum)
 )
-# function is pure (no side-effects)
 @deal.pure
 def clamp(
     value: int | float, minimum: int | float, maximum: int | float
@@ -53,8 +49,5 @@ def clamp(
     --------------
     Return value will be between minimum and maximum.
     """
-    # ensure minimum is minimum and maximum is maximum
-    if maximum < minimum:
-        minimum, maximum = maximum, minimum
     # return the value clamped between minimum and maximum
-    return max(minimum, min(value, maximum))
+    return max(min(minimum, maximum), min(value, max(maximum, minimum)))
