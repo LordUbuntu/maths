@@ -27,7 +27,7 @@ import deal
     lambda ps, qs: all(isfinite(p) for p in ps) and all(isfinite(q) for q in qs)
 )
 @deal.ensure(
-    lambda ps, qs, result: len(result) == max(len(ps), len(qs)
+    lambda ps, qs, result: type(result) == int or type(result) == float
 )
 @deal.pure
 def euclidean(
@@ -55,7 +55,8 @@ def euclidean(
 
     Postconditions
     --------------
-    Output will be the same dimensionality as the higher-dimensional vector, max(len(P), len(Q))
+    Output will be a single number representing the euclidean distance
+        (straight line distance) between P and Q.
     """
     # calculate euclidean / pythagorean distance
     #   for 1D
