@@ -26,8 +26,12 @@ import deal
 @deal.pre(
     lambda ps, qs: all(isfinite(p) for p in ps) and all(isfinite(q) for q in qs)
 )
+@deal.ensure(
+    lambda ps, qs, result: len(result) == max(len(ps), len(qs)
+)
 @deal.pure
-def euclidean(ps: list[int | float], qs: list[int | float]) -> int | float:
+def euclidean(
+    ps: list[int | float], qs: list[int | float]) -> int | float:
     """
     Calculate the Euclidean distance between two points p and q.
 
@@ -51,6 +55,7 @@ def euclidean(ps: list[int | float], qs: list[int | float]) -> int | float:
 
     Postconditions
     --------------
+    Output will be the same dimensionality as the higher-dimensional vector, max(len(P), len(Q))
     """
     # calculate euclidean / pythagorean distance
     #   for 1D
