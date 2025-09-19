@@ -73,6 +73,9 @@ def euclidean(
 @deal.pre(
     lambda ps, qs: all(isfinite(p) for p in ps) and all(isfinite(q) for q in qs)
 )
+@deal.ensure(
+    lambda ps, qs, result: type(result) == int or type(result) == float
+)
 @deal.pure
 def manhattan(ps: list[int | float], qs: list[int | float]) -> int | float:
     """
@@ -98,6 +101,8 @@ def manhattan(ps: list[int | float], qs: list[int | float]) -> int | float:
 
     Postconditions
     --------------
+    Output will be a single number representing the manhattan distance
+        (horizontal and vertical line distance) between P and Q.
     """
     # for 1D (note: same as euclidean)
     if len(ps) == 1 and len(qs) == 1:
@@ -112,6 +117,9 @@ def manhattan(ps: list[int | float], qs: list[int | float]) -> int | float:
 )
 @deal.pre(
     lambda ps, qs: all(isfinite(p) for p in ps) and all(isfinite(q) for q in qs)
+)
+@deal.ensure(
+    lambda ps, qs, result: type(result) == int or type(result) == float
 )
 @deal.pure
 def chebyshev(ps: list[int | float], qs: list[int | float]) -> int | float:
@@ -138,6 +146,8 @@ def chebyshev(ps: list[int | float], qs: list[int | float]) -> int | float:
 
     Postconditions
     --------------
+    Output will be a single number representing the chebyshev distance
+        (chessboard king distance) between P and Q.
     """
     # for 1D
     if len(ps) == 1 and len(qs) == 1:
